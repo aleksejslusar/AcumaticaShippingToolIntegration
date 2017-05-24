@@ -1,0 +1,10 @@
+bin
+obj
+.vs
+*.user
+packages
+Express
+*.DotSettings
+Debug
+version.txt
+VersionInfo.cs
