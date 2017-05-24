@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<profile intergrationtype="1" hostlanguage="0" hosttype="0" completed="True" profileversion="3010.0007">
+  <name>FEDEXOUT</name>
+  <date>5/13/2017 5:55:21 PM</date>
+  <datasource>
+    <name>C:\Users\[UserName]\AppData\Roaming\Sprinterra\Acumatica Shipping Tool Integration\Devices\FEDEX\FEDEXOUT.txt</name>
+    <provider>#Internal#</provider>
+    <datasourceinformation type="2">C:\Users\[UserName]\AppData\Roaming\Sprinterra\Acumatica Shipping Tool Integration\Devices\FEDEX\FEDEXOUT.txt</datasourceinformation>
+    <table delimiter="," header="1">
+      <field name="ShipmentNbr" type="0" ordinal="0" screenviewtype="0" />
+      <field name="RowNumber" type="0" ordinal="1" screenviewtype="0" />
+      <field name="ShipmentTrackingNumber" type="0" ordinal="2" screenviewtype="0" />
+      <field name="PackageTrackingNumber" type="0" ordinal="3" screenviewtype="0" />
+      <field name="FreightCost" type="0" ordinal="4" screenviewtype="0" />
+      <field name="ShipmentDate" type="0" ordinal="5" screenviewtype="0" />
+      <field name="PackageWeight" type="0" ordinal="6" screenviewtype="0" />
+      <field name="VoidIndicator" type="0" ordinal="7" screenviewtype="0" />
+    </table>
+    <command activate="4" type="1" screenviewtype="0" includemanualshipments="1">
+      <table name="FEDEXOUT.txt" alias="FEDEXOUT.txt" delimiter="," header="1" tabletype="0">
+        <field name="ShipmentNbr" alias="ShipmentNbr" type="0" ordinal="0" screenviewtype="0">
+          <id>3059</id>
+          <fename>Shipment ID</fename>
+          <key>3059Package</key>
+          <fetype>0</fetype>
+          <fesize>30</fesize>
+          <category>Package</category>
+          <fegroup>Miscellaneous</fegroup>
+          <customdefaultvalue>NO</customdefaultvalue>
+          <shipmentlevel>.ShipmentID</shipmentlevel>
+          <packagelevel>.ShipmentIntegrity</packagelevel>
+          <mpscollection>True</mpscollection>
+        </field>
+        <field name="ShipmentTrackingNumber" alias="ShipmentTrackingNumber" type="0" ordinal="2" screenviewtype="0">
+          <id>1123</id>
+          <fename>Master Tracking Number</fename>
+          <key>1123TrackingNumbers</key>
+          <fetype>0</fetype>
+          <fesize>15</fesize>
+          <category>Tracking Numbers</category>
+          <fegroup>Tracking Numbers</fegroup>
+          <customdefaultvalue>NO</customdefaultvalue>
+          <shipmentlevel>.MasterTrackingNumber</shipmentlevel>
+          <packagelevel>.MasterTrackingNumber</packagelevel>
+        </field>
+        <field name="PackageTrackingNumber" alias="PackageTrackingNumber" type="0" ordinal="3" screenviewtype="0">
+          <id>29</id>
+          <fename>Tracking Number</fename>
+          <key>29TrackingNumbers</key>
+          <fetype>0</fetype>
+          <fesize>15</fesize>
+          <category>Tracking Numbers</category>
+          <fegroup>Tracking Numbers</fegroup>
+          <customdefaultvalue>NO</customdefaultvalue>
+          <shipmentlevel>.TrackingNumber</shipmentlevel>
+          <packagelevel>.TrackNo</packagelevel>
+        </field>
+        <field name="FreightCost" alias="FreightCost" type="0" ordinal="4" screenviewtype="0">
+          <id>37</id>
+          <fename>Net Charge</fename>
+          <key>37Charges</key>
+          <fetype>1</fetype>
+          <fesize>13</fesize>
+          <category>Charges</category>
+          <fegroup>Customer Rates</fegroup>
+          <customdefaultvalue>NO</customdefaultvalue>
+          <packagelevel>.CustomerRates.NetCharge</packagelevel>
+        </field>
+        <field name="ShipmentDate" alias="ShipmentDate" type="0" ordinal="5" screenviewtype="0">
+          <id>24</id>
+          <fename>Ship Date</fename>
+          <key>24Package</key>
+          <fetype>2</fetype>
+          <fesize>10</fesize>
+          <category>Package</category>
+          <fegroup>Miscellaneous</fegroup>
+          <customdefaultvalue>NO</customdefaultvalue>
+          <shipmentlevel>.SpecialServices.FutureShipment.ShipDate</shipmentlevel>
+          <packagelevel>.SpecialServices.FutureShipment.ShipDate</packagelevel>
+        </field>
+        <field name="PackageWeight" alias="PackageWeight" type="0" ordinal="6" screenviewtype="0">
+          <id>21</id>
+          <fename>Weight</fename>
+          <key>21Package</key>
+          <fetype>1</fetype>
+          <fesize>8</fesize>
+          <category>Package</category>
+          <fegroup>Miscellaneous</fegroup>
+          <customdefaultvalue>NO</customdefaultvalue>
+          <shipmentlevel>.Weight</shipmentlevel>
+          <packagelevel>.Weight</packagelevel>
+          <mpscollection>True</mpscollection>
+        </field>
+      </table>
+      <field screenviewtype="0" automatched="0">
+        <id>1123</id>
+        <fename>Master Tracking Number</fename>
+        <key>1123TrackingNumbers</key>
+        <fetype>0</fetype>
+        <fesize>15</fesize>
+        <category>Tracking Numbers</category>
+        <fegroup>Tracking Numbers</fegroup>
+        <customdefaultvalue>NO</customdefaultvalue>
+        <occurrence>1</occurrence>
+        <shipmentlevel>.MasterTrackingNumber</shipmentlevel>
+        <packagelevel>.MasterTrackingNumber</packagelevel>
+      </field>
+      <field screenviewtype="0" automatched="0">
+        <id>29</id>
+        <fename>Tracking Number</fename>
+        <key>29TrackingNumbers</key>
+        <fetype>0</fetype>
+        <fesize>15</fesize>
+        <category>Tracking Numbers</category>
+        <fegroup>Tracking Numbers</fegroup>
+        <customdefaultvalue>NO</customdefaultvalue>
+        <occurrence>1</occurrence>
+        <shipmentlevel>.TrackingNumber</shipmentlevel>
+        <packagelevel>.TrackNo</packagelevel>
+      </field>
+      <field screenviewtype="0" automatched="0">
+        <id>37</id>
+        <fename>Net Charge</fename>
+        <key>37Charges</key>
+        <fetype>1</fetype>
+        <fesize>13</fesize>
+        <category>Charges</category>
+        <fegroup>Customer Rates</fegroup>
+        <customdefaultvalue>NO</customdefaultvalue>
+        <occurrence>1</occurrence>
+        <packagelevel>.CustomerRates.NetCharge</packagelevel>
+      </field>
+      <field screenviewtype="0" automatched="0">
+        <id>3059</id>
+        <fename>Shipment ID</fename>
+        <key>3059Package</key>
+        <fetype>0</fetype>
+        <fesize>30</fesize>
+        <category>Package</category>
+        <fegroup>Miscellaneous</fegroup>
+        <customdefaultvalue>NO</customdefaultvalue>
+        <occurrence>1</occurrence>
+        <shipmentlevel>.ShipmentID</shipmentlevel>
+        <packagelevel>.ShipmentIntegrity</packagelevel>
+        <mpscollection>True</mpscollection>
+      </field>
+      <field screenviewtype="0" automatched="0">
+        <id>24</id>
+        <fename>Ship Date</fename>
+        <key>24Package</key>
+        <fetype>2</fetype>
+        <fesize>10</fesize>
+        <category>Package</category>
+        <fegroup>Miscellaneous</fegroup>
+        <customdefaultvalue>NO</customdefaultvalue>
+        <occurrence>1</occurrence>
+        <shipmentlevel>.SpecialServices.FutureShipment.ShipDate</shipmentlevel>
+        <packagelevel>.SpecialServices.FutureShipment.ShipDate</packagelevel>
+      </field>
+      <field screenviewtype="0" automatched="0">
+        <id>21</id>
+        <fename>Weight</fename>
+        <key>21Package</key>
+        <fetype>1</fetype>
+        <fesize>8</fesize>
+        <category>Package</category>
+        <fegroup>Miscellaneous</fegroup>
+        <customdefaultvalue>NO</customdefaultvalue>
+        <occurrence>1</occurrence>
+        <shipmentlevel>.Weight</shipmentlevel>
+        <packagelevel>.Weight</packagelevel>
+        <mpscollection>True</mpscollection>
+      </field>
+    </command>
+    <command activate="6" type="2" screenviewtype="0" conditionKey="29TrackingNumbers">
+      <table name="FEDEXOUT.txt" alias="FEDEXOUT.txt" delimiter="," header="1" tabletype="0">
+        <field name="VoidIndicator" alias="VoidIndicator" type="0" ordinal="7" screenviewtype="0">
+          <id>1176</id>
+          <fename>Delete Indicator</fename>
+          <key>1176DeleteIndicator</key>
+          <fetype>3</fetype>
+          <fesize>1</fesize>
+          <category>Delete Indicator</category>
+          <fegroup>Delete Indicator</fegroup>
+          <defaultvalue>Y</defaultvalue>
+          <customdefaultvalue>YES</customdefaultvalue>
+          <shipmentlevel>.DeleteIndicator</shipmentlevel>
+          <packagelevel>.DeleteIndicator</packagelevel>
+        </field>
+      </table>
+      <condition>
+        <table name="FEDEXOUT.txt">
+          <field name="PackageTrackingNumber" type="0" ordinal="3" screenviewtype="0">
+            <id />
+            <key>29TrackingNumbers</key>
+          </field>
+        </table>
+        <table name="$InternalTable$">
+          <field name="$KeyValue$" screenviewtype="0">
+            <id>29</id>
+            <fename>Tracking Number</fename>
+            <key>29TrackingNumbers</key>
+            <fetype>0</fetype>
+            <fesize>15</fesize>
+            <category>Tracking Numbers</category>
+            <fegroup>Tracking Numbers</fegroup>
+            <shipmentlevel>.TrackingNumber</shipmentlevel>
+            <packagelevel>.TrackNo</packagelevel>
+          </field>
+        </table>
+      </condition>
+      <field screenviewtype="0">
+        <id>1176</id>
+        <fename>Delete Indicator</fename>
+        <key>1176DeleteIndicator</key>
+        <fetype>3</fetype>
+        <fesize>1</fesize>
+        <category>Delete Indicator</category>
+        <fegroup>Delete Indicator</fegroup>
+        <defaultvalue>Y</defaultvalue>
+        <customdefaultvalue>YES</customdefaultvalue>
+        <shipmentlevel>.DeleteIndicator</shipmentlevel>
+        <packagelevel>.DeleteIndicator</packagelevel>
+      </field>
+      <field screenviewtype="1">
+        <id>1176</id>
+        <fename>Delete Indicator</fename>
+        <key>1176DeleteIndicator</key>
+        <fetype>3</fetype>
+        <fesize>1</fesize>
+        <category>Delete Indicator</category>
+        <fegroup>Delete Indicator</fegroup>
+        <defaultvalue>Y</defaultvalue>
+        <customdefaultvalue>YES</customdefaultvalue>
+        <shipmentlevel>.DeleteIndicator</shipmentlevel>
+        <packagelevel>.DeleteIndicator</packagelevel>
+      </field>
+    </command>
+  </datasource>
+</profile>

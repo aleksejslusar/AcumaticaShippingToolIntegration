@@ -1,0 +1,15 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Classes\acumaticashippingtoolintegration]
+"URL Protocol"="\"\""
+@="\"URL:Acumatica Shipping Tool Integration Protocol\""
+
+[HKEY_CURRENT_USER\Software\Classes\acumaticashippingtoolintegration\DefaultIcon]
+@="\"SmartShipment.UI.exe,1\""
+
+[HKEY_CURRENT_USER\Software\Classes\acumaticashippingtoolintegration\shell]
+
+[HKEY_CURRENT_USER\Software\Classes\acumaticashippingtoolintegration\shell\open]
+
+[HKEY_CURRENT_USER\Software\Classes\acumaticashippingtoolintegration\shell\open\command]
+@="\"C:\\Program Files (x86)\\Sprinterra\\Acumatica Shipping Tool Integration\\SmartShipment.UI.exe\" \"%1\""

@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{295E8EB9-E010-46EF-BB3A-9D219BC30EAD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartShipment.Adapters</RootNamespace>
+    <AssemblyName>SmartShipment.Adapters</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TestApiCore, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TestApi.0.6.0.0\lib\net40\TestApiCore.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TestApiWpf, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TestApi.0.6.0.0\lib\net40\TestApiWpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationTypes" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SmartShipment.UI\Properties\VersionInfo.cs">
+      <Link>Properties\VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Cache\ShipmentAutomationCache.cs" />
+    <Compile Include="Control\IShipmentAutomationButton.cs" />
+    <Compile Include="Control\ShipmentAutomationContainerBase.cs" />
+    <Compile Include="Control\ShipmentAutomationListBox.cs" />
+    <Compile Include="Control\ShipmentAutomationTabItem.cs" />
+    <Compile Include="Control\ShipmentAutomationTolbar.cs" />
+    <Compile Include="Map\FedExShipAlertTabMap.cs" />
+    <Compile Include="Map\FedExShipMahagerShellMap.cs" />
+    <Compile Include="Map\FedExShipManagerMap.cs" />
+    <Compile Include="Map\FedExMultiPieceShipmentMap.cs" />
+    <Compile Include="Common\IShipmentAutomationControl.cs" />
+    <Compile Include="Common\IShipmentAutomationControlHelper.cs" />
+    <Compile Include="Control\ShipmentAutomationBase.cs" />
+    <Compile Include="Control\ShipmentAutomationButton.cs" />
+    <Compile Include="Control\ShipmentAutomationCheckBox.cs" />
+    <Compile Include="Control\ShipmentAutomationComboBox.cs" />
+    <Compile Include="Control\ShipmentAutomationPane.cs" />
+    <Compile Include="Control\ShipmentAutomationTab.cs" />
+    <Compile Include="Helpers\ShipmentAutomationUIControlHelper.cs" />
+    <Compile Include="Common\ShipmentDataType.cs" />
+    <Compile Include="Helpers\ShipmentWinApiControlHelper.cs" />
+    <Compile Include="Map\UpsManagerShellMap.cs" />
+    <Compile Include="ShipmentApplicationAdapter.cs" />
+    <Compile Include="Common\ApplicationTypes.cs" />
+    <Compile Include="Helpers\FedexShipmentApplicationHelper.cs" />
+    <Compile Include="Common\IShipmentApplicaitoinAdapter.cs" />
+    <Compile Include="Common\IShipmentApplicatonHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helpers\ShipmentApplicationHelperBase.cs" />
+    <Compile Include="Control\ShipmentAutomationControlBase.cs" />
+    <Compile Include="Map\ShipmentAutomationMapBase.cs" />
+    <Compile Include="Helpers\UpsShipmentApplicationHelper.cs" />
+    <Compile Include="Map\UpsManagerMap.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmartShipment.AutomationUI\SmartShipment.AutomationUI.csproj">
+      <Project>{4b8e3275-3b7a-4cb9-9901-6fe5507c0254}</Project>
+      <Name>SmartShipment.AutomationUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartShipment.Network\SmartShipment.Network.csproj">
+      <Project>{791E3646-8485-455A-B2BF-71D6D3D0B9D3}</Project>
+      <Name>SmartShipment.Network</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartShipment.Settings\SmartShipment.Settings.csproj">
+      <Project>{672DFAF6-683D-4917-A90C-B3A30D00723C}</Project>
+      <Name>SmartShipment.Settings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartShipments.Exeptions\SmartShipment.Information.csproj">
+      <Project>{CDB63580-2BA7-4826-9ABD-71F13AB14D28}</Project>
+      <Name>SmartShipment.Information</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ShipmentAutomationClasses.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

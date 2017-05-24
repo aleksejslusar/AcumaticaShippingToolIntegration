@@ -1,0 +1,2476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.acumatica.com/entity/Default/6.00.001/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.acumatica.com/entity/Default/6.00.001/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.acumatica.com/entity/Default/6.00.001/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GetList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:Entity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Entity">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" nillable="true" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="RowNumber" type="tns:LongValue" />
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Delete" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomFields" type="tns:ArrayOfCustomField" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnBehavior" type="tns:ReturnBehavior" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LongValue">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Value" nillable="true" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LongReturn">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:LongValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LongSkip">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:LongValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LongSearch">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:LongValue">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Condition" type="tns:LongCondition" />
+              <s:element minOccurs="1" maxOccurs="1" name="Value2" nillable="true" type="s:long" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="LongCondition">
+        <s:restriction base="s:string">
+          <s:enumeration value="Equal" />
+          <s:enumeration value="NotEqual" />
+          <s:enumeration value="IsBetween" />
+          <s:enumeration value="IsGreaterThan" />
+          <s:enumeration value="IsLessThan" />
+          <s:enumeration value="IsGreaterThanOrEqualsTo" />
+          <s:enumeration value="IsLessThanOrEqualsTo" />
+          <s:enumeration value="IsNull" />
+          <s:enumeration value="IsNotNull" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfCustomField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CustomField" nillable="true" type="tns:CustomField" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomField" abstract="true">
+        <s:sequence />
+        <s:attribute name="viewName" type="s:string" />
+        <s:attribute name="fieldName" type="s:string" />
+      </s:complexType>
+      <s:complexType name="CustomGuidField">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomField">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:GuidValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="GuidValue">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Value" nillable="true" type="s1:guid" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GuidReturn">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:GuidValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="GuidSkip">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:GuidValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CustomDateTimeField">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomField">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:DateTimeValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DateTimeValue">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Value" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DateTimeReturn">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DateTimeValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DateTimeSkip">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DateTimeValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DateTimeSearch">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DateTimeValue">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Condition" type="tns:DateTimeCondition" />
+              <s:element minOccurs="1" maxOccurs="1" name="Value2" nillable="true" type="s:dateTime" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="DateTimeCondition">
+        <s:restriction base="s:string">
+          <s:enumeration value="Equal" />
+          <s:enumeration value="NotEqual" />
+          <s:enumeration value="IsBetween" />
+          <s:enumeration value="IsGreaterThan" />
+          <s:enumeration value="IsLessThan" />
+          <s:enumeration value="IsGreaterThanOrEqualsTo" />
+          <s:enumeration value="IsLessThanOrEqualsTo" />
+          <s:enumeration value="Today" />
+          <s:enumeration value="Overdue" />
+          <s:enumeration value="Tomorrow" />
+          <s:enumeration value="ThisWeek" />
+          <s:enumeration value="ThisMonth" />
+          <s:enumeration value="IsNull" />
+          <s:enumeration value="IsNotNull" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CustomDoubleField">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomField">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:DoubleValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DoubleValue">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Value" nillable="true" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DoubleReturn">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DoubleValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DoubleSkip">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DoubleValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DoubleSearch">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DoubleValue">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Condition" type="tns:DoubleCondition" />
+              <s:element minOccurs="1" maxOccurs="1" name="Value2" nillable="true" type="s:double" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="DoubleCondition">
+        <s:restriction base="s:string">
+          <s:enumeration value="Equal" />
+          <s:enumeration value="NotEqual" />
+          <s:enumeration value="IsBetween" />
+          <s:enumeration value="IsGreaterThan" />
+          <s:enumeration value="IsLessThan" />
+          <s:enumeration value="IsGreaterThanOrEqualsTo" />
+          <s:enumeration value="IsLessThanOrEqualsTo" />
+          <s:enumeration value="IsNull" />
+          <s:enumeration value="IsNotNull" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CustomByteField">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomField">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ByteValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ByteValue">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Value" nillable="true" type="s:unsignedByte" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ByteReturn">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ByteValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ByteSkip">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ByteValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ByteSearch">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ByteValue">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Condition" type="tns:ByteCondition" />
+              <s:element minOccurs="1" maxOccurs="1" name="Value2" nillable="true" type="s:unsignedByte" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="ByteCondition">
+        <s:restriction base="s:string">
+          <s:enumeration value="Equal" />
+          <s:enumeration value="NotEqual" />
+          <s:enumeration value="IsBetween" />
+          <s:enumeration value="IsGreaterThan" />
+          <s:enumeration value="IsLessThan" />
+          <s:enumeration value="IsGreaterThanOrEqualsTo" />
+          <s:enumeration value="IsLessThanOrEqualsTo" />
+          <s:enumeration value="IsNull" />
+          <s:enumeration value="IsNotNull" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CustomBooleanField">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomField">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:BooleanValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BooleanValue">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Value" nillable="true" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BooleanReturn">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BooleanValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BooleanSkip">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BooleanValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BooleanSearch">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BooleanValue">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Condition" type="tns:BooleanCondition" />
+              <s:element minOccurs="1" maxOccurs="1" name="Value2" nillable="true" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="BooleanCondition">
+        <s:restriction base="s:string">
+          <s:enumeration value="Equal" />
+          <s:enumeration value="NotEqual" />
+          <s:enumeration value="IsNull" />
+          <s:enumeration value="IsNotNull" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CustomLongField">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomField">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:LongValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CustomShortField">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomField">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ShortValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ShortValue">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Value" nillable="true" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShortReturn">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ShortValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ShortSkip">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ShortValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CustomDecimalField">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomField">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:DecimalValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DecimalValue">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Value" nillable="true" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DecimalReturn">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DecimalValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DecimalSkip">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DecimalValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DecimalSearch">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DecimalValue">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Condition" type="tns:DecimalCondition" />
+              <s:element minOccurs="1" maxOccurs="1" name="Value2" nillable="true" type="s:decimal" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="DecimalCondition">
+        <s:restriction base="s:string">
+          <s:enumeration value="Equal" />
+          <s:enumeration value="NotEqual" />
+          <s:enumeration value="IsBetween" />
+          <s:enumeration value="IsGreaterThan" />
+          <s:enumeration value="IsLessThan" />
+          <s:enumeration value="IsGreaterThanOrEqualsTo" />
+          <s:enumeration value="IsLessThanOrEqualsTo" />
+          <s:enumeration value="IsNull" />
+          <s:enumeration value="IsNotNull" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CustomIntField">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomField">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:IntValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IntValue">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Value" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IntReturn">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:IntValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IntSkip">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:IntValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IntSearch">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:IntValue">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Condition" type="tns:IntCondition" />
+              <s:element minOccurs="1" maxOccurs="1" name="Value2" nillable="true" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="IntCondition">
+        <s:restriction base="s:string">
+          <s:enumeration value="Equal" />
+          <s:enumeration value="NotEqual" />
+          <s:enumeration value="IsBetween" />
+          <s:enumeration value="IsGreaterThan" />
+          <s:enumeration value="IsLessThan" />
+          <s:enumeration value="IsGreaterThanOrEqualsTo" />
+          <s:enumeration value="IsLessThanOrEqualsTo" />
+          <s:enumeration value="IsNull" />
+          <s:enumeration value="IsNotNull" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CustomStringField">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomField">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="StringValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StringReturn">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:StringValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="StringSkip">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:StringValue" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="StringSearch">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:StringValue">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Condition" type="tns:StringCondition" />
+              <s:element minOccurs="0" maxOccurs="1" name="Value2" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="StringCondition">
+        <s:restriction base="s:string">
+          <s:enumeration value="Equal" />
+          <s:enumeration value="NotEqual" />
+          <s:enumeration value="IsBetween" />
+          <s:enumeration value="IsGreaterThan" />
+          <s:enumeration value="IsLessThan" />
+          <s:enumeration value="IsGreaterThanOrEqualsTo" />
+          <s:enumeration value="IsLessThanOrEqualsTo" />
+          <s:enumeration value="Contains" />
+          <s:enumeration value="DoesNotContain" />
+          <s:enumeration value="StartsWith" />
+          <s:enumeration value="EndsWith" />
+          <s:enumeration value="IsNull" />
+          <s:enumeration value="IsNotNull" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="ReturnBehavior">
+        <s:restriction base="s:string">
+          <s:enumeration value="All" />
+          <s:enumeration value="None" />
+          <s:enumeration value="OnlySystem" />
+          <s:enumeration value="OnlySpecified" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="EntityReturnField">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityValueField" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntitySkipField">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityValueField" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListResult" type="tns:ArrayOfEntity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Entity" nillable="true" type="tns:Entity" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Get">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:Entity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResult" type="tns:Entity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Put">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:Entity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PutResult" type="tns:Entity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:Entity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Invoke">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:Entity" />
+            <s:element minOccurs="0" maxOccurs="1" name="action" type="tns:Action" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Action" />
+      <s:element name="InvokeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InvokeResult" type="tns:InvokeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InvokeResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TicketId" type="s1:guid" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFiles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:Entity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFilesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFilesResult" type="tns:ArrayOfFile" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFile">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="File" nillable="true" type="tns:File" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="File">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PutFiles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:Entity" />
+            <s:element minOccurs="0" maxOccurs="1" name="files" type="tns:ArrayOfFile" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PutFilesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCustomFieldSchema">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:Entity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomFieldSchemaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomFieldSchemaResult" type="tns:Entity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SanityCheck">
+        <s:complexType />
+      </s:element>
+      <s:element name="SanityCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SanityCheckResult" type="tns:Entity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="branch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="locale" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Logout">
+        <s:complexType />
+      </s:element>
+      <s:element name="LogoutResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetBusinessDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="businessDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBusinessDateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetProcessStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="invokeResult" type="tns:InvokeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProcessStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProcessStatusResult" type="tns:ProcessResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ProcessResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="EntityId" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:ProcessStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="Seconds" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ProcessStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="NotExists" />
+          <s:enumeration value="InProcess" />
+          <s:enumeration value="Completed" />
+          <s:enumeration value="Aborted" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="ShortCondition">
+        <s:restriction base="s:string">
+          <s:enumeration value="Equal" />
+          <s:enumeration value="NotEqual" />
+          <s:enumeration value="IsBetween" />
+          <s:enumeration value="IsGreaterThan" />
+          <s:enumeration value="IsLessThan" />
+          <s:enumeration value="IsGreaterThanOrEqualsTo" />
+          <s:enumeration value="IsLessThanOrEqualsTo" />
+          <s:enumeration value="IsNull" />
+          <s:enumeration value="IsNotNull" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ShortSearch">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q1="http://www.acumatica.com/entity/Default/6.00.001/" base="q1:ShortValue">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Condition" type="q1:ShortCondition" />
+              <s:element minOccurs="1" maxOccurs="1" name="Value2" type="s:short" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="GuidSearch">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q2="http://www.acumatica.com/entity/Default/6.00.001/" base="q2:GuidValue">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Condition" type="q2:GuidCondition" />
+              <s:element minOccurs="1" maxOccurs="1" name="Value2" type="s1:guid" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="GuidCondition">
+        <s:restriction base="s:string">
+          <s:enumeration value="Equal" />
+          <s:enumeration value="NotEqual" />
+          <s:enumeration value="IsNull" />
+          <s:enumeration value="IsNotNull" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="Warehouse">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q3="http://www.acumatica.com/entity/Default/6.00.001/" base="q3:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Active" nillable="true" type="q3:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q3:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="DropShipLocationID" nillable="true" type="q3:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Locations" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="WarehouseLocation" nillable="true" type="q3:WarehouseLocation" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="ReceivingLocationID" nillable="true" type="q3:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="RMALocationID" nillable="true" type="q3:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShippingLocationID" nillable="true" type="q3:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="WarehouseID" nillable="true" type="q3:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="WarehouseLocation">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q4="http://www.acumatica.com/entity/Default/6.00.001/" base="q4:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Active" nillable="true" type="q4:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssemblyAllowed" nillable="true" type="q4:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q4:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LocationID" nillable="true" type="q4:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PickPriority" nillable="true" type="q4:ShortValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReceiptsAllowed" nillable="true" type="q4:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="SalesAllowed" nillable="true" type="q4:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TransfersAllowed" nillable="true" type="q4:BooleanValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LotSerialClass">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q5="http://www.acumatica.com/entity/Default/6.00.001/" base="q5:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="AssignmentMethod" nillable="true" type="q5:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ClassID" nillable="true" type="q5:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="IssueMethod" nillable="true" type="q5:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TrackingMethod" nillable="true" type="q5:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ShipVia">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q6="http://www.acumatica.com/entity/Default/6.00.001/" base="q6:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierID" nillable="true" type="q6:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q6:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Packages" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="ShippingBox" nillable="true" type="q6:ShippingBox" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ShippingBox">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q7="http://www.acumatica.com/entity/Default/6.00.001/" base="q7:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ActiveByDefault" nillable="true" type="q7:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="BoxID" nillable="true" type="q7:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="BoxWeight" nillable="true" type="q7:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarriersPackage" nillable="true" type="q7:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q7:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Height" nillable="true" type="q7:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Length" nillable="true" type="q7:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="MaxVolume" nillable="true" type="q7:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="MaxWeight" nillable="true" type="q7:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="VolumeUOM" nillable="true" type="q7:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="WeightUOM" nillable="true" type="q7:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Width" nillable="true" type="q7:IntValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="StockItem">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q8="http://www.acumatica.com/entity/Default/6.00.001/" base="q8:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Attributes" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="AttributeValue" nillable="true" type="q8:AttributeValue" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="BaseUOM" nillable="true" type="q8:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CrossReferences" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="InventoryItemCrossReference" nillable="true" type="q8:InventoryItemCrossReference" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="DefaultIssueLocationID" nillable="true" type="q8:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="DefaultReceiptLocationID" nillable="true" type="q8:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="DefaultWarehouseID" nillable="true" type="q8:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q8:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ImageUrl" nillable="true" type="q8:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="InventoryID" nillable="true" type="q8:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="IsAKit" nillable="true" type="q8:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemClass" nillable="true" type="q8:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemStatus" nillable="true" type="q8:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemType" nillable="true" type="q8:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LastModified" nillable="true" type="q8:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LotSerialClass" nillable="true" type="q8:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PurchaseUOM" nillable="true" type="q8:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="SalesUOM" nillable="true" type="q8:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UOMConversions" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="InventoryItemUOMConversion" nillable="true" type="q8:InventoryItemUOMConversion" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="VendorDetails" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="StockItemVendorDetail" nillable="true" type="q8:StockItemVendorDetail" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="Volume" nillable="true" type="q8:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="WarehouseDetails" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="StockItemWarehouseDetail" nillable="true" type="q8:StockItemWarehouseDetail" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="Weight" nillable="true" type="q8:DecimalValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="InventoryItemUOMConversion">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q9="http://www.acumatica.com/entity/Default/6.00.001/" base="q9:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ConversionFactor" nillable="true" type="q9:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="FromUOM" nillable="true" type="q9:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="MultiplyDivide" nillable="true" type="q9:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ToUOM" nillable="true" type="q9:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="InventoryAllocationInquiry">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q10="http://www.acumatica.com/entity/Default/6.00.001/" base="q10:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="InventoryID" nillable="true" type="q10:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OnHand" nillable="true" type="q10:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="WarehouseID" nillable="true" type="q10:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="InventorySummaryInquiry">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q11="http://www.acumatica.com/entity/Default/6.00.001/" base="q11:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ExpandByLotSerialNumber" nillable="true" type="q11:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="InventoryID" nillable="true" type="q11:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LocationID" nillable="true" type="q11:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Results" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="InventorySummaryRow" nillable="true" type="q11:InventorySummaryRow" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="WarehouseID" nillable="true" type="q11:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="InventorySummaryRow">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q12="http://www.acumatica.com/entity/Default/6.00.001/" base="q12:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Available" nillable="true" type="q12:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="AvailableforShipment" nillable="true" type="q12:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="BaseUOM" nillable="true" type="q12:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="EstimatedTotalCost" nillable="true" type="q12:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="EstimatedUnitCost" nillable="true" type="q12:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExpirationDate" nillable="true" type="q12:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LocationID" nillable="true" type="q12:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LotSerialNumber" nillable="true" type="q12:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="NotAvailable" nillable="true" type="q12:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OnHand" nillable="true" type="q12:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Subitem" nillable="true" type="q12:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="WarehouseID" nillable="true" type="q12:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="TransferOrder">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q13="http://www.acumatica.com/entity/Default/6.00.001/" base="q13:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Date" nillable="true" type="q13:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q13:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Details" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="TransferOrderDetail" nillable="true" type="q13:TransferOrderDetail" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="ExternalRef" nillable="true" type="q13:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="FromWarehouseID" nillable="true" type="q13:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Hold" nillable="true" type="q13:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PostPeriod" nillable="true" type="q13:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReferenceNbr" nillable="true" type="q13:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" nillable="true" type="q13:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TotalQty" nillable="true" type="q13:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ToWarehouseID" nillable="true" type="q13:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TransferType" nillable="true" type="q13:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ReleaseTransferOrder">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q14="http://www.acumatica.com/entity/Default/6.00.001/" base="q14:Action">
+            <s:sequence />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="TransferOrderDetail">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q15="http://www.acumatica.com/entity/Default/6.00.001/" base="q15:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Allocations" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="TransferOrderDetailAllocation" nillable="true" type="q15:TransferOrderDetailAllocation" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q15:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExpirationDate" nillable="true" type="q15:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="FromLocationID" nillable="true" type="q15:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="InventoryID" nillable="true" type="q15:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LineNbr" nillable="true" type="q15:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LotSerialNbr" nillable="true" type="q15:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Quantity" nillable="true" type="q15:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" nillable="true" type="q15:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ToLocationID" nillable="true" type="q15:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UOM" nillable="true" type="q15:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PurchaseOrder">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q16="http://www.acumatica.com/entity/Default/6.00.001/" base="q16:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ControlTotal" nillable="true" type="q16:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Currency" nillable="true" type="q16:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Date" nillable="true" type="q16:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q16:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Details" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="PurchaseOrderDetail" nillable="true" type="q16:PurchaseOrderDetail" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="Hold" nillable="true" type="q16:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LineTotal" nillable="true" type="q16:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Location" nillable="true" type="q16:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderNbr" nillable="true" type="q16:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderTotal" nillable="true" type="q16:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Owner" nillable="true" type="q16:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PromisedOn" nillable="true" type="q16:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" nillable="true" type="q16:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TaxTotal" nillable="true" type="q16:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Type" nillable="true" type="q16:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Vendor" nillable="true" type="q16:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="VendorRef" nillable="true" type="q16:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PurchaseOrderDetail">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q17="http://www.acumatica.com/entity/Default/6.00.001/" base="q17:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Account" nillable="true" type="q17:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="AlternateID" nillable="true" type="q17:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="BranchID" nillable="true" type="q17:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Cancelled" nillable="true" type="q17:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Completed" nillable="true" type="q17:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompleteOn" nillable="true" type="q17:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q17:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExtendedCost" nillable="true" type="q17:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="InventoryID" nillable="true" type="q17:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LineDescription" nillable="true" type="q17:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LineNbr" nillable="true" type="q17:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LineType" nillable="true" type="q17:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="MaxReceipt" nillable="true" type="q17:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="MinReceipt" nillable="true" type="q17:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderQty" nillable="true" type="q17:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderType" nillable="true" type="q17:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PONbr" nillable="true" type="q17:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Promised" nillable="true" type="q17:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="QtyOnReceipts" nillable="true" type="q17:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReceiptAction" nillable="true" type="q17:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReceivedAmount" nillable="true" type="q17:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Requested" nillable="true" type="q17:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Subitem" nillable="true" type="q17:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TaxCategory" nillable="true" type="q17:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnitCost" nillable="true" type="q17:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UOM" nillable="true" type="q17:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="WarehouseID" nillable="true" type="q17:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SalesOrder">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q18="http://www.acumatica.com/entity/Default/6.00.001/" base="q18:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="BillingAddressOverride" nillable="true" type="q18:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="BillingContact" nillable="true" type="q18:Contact" />
+              <s:element minOccurs="0" maxOccurs="1" name="BillingContactOverride" nillable="true" type="q18:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CreditHold" nillable="true" type="q18:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Currency" nillable="true" type="q18:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomerID" nillable="true" type="q18:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomerOrder" nillable="true" type="q18:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Date" nillable="true" type="q18:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q18:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="DestinationWarehouseID" nillable="true" type="q18:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Details" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="SalesOrderDetail" nillable="true" type="q18:SalesOrderDetail" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="ExternalReference" nillable="true" type="q18:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Hold" nillable="true" type="q18:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="IsTaxValid" nillable="true" type="q18:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LastModified" nillable="true" type="q18:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LocationID" nillable="true" type="q18:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="NewCard" nillable="true" type="q18:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderedQty" nillable="true" type="q18:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderNbr" nillable="true" type="q18:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderTotal" nillable="true" type="q18:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderType" nillable="true" type="q18:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PaymentCardIdentifier" nillable="true" type="q18:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PaymentMethod" nillable="true" type="q18:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PaymentRef" nillable="true" type="q18:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PreferredWarehouseID" nillable="true" type="q18:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Project" nillable="true" type="q18:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="RequestedOn" nillable="true" type="q18:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Shipments" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="SalesOrderShipment" nillable="true" type="q18:SalesOrderShipment" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="ShippingAddressOverride" nillable="true" type="q18:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShippingContact" nillable="true" type="q18:Contact" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShippingContactOverride" nillable="true" type="q18:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipVia" nillable="true" type="q18:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" nillable="true" type="q18:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TaxTotal" nillable="true" type="q18:DecimalValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SalesOrderShipment">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q19="http://www.acumatica.com/entity/Default/6.00.001/" base="q19:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="InventoryRefNbr" nillable="true" type="q19:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipmentDate" nillable="true" type="q19:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipmentNbr" nillable="true" type="q19:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" nillable="true" type="q19:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SalesOrderDetail">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q20="http://www.acumatica.com/entity/Default/6.00.001/" base="q20:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Allocations" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="SalesOrderDetailAllocation" nillable="true" type="q20:SalesOrderDetailAllocation" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="InventoryID" nillable="true" type="q20:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LineDescription" nillable="true" type="q20:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LineNbr" nillable="true" type="q20:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ManualDiscount" nillable="true" type="q20:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OpenQuantity" nillable="true" type="q20:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Quantity" nillable="true" type="q20:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="QuantityOnShipments" nillable="true" type="q20:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipOn" nillable="true" type="q20:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnitPrice" nillable="true" type="q20:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UOM" nillable="true" type="q20:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="WarehouseID" nillable="true" type="q20:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="TransferOrderDetailAllocation">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q21="http://www.acumatica.com/entity/Default/6.00.001/" base="q21:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="LocationID" nillable="true" type="q21:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LotSerialNbr" nillable="true" type="q21:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Quantity" nillable="true" type="q21:DecimalValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Shipment">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q22="http://www.acumatica.com/entity/Default/6.00.001/" base="q22:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Contact" nillable="true" type="q22:Contact" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomerID" nillable="true" type="q22:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Details" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="ShipmentDetail" nillable="true" type="q22:ShipmentDetail" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="Hold" nillable="true" type="q22:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Operation" nillable="true" type="q22:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OverrideAddress" nillable="true" type="q22:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OverrideContact" nillable="true" type="q22:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Packages" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="ShipmentPackage" nillable="true" type="q22:ShipmentPackage" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="ResidentialDelivery" nillable="true" type="q22:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="SaturdayDelivery" nillable="true" type="q22:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipmentDate" nillable="true" type="q22:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipmentNbr" nillable="true" type="q22:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShippedQuantity" nillable="true" type="q22:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipVia" nillable="true" type="q22:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" nillable="true" type="q22:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ToWarehouseID" nillable="true" type="q22:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Type" nillable="true" type="q22:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UseCustomersAccount" nillable="true" type="q22:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="WarehouseID" nillable="true" type="q22:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Workgroup" nillable="true" type="q22:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ConfirmShipment">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q23="http://www.acumatica.com/entity/Default/6.00.001/" base="q23:Action">
+            <s:sequence />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ShipmentDetail">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q24="http://www.acumatica.com/entity/Default/6.00.001/" base="q24:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Allocations" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="ShipmentDetailAllocation" nillable="true" type="q24:ShipmentDetailAllocation" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q24:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExpirationDate" nillable="true" type="q24:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="FreeItem" nillable="true" type="q24:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="InventoryID" nillable="true" type="q24:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LineNbr" nillable="true" type="q24:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LocationID" nillable="true" type="q24:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LotSerialNbr" nillable="true" type="q24:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OpenQty" nillable="true" type="q24:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderedQty" nillable="true" type="q24:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderLineNbr" nillable="true" type="q24:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderNbr" nillable="true" type="q24:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderType" nillable="true" type="q24:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" nillable="true" type="q24:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShippedQty" nillable="true" type="q24:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UOM" nillable="true" type="q24:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="WarehouseID" nillable="true" type="q24:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ShipmentDetailAllocation">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q25="http://www.acumatica.com/entity/Default/6.00.001/" base="q25:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q25:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExpirationDate" nillable="true" type="q25:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LocationID" nillable="true" type="q25:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LotSerialNbr" nillable="true" type="q25:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Qty" nillable="true" type="q25:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UOM" nillable="true" type="q25:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Contact">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q26="http://www.acumatica.com/entity/Default/6.00.001/" base="q26:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Address" nillable="true" type="q26:Address" />
+              <s:element minOccurs="0" maxOccurs="1" name="ContactID" nillable="true" type="q26:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="DisplayName" nillable="true" type="q26:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Email" nillable="true" type="q26:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Fax" nillable="true" type="q26:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="FirstName" nillable="true" type="q26:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LastName" nillable="true" type="q26:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="MiddleName" nillable="true" type="q26:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Phone1" nillable="true" type="q26:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Phone1Type" nillable="true" type="q26:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Phone2" nillable="true" type="q26:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Phone2Type" nillable="true" type="q26:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Position" nillable="true" type="q26:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Title" nillable="true" type="q26:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Web" nillable="true" type="q26:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Address">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q27="http://www.acumatica.com/entity/Default/6.00.001/" base="q27:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="AddressLine1" nillable="true" type="q27:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="AddressLine2" nillable="true" type="q27:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="City" nillable="true" type="q27:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Country" nillable="true" type="q27:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PostalCode" nillable="true" type="q27:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="State" nillable="true" type="q27:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ShipmentPackage">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q28="http://www.acumatica.com/entity/Default/6.00.001/" base="q28:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="BoxID" nillable="true" type="q28:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CODAmount" nillable="true" type="q28:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Confirmed" nillable="true" type="q28:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomRefNbr1" nillable="true" type="q28:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomRefNbr2" nillable="true" type="q28:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="DeclaredValue" nillable="true" type="q28:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q28:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TrackingNumber" nillable="true" type="q28:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Type" nillable="true" type="q28:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UOM" nillable="true" type="q28:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Weight" nillable="true" type="q28:DecimalValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ItemSalesCategory">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q29="http://www.acumatica.com/entity/Default/6.00.001/" base="q29:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CategoryID" nillable="true" type="q29:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q29:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LastModifiedDateTime" nillable="true" type="q29:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Members" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="ItemSalesCategoryMember" nillable="true" type="q29:ItemSalesCategoryMember" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="ParentCategoryID" nillable="true" type="q29:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Path" nillable="true" type="q29:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Customer">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q30="http://www.acumatica.com/entity/Default/6.00.001/" base="q30:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="AccountRef" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ApplyOverdueCharges" nillable="true" type="q30:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="AutoApplyPayments" nillable="true" type="q30:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="BillingAddressSameAsMain" nillable="true" type="q30:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="BillingContact" nillable="true" type="q30:Contact" />
+              <s:element minOccurs="0" maxOccurs="1" name="BillingContactSameAsMain" nillable="true" type="q30:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Contacts" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="CustomerContact" nillable="true" type="q30:CustomerContact" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="CreditDaysPastDue" nillable="true" type="q30:ShortValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CreditLimit" nillable="true" type="q30:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CreditVerification" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CurrencyID" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomerClass" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomerID" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomerName" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="EnableWriteOffs" nillable="true" type="q30:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="FirstInvoiceDate" nillable="true" type="q30:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="FOBPoint" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LastModified" nillable="true" type="q30:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LeadTimedays" nillable="true" type="q30:ShortValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LocationName" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="MainContact" nillable="true" type="q30:Contact" />
+              <s:element minOccurs="0" maxOccurs="1" name="OpenOrdersBalance" nillable="true" type="q30:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderPriority" nillable="true" type="q30:ShortValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ParentRecord" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PriceClassID" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PrintInvoices" nillable="true" type="q30:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PrintStatements" nillable="true" type="q30:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="RemainingCreditLimit" nillable="true" type="q30:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ResidentialDelivery" nillable="true" type="q30:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="SaturdayDelivery" nillable="true" type="q30:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="SendInvoicesbyEmail" nillable="true" type="q30:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="SendStatementsbyEmail" nillable="true" type="q30:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShippingAddressSameAsMain" nillable="true" type="q30:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShippingBranch" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShippingContact" nillable="true" type="q30:Contact" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShippingContactSameAsMain" nillable="true" type="q30:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShippingRule" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShippingTerms" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShippingZoneID" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipVia" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="StatementCycleID" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TaxRegistrationID" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TaxZone" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Terms" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnreleasedBalance" nillable="true" type="q30:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="WarehouseID" nillable="true" type="q30:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="WriteOffLimit" nillable="true" type="q30:DecimalValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AttributeDefinition">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q31="http://www.acumatica.com/entity/Default/6.00.001/" base="q31:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="AttributeID" nillable="true" type="q31:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ControlType" nillable="true" type="q31:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q31:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="EntryMask" nillable="true" type="q31:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Internal" nillable="true" type="q31:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="RegExp" nillable="true" type="q31:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Values" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="AttributeDefinitionValue" nillable="true" type="q31:AttributeDefinitionValue" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AttributeDefinitionValue">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q32="http://www.acumatica.com/entity/Default/6.00.001/" base="q32:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q32:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Disabled" nillable="true" type="q32:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="SortOrder" nillable="true" type="q32:ShortValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ValueID" nillable="true" type="q32:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CustomerPaymentMethod">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q33="http://www.acumatica.com/entity/Default/6.00.001/" base="q33:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Active" nillable="true" type="q33:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CardAccountNo" nillable="true" type="q33:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CashAccount" nillable="true" type="q33:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomerID" nillable="true" type="q33:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Details" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="CustomerPaymentMethodDetail" nillable="true" type="q33:CustomerPaymentMethodDetail" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="InstanceID" nillable="true" type="q33:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PaymentMethod" nillable="true" type="q33:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ProcCenterID" nillable="true" type="q33:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CustomerPaymentMethodDetail">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q34="http://www.acumatica.com/entity/Default/6.00.001/" base="q34:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q34:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" nillable="true" type="q34:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Value" nillable="true" type="q34:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CurrencyRateHistoryInquiry">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q35="http://www.acumatica.com/entity/Default/6.00.001/" base="q35:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="FromCurrencyID" nillable="true" type="q35:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Results" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="CurrencyRateHistoryRow" nillable="true" type="q35:CurrencyRateHistoryRow" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="ToCurrencyID" nillable="true" type="q35:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CurrencyRateHistoryRow">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q36="http://www.acumatica.com/entity/Default/6.00.001/" base="q36:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CurrencyEffectiveDate" nillable="true" type="q36:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CurrencyRate" nillable="true" type="q36:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CurrencyRateID" nillable="true" type="q36:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CurrencyRateType" nillable="true" type="q36:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="FromCurrencyID" nillable="true" type="q36:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="MultDiv" nillable="true" type="q36:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="RateReciprocal" nillable="true" type="q36:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ToCurrencyID" nillable="true" type="q36:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Employee">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q37="http://www.acumatica.com/entity/Default/6.00.001/" base="q37:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="BranchID" nillable="true" type="q37:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Contact" nillable="true" type="q37:Contact" />
+              <s:element minOccurs="0" maxOccurs="1" name="CurrencyID" nillable="true" type="q37:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="DateOfBirth" nillable="true" type="q37:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="DepartmentID" nillable="true" type="q37:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="EmployeeClassID" nillable="true" type="q37:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="EmployeeCost" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="EmployeeCostRecord" nillable="true" type="q37:EmployeeCostRecord" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="EmployeeID" nillable="true" type="q37:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="EmploymentHistory" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="EmploymentHistoryRecord" nillable="true" type="q37:EmploymentHistoryRecord" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="Name" nillable="true" type="q37:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PaymentMethod" nillable="true" type="q37:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReportsToID" nillable="true" type="q37:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" nillable="true" type="q37:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EmploymentHistoryRecord">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q38="http://www.acumatica.com/entity/Default/6.00.001/" base="q38:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Active" nillable="true" type="q38:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="EndDate" nillable="true" type="q38:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LineNbr" nillable="true" type="q38:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PositionID" nillable="true" type="q38:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="RehireEligible" nillable="true" type="q38:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="StartDate" nillable="true" type="q38:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="StartReason" nillable="true" type="q38:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Terminated" nillable="true" type="q38:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TerminationReason" nillable="true" type="q38:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EmployeeCostRecord">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q39="http://www.acumatica.com/entity/Default/6.00.001/" base="q39:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="AnnualSalaryAmount" nillable="true" type="q39:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="EffectiveDate" nillable="true" type="q39:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="HourlyRate" nillable="true" type="q39:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="RegularHoursPerWeek" nillable="true" type="q39:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TypeOfEmployment" nillable="true" type="q39:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="JournalTransaction">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q40="http://www.acumatica.com/entity/Default/6.00.001/" base="q40:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="BatchNumber" nillable="true" type="q40:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="BranchID" nillable="true" type="q40:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Currency" nillable="true" type="q40:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q40:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Details" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="JournalTransactionDetail" nillable="true" type="q40:JournalTransactionDetail" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="Hold" nillable="true" type="q40:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LedgerID" nillable="true" type="q40:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Module" nillable="true" type="q40:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PostPeriod" nillable="true" type="q40:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" nillable="true" type="q40:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TransactionDate" nillable="true" type="q40:DateTimeValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ReleaseJournalTransaction">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q41="http://www.acumatica.com/entity/Default/6.00.001/" base="q41:Action">
+            <s:sequence />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="JournalTransactionDetail">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q42="http://www.acumatica.com/entity/Default/6.00.001/" base="q42:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Account" nillable="true" type="q42:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="BranchID" nillable="true" type="q42:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CreditAmount" nillable="true" type="q42:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomerVendor" nillable="true" type="q42:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="DebitAmount" nillable="true" type="q42:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q42:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LineNbr" nillable="true" type="q42:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ProjectID" nillable="true" type="q42:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ProjectTask" nillable="true" type="q42:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Quantity" nillable="true" type="q42:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="RefNumber" nillable="true" type="q42:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Subaccount" nillable="true" type="q42:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UOM" nillable="true" type="q42:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ItemSalesCategoryMember">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q43="http://www.acumatica.com/entity/Default/6.00.001/" base="q43:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="InventoryID" nillable="true" type="q43:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="StockItemVendorDetail">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q44="http://www.acumatica.com/entity/Default/6.00.001/" base="q44:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="VendorID" nillable="true" type="q44:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="VendorName" nillable="true" type="q44:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="StockItemWarehouseDetail">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q45="http://www.acumatica.com/entity/Default/6.00.001/" base="q45:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="DefaultIssueLocationID" nillable="true" type="q45:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="DefaultReceiptLocationID" nillable="true" type="q45:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="IsDefault" nillable="true" type="q45:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="QtyOnHand" nillable="true" type="q45:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="WarehouseID" nillable="true" type="q45:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="InventoryItemCrossReference">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q46="http://www.acumatica.com/entity/Default/6.00.001/" base="q46:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="AlternateID" nillable="true" type="q46:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="AlternateType" nillable="true" type="q46:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q46:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="VendorCustomer" nillable="true" type="q46:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="NonStockItem">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q47="http://www.acumatica.com/entity/Default/6.00.001/" base="q47:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CrossReferences" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="InventoryItemCrossReference" nillable="true" type="q47:InventoryItemCrossReference" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q47:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="InventoryID" nillable="true" type="q47:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemClass" nillable="true" type="q47:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemType" nillable="true" type="q47:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="RequireReceipt" nillable="true" type="q47:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="RequireShipment" nillable="true" type="q47:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="VendorDetails" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="NonStockItemVendorDetail" nillable="true" type="q47:NonStockItemVendorDetail" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="NonStockItemVendorDetail">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q48="http://www.acumatica.com/entity/Default/6.00.001/" base="q48:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="VendorID" nillable="true" type="q48:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="VendorName" nillable="true" type="q48:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ItemClass">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q49="http://www.acumatica.com/entity/Default/6.00.001/" base="q49:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Attributes" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="ItemClassAtrribute" nillable="true" type="q49:ItemClassAtrribute" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="ClassID" nillable="true" type="q49:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="DefaultWarehouseID" nillable="true" type="q49:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q49:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemType" nillable="true" type="q49:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LotSerialClass" nillable="true" type="q49:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PostingClass" nillable="true" type="q49:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PriceClass" nillable="true" type="q49:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="StockItem" nillable="true" type="q49:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TaxCategoryID" nillable="true" type="q49:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ValuationMethod" nillable="true" type="q49:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="KitSpecification">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q50="http://www.acumatica.com/entity/Default/6.00.001/" base="q50:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Active" nillable="true" type="q50:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q50:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="KitInventoryID" nillable="true" type="q50:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="NonStock" nillable="true" type="q50:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="NonStockComponents" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="KitNonStockComponent" nillable="true" type="q50:KitNonStockComponent" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="Revision" nillable="true" type="q50:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="StockComponents" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="KitStockComponent" nillable="true" type="q50:KitStockComponent" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="KitStockComponent">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q51="http://www.acumatica.com/entity/Default/6.00.001/" base="q51:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="AllowComponentQtyVariance" nillable="true" type="q51:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ComponentQty" nillable="true" type="q51:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="MaxComponentQty" nillable="true" type="q51:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="MinComponentQty" nillable="true" type="q51:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="StockInventoryID" nillable="true" type="q51:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UOM" nillable="true" type="q51:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="KitNonStockComponent">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q52="http://www.acumatica.com/entity/Default/6.00.001/" base="q52:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="AllowComponentQtyVariance" nillable="true" type="q52:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ComponentQty" nillable="true" type="q52:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="MaxComponentQty" nillable="true" type="q52:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="MinComponentQty" nillable="true" type="q52:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="NonStockInventoryID" nillable="true" type="q52:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UOM" nillable="true" type="q52:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PurchaseReceipt">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q53="http://www.acumatica.com/entity/Default/6.00.001/" base="q53:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ControlAmt" nillable="true" type="q53:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ControlQty" nillable="true" type="q53:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Currency" nillable="true" type="q53:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Date" nillable="true" type="q53:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Details" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="PurchaseReceiptDetail" nillable="true" type="q53:PurchaseReceiptDetail" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="Hold" nillable="true" type="q53:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PostPeriod" nillable="true" type="q53:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReceiptNbr" nillable="true" type="q53:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" nillable="true" type="q53:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TotalAmt" nillable="true" type="q53:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TotalQty" nillable="true" type="q53:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Type" nillable="true" type="q53:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Vendor" nillable="true" type="q53:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="VendorRef" nillable="true" type="q53:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ReleasePurchaseReceipt">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q54="http://www.acumatica.com/entity/Default/6.00.001/" base="q54:Action">
+            <s:sequence />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PurchaseReceiptDetail">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q55="http://www.acumatica.com/entity/Default/6.00.001/" base="q55:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Branch" nillable="true" type="q55:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExpirationDate" nillable="true" type="q55:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExtCost" nillable="true" type="q55:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="InventoryID" nillable="true" type="q55:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LineNbr" nillable="true" type="q55:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LineType" nillable="true" type="q55:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Location" nillable="true" type="q55:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LotSerialNbr" nillable="true" type="q55:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OpenQty" nillable="true" type="q55:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderedQty" nillable="true" type="q55:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="POLineNbr" nillable="true" type="q55:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="POOrderNbr" nillable="true" type="q55:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="POOrderType" nillable="true" type="q55:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Project" nillable="true" type="q55:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ProjectTask" nillable="true" type="q55:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReceiptQty" nillable="true" type="q55:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Subitem" nillable="true" type="q55:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TransactionDescr" nillable="true" type="q55:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnitCost" nillable="true" type="q55:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UOM" nillable="true" type="q55:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Warehouse" nillable="true" type="q55:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SalesOrderDetailAllocation">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q56="http://www.acumatica.com/entity/Default/6.00.001/" base="q56:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Allocated" nillable="true" type="q56:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="AllocWarehouseID" nillable="true" type="q56:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Completed" nillable="true" type="q56:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExpirationDate" nillable="true" type="q56:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LocationID" nillable="true" type="q56:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LotSerialNbr" nillable="true" type="q56:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="QtyOnShipments" nillable="true" type="q56:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="QtyReceived" nillable="true" type="q56:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Quantity" nillable="true" type="q56:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="RelatedDocument" nillable="true" type="q56:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipOn" nillable="true" type="q56:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UOM" nillable="true" type="q56:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Adjustment">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q57="http://www.acumatica.com/entity/Default/6.00.001/" base="q57:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Date" nillable="true" type="q57:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q57:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Details" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="AdjustmentDetail" nillable="true" type="q57:AdjustmentDetail" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="ExternalRef" nillable="true" type="q57:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Hold" nillable="true" type="q57:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReferenceNbr" nillable="true" type="q57:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" nillable="true" type="q57:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TotalCost" nillable="true" type="q57:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TotalQty" nillable="true" type="q57:DecimalValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AdjustmentDetail">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q58="http://www.acumatica.com/entity/Default/6.00.001/" base="q58:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="BranchID" nillable="true" type="q58:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q58:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExpirationDate" nillable="true" type="q58:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="InventoryID" nillable="true" type="q58:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LocationID" nillable="true" type="q58:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LotSerialNbr" nillable="true" type="q58:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Quantity" nillable="true" type="q58:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" nillable="true" type="q58:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReceiptNbr" nillable="true" type="q58:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Subitem" nillable="true" type="q58:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UOM" nillable="true" type="q58:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="WarehouseID" nillable="true" type="q58:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="KitAssembly">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q59="http://www.acumatica.com/entity/Default/6.00.001/" base="q59:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Allocations" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="KitAssemblyAllocation" nillable="true" type="q59:KitAssemblyAllocation" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="Date" nillable="true" type="q59:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q59:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Hold" nillable="true" type="q59:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="KitInventoryID" nillable="true" type="q59:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LocationID" nillable="true" type="q59:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="NonStockComponents" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="KitAssemblyNonStockComponent" nillable="true" type="q59:KitAssemblyNonStockComponent" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="PostPeriod" nillable="true" type="q59:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Quantity" nillable="true" type="q59:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" nillable="true" type="q59:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReferenceNbr" nillable="true" type="q59:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Revision" nillable="true" type="q59:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" nillable="true" type="q59:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="StockComponents" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="KitAssemblyStockComponent" nillable="true" type="q59:KitAssemblyStockComponent" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="Subitem" nillable="true" type="q59:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Type" nillable="true" type="q59:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="WarehouseID" nillable="true" type="q59:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="KitAssemblyStockComponent">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q60="http://www.acumatica.com/entity/Default/6.00.001/" base="q60:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ComponentQty" nillable="true" type="q60:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LineNbr" nillable="true" type="q60:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LocationID" nillable="true" type="q60:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Qty" nillable="true" type="q60:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" nillable="true" type="q60:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="StockInventoryID" nillable="true" type="q60:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Subitem" nillable="true" type="q60:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnitCost" nillable="true" type="q60:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UOM" nillable="true" type="q60:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="KitAssemblyNonStockComponent">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q61="http://www.acumatica.com/entity/Default/6.00.001/" base="q61:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ComponentQty" nillable="true" type="q61:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LineNbr" nillable="true" type="q61:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="NonStockInventoryID" nillable="true" type="q61:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Qty" nillable="true" type="q61:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" nillable="true" type="q61:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnitCost" nillable="true" type="q61:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UOM" nillable="true" type="q61:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="KitAssemblyAllocation">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q62="http://www.acumatica.com/entity/Default/6.00.001/" base="q62:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ExpirationDate" nillable="true" type="q62:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LineNbr" nillable="true" type="q62:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LocationID" nillable="true" type="q62:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LotSerialNbr" nillable="true" type="q62:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Qty" nillable="true" type="q62:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Subitem" nillable="true" type="q62:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UOM" nillable="true" type="q62:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PhysicalInventoryReview">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q63="http://www.acumatica.com/entity/Default/6.00.001/" base="q63:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q63:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Details" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="PhysicalInventoryReviewDetail" nillable="true" type="q63:PhysicalInventoryReviewDetail" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="FreezeDate" nillable="true" type="q63:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReferenceNbr" nillable="true" type="q63:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" nillable="true" type="q63:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TotalPhysicalQty" nillable="true" type="q63:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TotalVarianceCost" nillable="true" type="q63:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TotalVarianceQty" nillable="true" type="q63:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TypeID" nillable="true" type="q63:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="WarehouseID" nillable="true" type="q63:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CancelPhysicalInventory">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q64="http://www.acumatica.com/entity/Default/6.00.001/" base="q64:Action">
+            <s:sequence />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CompletePhysicalInventory">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q65="http://www.acumatica.com/entity/Default/6.00.001/" base="q65:Action">
+            <s:sequence />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="FinishCountingPhysicalInventory">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q66="http://www.acumatica.com/entity/Default/6.00.001/" base="q66:Action">
+            <s:sequence />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PhysicalInventoryReviewDetail">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q67="http://www.acumatica.com/entity/Default/6.00.001/" base="q67:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="BookQuantity" nillable="true" type="q67:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q67:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExpirationDate" nillable="true" type="q67:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExtVarianceCost" nillable="true" type="q67:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="InventoryID" nillable="true" type="q67:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LineNbr" nillable="true" type="q67:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LocationID" nillable="true" type="q67:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LotSerialNumber" nillable="true" type="q67:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PhysicalQuantity" nillable="true" type="q67:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" nillable="true" type="q67:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" nillable="true" type="q67:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Subitem" nillable="true" type="q67:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TagNbr" nillable="true" type="q67:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnitCost" nillable="true" type="q67:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="VarianceQuantity" nillable="true" type="q67:DecimalValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SalesInvoice">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q68="http://www.acumatica.com/entity/Default/6.00.001/" base="q68:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Amount" nillable="true" type="q68:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Balance" nillable="true" type="q68:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomerID" nillable="true" type="q68:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomerOrder" nillable="true" type="q68:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Date" nillable="true" type="q68:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q68:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Details" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="SalesInvoiceDetail" nillable="true" type="q68:SalesInvoiceDetail" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="DueDate" nillable="true" type="q68:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Hold" nillable="true" type="q68:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReferenceNbr" nillable="true" type="q68:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" nillable="true" type="q68:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Type" nillable="true" type="q68:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ReleaseSalesInvoice">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q69="http://www.acumatica.com/entity/Default/6.00.001/" base="q69:Action">
+            <s:sequence />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SalesInvoiceDetail">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q70="http://www.acumatica.com/entity/Default/6.00.001/" base="q70:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Amount" nillable="true" type="q70:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="BranchID" nillable="true" type="q70:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q70:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="InventoryID" nillable="true" type="q70:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="LineNbr" nillable="true" type="q70:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderNbr" nillable="true" type="q70:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderType" nillable="true" type="q70:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Quantity" nillable="true" type="q70:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipmentNbr" nillable="true" type="q70:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnitPrice" nillable="true" type="q70:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="UOM" nillable="true" type="q70:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Payment">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q71="http://www.acumatica.com/entity/Default/6.00.001/" base="q71:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ApplicationDate" nillable="true" type="q71:DateTimeValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="AppliedToDocuments" nillable="true" type="q71:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CardAccountNo" nillable="true" type="q71:IntValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CashAccount" nillable="true" type="q71:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="CreditCardProcessingInfo" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="CreditCardProcessingDetail" nillable="true" type="q71:CreditCardProcessingDetail" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="CustomerID" nillable="true" type="q71:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q71:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="DocumentsToApply" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="PaymentDetail" nillable="true" type="q71:PaymentDetail" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="Hold" nillable="true" type="q71:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrdersToApply" nillable="true">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="PaymentOrder" nillable="true" type="q71:PaymentOrder" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="PaymentAmount" nillable="true" type="q71:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PaymentMethod" nillable="true" type="q71:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="PaymentRef" nillable="true" type="q71:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReferenceNbr" nillable="true" type="q71:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" nillable="true" type="q71:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Type" nillable="true" type="q71:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CaptureCreditCardPayment">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q72="http://www.acumatica.com/entity/Default/6.00.001/" base="q72:Action">
+            <s:sequence />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ReleasePayment">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q73="http://www.acumatica.com/entity/Default/6.00.001/" base="q73:Action">
+            <s:sequence />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PaymentDetail">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q74="http://www.acumatica.com/entity/Default/6.00.001/" base="q74:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="q74:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="DocumentType" nillable="true" type="q74:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReferenceNbr" nillable="true" type="q74:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CreditCardProcessingDetail">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q75="http://www.acumatica.com/entity/Default/6.00.001/" base="q75:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="TranAmount" nillable="true" type="q75:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="TranStatus" nillable="true" type="q75:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CustomerContact">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q76="http://www.acumatica.com/entity/Default/6.00.001/" base="q76:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Contact" nillable="true" type="q76:Contact" />
+              <s:element minOccurs="0" maxOccurs="1" name="ContactID" nillable="true" type="q76:IntValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ItemClassAtrribute">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q77="http://www.acumatica.com/entity/Default/6.00.001/" base="q77:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="AttributeID" nillable="true" type="q77:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Required" nillable="true" type="q77:BooleanValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="SortOrder" nillable="true" type="q77:ShortValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AttributeValue">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q78="http://www.acumatica.com/entity/Default/6.00.001/" base="q78:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="AttributeID" nillable="true" type="q78:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="Value" nillable="true" type="q78:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PaymentOrder">
+        <s:complexContent mixed="false">
+          <s:extension xmlns:q79="http://www.acumatica.com/entity/Default/6.00.001/" base="q79:Entity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="AppliedToOrder" nillable="true" type="q79:DecimalValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderNbr" nillable="true" type="q79:StringValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderType" nillable="true" type="q79:StringValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetList" />
+  </wsdl:message>
+  <wsdl:message name="GetListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSoapIn">
+    <wsdl:part name="parameters" element="tns:Get" />
+  </wsdl:message>
+  <wsdl:message name="GetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResponse" />
+  </wsdl:message>
+  <wsdl:message name="PutSoapIn">
+    <wsdl:part name="parameters" element="tns:Put" />
+  </wsdl:message>
+  <wsdl:message name="PutSoapOut">
+    <wsdl:part name="parameters" element="tns:PutResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvokeSoapIn">
+    <wsdl:part name="parameters" element="tns:Invoke" />
+  </wsdl:message>
+  <wsdl:message name="InvokeSoapOut">
+    <wsdl:part name="parameters" element="tns:InvokeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFilesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFiles" />
+  </wsdl:message>
+  <wsdl:message name="GetFilesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PutFilesSoapIn">
+    <wsdl:part name="parameters" element="tns:PutFiles" />
+  </wsdl:message>
+  <wsdl:message name="PutFilesSoapOut">
+    <wsdl:part name="parameters" element="tns:PutFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomFieldSchemaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomFieldSchema" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomFieldSchemaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomFieldSchemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SanityCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:SanityCheck" />
+  </wsdl:message>
+  <wsdl:message name="SanityCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:SanityCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapIn">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapOut">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetBusinessDateSoapIn">
+    <wsdl:part name="parameters" element="tns:SetBusinessDate" />
+  </wsdl:message>
+  <wsdl:message name="SetBusinessDateSoapOut">
+    <wsdl:part name="parameters" element="tns:SetBusinessDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProcessStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProcessStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetProcessStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProcessStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DefaultSoap">
+    <wsdl:operation name="GetList">
+      <wsdl:input message="tns:GetListSoapIn" />
+      <wsdl:output message="tns:GetListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <wsdl:input message="tns:GetSoapIn" />
+      <wsdl:output message="tns:GetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Put">
+      <wsdl:input message="tns:PutSoapIn" />
+      <wsdl:output message="tns:PutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input message="tns:DeleteSoapIn" />
+      <wsdl:output message="tns:DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Invoke">
+      <wsdl:input message="tns:InvokeSoapIn" />
+      <wsdl:output message="tns:InvokeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFiles">
+      <wsdl:input message="tns:GetFilesSoapIn" />
+      <wsdl:output message="tns:GetFilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PutFiles">
+      <wsdl:input message="tns:PutFilesSoapIn" />
+      <wsdl:output message="tns:PutFilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomFieldSchema">
+      <wsdl:input message="tns:GetCustomFieldSchemaSoapIn" />
+      <wsdl:output message="tns:GetCustomFieldSchemaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SanityCheck">
+      <wsdl:input message="tns:SanityCheckSoapIn" />
+      <wsdl:output message="tns:SanityCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input message="tns:LogoutSoapIn" />
+      <wsdl:output message="tns:LogoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBusinessDate">
+      <wsdl:input message="tns:SetBusinessDateSoapIn" />
+      <wsdl:output message="tns:SetBusinessDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessStatus">
+      <wsdl:input message="tns:GetProcessStatusSoapIn" />
+      <wsdl:output message="tns:GetProcessStatusSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DefaultSoap" type="tns:DefaultSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetList">
+      <soap:operation soapAction="http://www.acumatica.com/entity/Default/6.00.001/GetList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <soap:operation soapAction="http://www.acumatica.com/entity/Default/6.00.001/Get" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Put">
+      <soap:operation soapAction="http://www.acumatica.com/entity/Default/6.00.001/Put" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://www.acumatica.com/entity/Default/6.00.001/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Invoke">
+      <soap:operation soapAction="http://www.acumatica.com/entity/Default/6.00.001/Invoke" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFiles">
+      <soap:operation soapAction="http://www.acumatica.com/entity/Default/6.00.001/GetFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutFiles">
+      <soap:operation soapAction="http://www.acumatica.com/entity/Default/6.00.001/PutFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomFieldSchema">
+      <soap:operation soapAction="http://www.acumatica.com/entity/Default/6.00.001/GetCustomFieldSchema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SanityCheck">
+      <soap:operation soapAction="http://www.acumatica.com/entity/Default/6.00.001/SanityCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://www.acumatica.com/entity/Default/6.00.001/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://www.acumatica.com/entity/Default/6.00.001/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBusinessDate">
+      <soap:operation soapAction="http://www.acumatica.com/entity/Default/6.00.001/SetBusinessDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessStatus">
+      <soap:operation soapAction="http://www.acumatica.com/entity/Default/6.00.001/GetProcessStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DefaultEndpoint">
+    <wsdl:port name="DefaultSoap" binding="tns:DefaultSoap">
+      <soap:address location="http://localhost/AcumaticaCustomizaton/entity/Default/6.00.001" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

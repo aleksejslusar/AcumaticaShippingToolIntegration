@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{791E3646-8485-455A-B2BF-71D6D3D0B9D3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartShipment.Network</RootNamespace>
+    <AssemblyName>SmartShipment.Network</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationTypes" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SmartShipment.UI\Properties\VersionInfo.cs">
+      <Link>Properties\VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="AcumaticaNetworkProvider.cs" />
+    <Compile Include="BrowserHelper.cs" />
+    <Compile Include="Common\IAcumaticaNetworkProvider.cs" />
+    <Compile Include="Common\IBrowserHelper.cs" />
+    <Compile Include="Common\IAcumaticaUriParser.cs" />
+    <Compile Include="AcumaticaUriParser.cs" />
+    <Compile Include="Common\ISmartShipmentExportParametersParser.cs" />
+    <Compile Include="Common\IWebServiceHelper.cs" />
+    <Compile Include="Export\ISmartShipmentExportContext.cs" />
+    <Compile Include="Export\ShipmentExportExtentions.cs" />
+    <Compile Include="Export\SmartShipmentExportContext.cs" />
+    <Compile Include="Export\SmartShipmentExportParametersParserBase.cs" />
+    <Compile Include="Export\SmartShipmentFedexExportParametersParser.cs" />
+    <Compile Include="Export\SmartShipmentUpsExportParametersParser.cs" />
+    <Compile Include="Mapping\ShipmentAddress.cs" />
+    <Compile Include="Mapping\ShipmentContact.cs" />
+    <Compile Include="Mapping\ShipmentDetail.cs" />
+    <Compile Include="Mapping\ShipmentDetailAllocation.cs" />
+    <Compile Include="Export\ShipmentFileExportRow.cs" />
+    <Compile Include="Mapping\ShipmentMapper.cs" />
+    <Compile Include="Mapping\ShipmentMapperBase.cs" />
+    <Compile Include="Mapping\ShipmentMappingExtentions.cs" />
+    <Compile Include="Mapping\ShipmentPackage.cs" />
+    <Compile Include="Mapping\ShipmentValue.cs" />
+    <Compile Include="ParsedUriData.cs" />
+    <Compile Include="Service References\AcumaticaSoapService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Validation\ShipmentBoxValidator.cs" />
+    <Compile Include="Validation\ShipmentOpenValidator.cs" />
+    <Compile Include="Validation\ShipmentTypeValidator.cs" />
+    <Compile Include="Validation\ShipmentValidatorBase.cs" />
+    <Compile Include="Validation\ShipmentValidationContext.cs" />
+    <Compile Include="WebServiceRestHelper.cs" />
+    <Compile Include="WebServiceSoapHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmartShipment.AutomationUI\SmartShipment.AutomationUI.csproj">
+      <Project>{4B8E3275-3B7A-4CB9-9901-6FE5507C0254}</Project>
+      <Name>SmartShipment.AutomationUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartShipment.Settings\SmartShipment.Settings.csproj">
+      <Project>{672DFAF6-683D-4917-A90C-B3A30D00723C}</Project>
+      <Name>SmartShipment.Settings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartShipments.Exeptions\SmartShipment.Information.csproj">
+      <Project>{CDB63580-2BA7-4826-9ABD-71F13AB14D28}</Project>
+      <Name>SmartShipment.Information</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcumaticaSoapService\6.wsdl" />
+    <None Include="Service References\AcumaticaSoapService\SmartShipment.Network.AcumaticaSoapService.Entity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AcumaticaSoapService\SmartShipment.Network.AcumaticaSoapService.File.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AcumaticaSoapService\SmartShipment.Network.AcumaticaSoapService.InvokeResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AcumaticaSoapService\SmartShipment.Network.AcumaticaSoapService.ProcessResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AcumaticaSoapService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AcumaticaSoapService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AcumaticaSoapService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AcumaticaSoapService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

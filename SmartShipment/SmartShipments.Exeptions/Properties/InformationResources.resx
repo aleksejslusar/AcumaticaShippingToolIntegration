@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="APPLICATION_NAME" xml:space="preserve">
+    <value>Acumatica Shipping Tool Integration</value>
+  </data>
+  <data name="ERROR_ADAPTER_SHIPMENT_SCREEN_IS_NOT_INTERACTIVE" xml:space="preserve">
+    <value>The screen \"Shipment details \" is not available. Make sure that the application is running and not blocked by pop-up windows or message dialogs.</value>
+  </data>
+  <data name="ERROR_APPLICATION_SETTINGS_DIRECTORY_ACCESS" xml:space="preserve">
+    <value>Applicatoin settings error: Can`t get access to application settings configuration directory.</value>
+  </data>
+  <data name="ERROR_APPLICATION_SETTINGS_FILE_ACCESS" xml:space="preserve">
+    <value>Applicatoin settings error: Can`t get access to application settings file</value>
+  </data>
+  <data name="ERROR_APPLICATION_SETTINGS_SET_OR_SAVE" xml:space="preserve">
+    <value>Applicatoin settings error: Can`t set and save application settings!</value>
+  </data>
+  <data name="ERROR_APPLICATION_SETTINGS_UPDATE" xml:space="preserve">
+    <value>Applicatoin settings error: Can`t update application settings!</value>
+  </data>
+  <data name="ERROR_CREATE_APPLICATION_MAP_CACHE" xml:space="preserve">
+    <value>Error of create cache with type {0}</value>
+  </data>
+  <data name="ERROR_EXTERNAL_APPLICATION_PROCESS_NAME_EMPTY" xml:space="preserve">
+    <value>The value \"Programm path\" must be set before use shipment application.</value>
+  </data>
+  <data name="ERROR_URI_STRING_PARSE" xml:space="preserve">
+    <value>Error of parse string {0} to URL.</value>
+  </data>
+  <data name="INFO_SUCCESS_UPDATE_SHIPMENT" xml:space="preserve">
+    <value>Network provider: Successfully updated {0} Shippment(s): {1}</value>
+  </data>
+  <data name="MESSAGE_APPLICATION_EXIT" xml:space="preserve">
+    <value>Do you want to exit?</value>
+  </data>
+  <data name="MESSAGE_PARAMETERS_NEED_BE_INSTALLED" xml:space="preserve">
+    <value>Before you start, you need to set the necessary settings for running the application. Required parameters are marked with *. Fill in the setting values and click OK to continue.</value>
+  </data>
+  <data name="MESSAGE_PARAMETERS_NOT_INSTALLED" xml:space="preserve">
+    <value>The parameters required for running the application are not installed. Continuation of work is impossible.</value>
+  </data>
+  <data name="WARN_CURRENT_SHIPMENT_SCREEN_ISNOT_EMPTY" xml:space="preserve">
+    <value>Current Shipment screen is not empty. Before load data from Acumatica and create new Shipment, you should process current shipment or Undo changes/Clear fields.</value>
+  </data>
+  <data name="WARN_NOT_ALL_FIELDS_FILLED" xml:space="preserve">
+    <value>One or more required fields can not be filled: [{0}]. Check the availability of fields and shipment data and try again.</value>
+  </data>
+  <data name="WARN_NO_PROCESS_FOUND_FOR_UPS_APPLICATION" xml:space="preserve">
+    <value>Cannot process the Shipment &lt;{0}&gt;. UPS WorldShip  should be running.</value>
+  </data>
+  <data name="WARN_NO_PROCESS_FOUND_FOR_FEDEX_APPLICATION" xml:space="preserve">
+    <value>Cannot process the Shipment &lt;{0}&gt;. FedEx Ship Manager should be running.</value>
+  </data>
+  <data name="INFO_APPLICATION_STARTED" xml:space="preserve">
+    <value>Application started</value>
+  </data>
+  <data name="ERROR_APPLICATION_STOPPED_BY_ERROR" xml:space="preserve">
+    <value>Application stopped by error occurred</value>
+  </data>
+  <data name="INFO_APPLICATION_STARTING" xml:space="preserve">
+    <value>Application starting</value>
+  </data>
+  <data name="INFO_APPLICATION_STOPED" xml:space="preserve">
+    <value>Application stoped</value>
+  </data>
+  <data name="INFO_START_EXPORTFILE_MONITORING" xml:space="preserve">
+    <value>File Monitoring: Start monitoring export file {0}</value>
+  </data>
+  <data name="INFO_EXPORT_FILE_PROCESSED" xml:space="preserve">
+    <value>File Monitoring: Process export file {0}, processed row(s): {1}.</value>
+  </data>
+  <data name="INFO_PROPERTY_VALUE_CHANGED" xml:space="preserve">
+    <value>Settings: Property {0} changed, old value: {1}, new value {2}</value>
+  </data>
+  <data name="INFO_PROPERTIES_SAVED" xml:space="preserve">
+    <value>Settings: Properties saved</value>
+  </data>
+  <data name="ERROR_CANNOT_CONNECT_TO_ACUMATICA" xml:space="preserve">
+    <value>Can not connect to Acumatica. Check the site is available,  application Acumatica credentials settings, check local machine network available and try again.</value>
+  </data>
+  <data name="ERROR_SHIPMENTS_IS_NOT_UPDATED" xml:space="preserve">
+    <value>Shipment(s) is not updated: </value>
+  </data>
+  <data name="INFO_RECEIVED_SHIPMENT" xml:space="preserve">
+    <value>Received Shipment &lt;{0}&gt;, Packages count: {1}</value>
+  </data>
+  <data name="WARN_NO_WAY_TO_GET_SHIPMENT" xml:space="preserve">
+    <value>Cannot locate the Acumatica Shipment screen. Please make sure that the Acumatica Shipment screen is active in one of the supported Web Browsers and a Shipment number is selected.</value>
+  </data>
+  <data name="WARN_NO_WAY_TO_GET_SHIPMENT_EXTENDED" xml:space="preserve">
+    <value>Cannot locate the Acumatica Shipment. Please make sure that the Acumatica Shipment screen is active in one of the supported Web Browsers and a Shipment number is selected.
+[ {0} ]</value>
+  </data>
+  <data name="INFO_FEDEX_STARTING_APPLICATION" xml:space="preserve">
+    <value>FedEx Ship Manager: starting application</value>
+  </data>
+  <data name="INFO_FEDEX_START_APPLICATION" xml:space="preserve">
+    <value>FedEx Ship Manager: start application</value>
+  </data>
+  <data name="INFO_FEDEX_INIT_CONTROL_MAP" xml:space="preserve">
+    <value>FedEx Ship Manager: initialization of map of controls completed</value>
+  </data>
+  <data name="INFO_FEDEX_FILL_SHIPMENT_DATA" xml:space="preserve">
+    <value>FedEx Ship Manager: filling in Shipment values completed</value>
+  </data>
+  <data name="INFO_FEDEX_FILL_PACKAGE_DATA" xml:space="preserve">
+    <value>FedEx Ship Manager: filling in Shipment packages values completed</value>
+  </data>
+  <data name="INFO_UPS_FILL_PACKAGE_DATA" xml:space="preserve">
+    <value>UPS Worldship: filling in Shipment packages values completed</value>
+  </data>
+  <data name="INFO_UPS_FILL_SHIPMENT_DATA" xml:space="preserve">
+    <value>UPS Worldship: filling in Shipment values completed</value>
+  </data>
+  <data name="INFO_UPS_INIT_CONTROL_MAP" xml:space="preserve">
+    <value>UPS Worldship: initialization of map of controls completed</value>
+  </data>
+  <data name="INFO_UPS_START_APPLICATION" xml:space="preserve">
+    <value>UPS Worldship: start application</value>
+  </data>
+  <data name="INFO_UPS_STARTING_APPLICATION" xml:space="preserve">
+    <value>UPS Worldship: starting application</value>
+  </data>
+  <data name="WARN_SHIPMENT_VALIDATION_TYPE" xml:space="preserve">
+    <value>Cannot process the Shipment &lt;{0}&gt;. Only the shipments with the "Shipment" type can be processed.</value>
+  </data>
+  <data name="WARN_SHIPMENT_VALIDATION_OPEN" xml:space="preserve">
+    <value>Cannot process the Shipment &lt;{0}&gt;. Only the shipments with the "Open" status can be processed.</value>
+  </data>
+  <data name="WARN_SHIPMENT_VALIDATION_BOX" xml:space="preserve">
+    <value>Cannot process the Shipment &lt;{0}&gt;. Shipments without packages can be processed only if the "BOX" Box ID is configured</value>
+  </data>
+  <data name="ERROR_NO_ACTIVE_BROWSER_FOUND" xml:space="preserve">
+    <value>No active browser found.</value>
+  </data>
+  <data name="ERROR_NO_SHIPMENT_URI_FOUND" xml:space="preserve">
+    <value>No Shipment URL in active browsers found</value>
+  </data>
+  <data name="INFO_CHECK_NETWORK_PARAMETERS" xml:space="preserve">
+    <value>Network parameters check is successful!</value>
+  </data>
+  <data name="ERROR_CHECK_NETWORK_PARAMETERS" xml:space="preserve">
+    <value>Network parameters check is unsuccessful!
+    [{0}]</value>
+  </data>
+  <data name="_WARN_INCORRECT_DATA_AND_DIALOGS" xml:space="preserve">
+    <value>Warnings or errors were received during data entry.
+This can be caused by incorrect data or the inability to insert data in automatic mode. Check inserted entries before proceeding.</value>
+  </data>
+  <data name="WARN_SHIPMENT_IS_CONFIRMED_AND_CANNOT_BE_UPDATED" xml:space="preserve">
+    <value>Shipment &lt;{0}&gt; cannot be updated due to its Status. Please correct the shipment manually.</value>
+  </data>
+  <data name="WARN_PARAMETERS_ARE_NOT_SAVED" xml:space="preserve">
+    <value>Required setting value(s) cannot be empty. Changes rejected. Fill in the all required setting values and click  &lt;Save&gt; to continue.</value>
+  </data>
+</root>

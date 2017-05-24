@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SmartShipment.Adapters.Control.ShipmentAutomationBase" Collapsed="true">
+    <Position X="10" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAQAAAABAgAAQAAAAAEEQAAAAAAAAAAAASAAAAAAA=</HashCode>
+      <FileName>Control\ShipmentAutomationBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartShipment.Adapters.Control.ShipmentAutomationButton" Collapsed="true">
+    <Position X="6.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Control\ShipmentAutomationButton.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SmartShipment.Adapters.Control.ShipmentAutomationCheckBox" Collapsed="true">
+    <Position X="13.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Control\ShipmentAutomationCheckBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartShipment.Adapters.Control.ShipmentAutomationComboBox" Collapsed="true">
+    <Position X="9" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Control\ShipmentAutomationComboBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartShipment.Adapters.Control.ShipmentAutomationContainerBase" Collapsed="true">
+    <Position X="3.25" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Control\ShipmentAutomationContainerBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartShipment.Adapters.Control.ShipmentAutomationControl" Collapsed="true">
+    <Position X="12.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQEAAAAEIAAIBCAAgAAAAAACAgAAAAAQAABwAAgAAAA=</HashCode>
+      <FileName>Control\ShipmentAutomationControlBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SmartShipment.Adapters.Control.ShipmentAutomationListBox" Collapsed="true">
+    <Position X="15.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Control\ShipmentAutomationListBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartShipment.Adapters.Control.ShipmentAutomationPane" Collapsed="true">
+    <Position X="11.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Control\ShipmentAutomationPane.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartShipment.Adapters.Control.ShipmentAutomationTab" Collapsed="true">
+    <Position X="2.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Control\ShipmentAutomationTab.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartShipment.Adapters.Control.ShipmentAutomationTabItem" Collapsed="true">
+    <Position X="18" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Control\ShipmentAutomationTabItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartShipment.Adapters.Control.ShipmentAutomationTolbar" Collapsed="true">
+    <Position X="4.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Control\ShipmentAutomationTolbar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartShipment.Adapters.Helpers.FedexShipmentApplicationHelper">
+    <Position X="7.25" Y="7.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AUCAAAAAIJA0AIAAgAAFACAYAAABAAAAAAgAAAAAIAA=</HashCode>
+      <FileName>Helpers\FedexShipmentApplicationHelper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SmartShipment.Adapters.Helpers.ShipmentApplicationHelperBase" Collapsed="true">
+    <Position X="8.5" Y="6" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAhAAAAAAAAQAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Helpers\ShipmentApplicationHelperBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartShipment.Adapters.Helpers.ShipmentAutomationControlHelperBase" Collapsed="true">
+    <Position X="3.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAABAAQAAAAAAAIIDAAAQgA=</HashCode>
+      <FileName>Helpers\ShipmentAutomationUIControlHelper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SmartShipment.Adapters.Helpers.ShipmentAutomationUIControlHelper" Collapsed="true">
+    <Position X="2.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAQgA=</HashCode>
+      <FileName>Helpers\ShipmentAutomationUIControlHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartShipment.Adapters.Helpers.ShipmentWinApiControlHelper" Collapsed="true">
+    <Position X="4.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAQAAAAAAAAAAAAAAAAACAAAQgA=</HashCode>
+      <FileName>Helpers\ShipmentWinApiControlHelper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SmartShipment.Adapters.Helpers.UpsShipmentApplicationHelper">
+    <Position X="10.75" Y="7.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AQCAACAAIIAgAAAAgAABAKAQAIIBAAAAABAAAAAAIAA=</HashCode>
+      <FileName>Helpers\UpsShipmentApplicationHelper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SmartShipment.Adapters.Map.FedExMultiPieceShipmentMap" Collapsed="true">
+    <Position X="2" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAEAAAAAAQAAAAgAAAIAAAAAAgAAAAAA=</HashCode>
+      <FileName>Map\FedExMultiPieceShipmentMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartShipment.Adapters.Map.FedExShipAlertTabMap" Collapsed="true">
+    <Position X="8.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\FedExShipAlertTabMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartShipment.Adapters.Map.FedExShipMahagerShellMap" Collapsed="true">
+    <Position X="11" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAQAAAEAAAAAAAAAAQAAIAAAA=</HashCode>
+      <FileName>Map\FedExShipMahagerShellMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartShipment.Adapters.Map.FedexShipManagerMap" Collapsed="true">
+    <Position X="4.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAAAABAEIEAASAAAAAQMAAoYAAAAAAQCADA=</HashCode>
+      <FileName>Map\FedExShipManagerMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartShipment.Adapters.Map.ShipmentAutomationMapBase" Collapsed="true">
+    <Position X="7.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAIAAAgAEhAgABABAAAAQIABAAQAAAAAgAIKABIAAAA=</HashCode>
+      <FileName>Map\ShipmentAutomationMapBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SmartShipment.Adapters.Map.UpsManagerMap" Collapsed="true">
+    <Position X="13.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIIAAACAwAQCAAACAAAQAIBgBQACAAACCEAAABAAAA=</HashCode>
+      <FileName>Map\UpsManagerMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartShipment.Adapters.Map.UpsManagerShellMap" Collapsed="true">
+    <Position X="6.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAAIAAAA=</HashCode>
+      <FileName>Map\UpsManagerShellMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

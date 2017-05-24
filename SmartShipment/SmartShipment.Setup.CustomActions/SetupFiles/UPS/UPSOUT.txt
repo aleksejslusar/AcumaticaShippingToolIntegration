@@ -1,0 +1,1 @@
+ShipmentNbr,RowNumber,ShipmentTrackingNumber,PackageTrackingNumber,FreightCost,ShipmentDate,PackageWeight,VoidIndicator

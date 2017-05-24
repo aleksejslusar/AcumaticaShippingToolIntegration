@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{253CEDA0-7B6B-4DA5-8950-56A260F65E81}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartShipment.UI</RootNamespace>
+    <AssemblyName>SmartShipment.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LightInject, Version=5.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightInject.5.0.2\lib\net45\LightInject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ApplicationController.cs" />
+    <Compile Include="Common\BasePresenter.cs" />
+    <Compile Include="Common\SmartShipmentBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\BasePresener.cs" />
+    <Compile Include="Common\IApplicationController.cs" />
+    <Compile Include="Common\IContainer.cs" />
+    <Compile Include="Common\IPresenter.cs" />
+    <Compile Include="Common\IView.cs" />
+    <Compile Include="Container\LightInjectAdapder.cs" />
+    <Compile Include="FileWatcher\Common\ISmartShipmentFileProvider.cs" />
+    <Compile Include="FileWatcher\Common\ISmartShipmentFilesMonitor.cs" />
+    <Compile Include="FileWatcher\Common\ISmartShipmentFileWatcher.cs" />
+    <Compile Include="FileWatcher\SmartShipmentFedexFileProvider.cs" />
+    <Compile Include="FileWatcher\SmartShipmentFilesMonitor.cs" />
+    <Compile Include="FileWatcher\SmartShipmentFileWatcher.cs" />
+    <Compile Include="FileWatcher\SmartShipmentUpsFileProvider.cs" />
+    <Compile Include="FileWatcher\SmartShipmentFileProviderBase.cs" />
+    <Compile Include="Presenters\FloatMenuPresenter.cs" />
+    <Compile Include="Forms\FloatMenuWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FloatMenuWindow.Designer.cs">
+      <DependentUpon>FloatMenuWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationMain.cs" />
+    <Compile Include="Presenters\SmartShipmentSettingDialogPresenter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\VersionInfo.cs" />
+    <Compile Include="SingleInstance\SingleInstanceApplication.cs" />
+    <Compile Include="SingleInstance\SingleInstanceManager.cs" />
+    <Compile Include="Forms\SmartShipmentSettingsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SmartShipmentSettingsDialog.Designer.cs">
+      <DependentUpon>SmartShipmentSettingsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IFloatMenuView.cs" />
+    <Compile Include="Views\ISmartSettingsDialogView.cs" />
+    <EmbeddedResource Include="Forms\FloatMenuWindow.resx">
+      <DependentUpon>FloatMenuWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Forms\SmartShipmentSettingsDialog.resx">
+      <DependentUpon>SmartShipmentSettingsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\version.txt" />
+    <Content Include="Resources\FedEx_Logo_gray.jpg" />
+    <Content Include="Resources\tr-base-fedex_l.png" />
+    <Content Include="Resources\tr-base_vertical_dots.png" />
+    <Content Include="Resources\UPS-Logo-gray.jpg" />
+    <Content Include="Resources\vertical_dots.png" />
+    <None Include="Resources\dots.png" />
+    <Content Include="Resources\exit.png" />
+    <Content Include="Resources\tr-base-exit.png" />
+    <Content Include="Resources\tr-base-settings_n.png" />
+    <Content Include="Resources\tr-base-ups.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmartShipment.Adapters\SmartShipment.Adapters.csproj">
+      <Project>{295E8EB9-E010-46EF-BB3A-9D219BC30EAD}</Project>
+      <Name>SmartShipment.Adapters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartShipment.AutomationUI\SmartShipment.AutomationUI.csproj">
+      <Project>{4B8E3275-3B7A-4CB9-9901-6FE5507C0254}</Project>
+      <Name>SmartShipment.AutomationUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartShipment.Network\SmartShipment.Network.csproj">
+      <Project>{791E3646-8485-455A-B2BF-71D6D3D0B9D3}</Project>
+      <Name>SmartShipment.Network</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartShipment.Settings\SmartShipment.Settings.csproj">
+      <Project>{672DFAF6-683D-4917-A90C-B3A30D00723C}</Project>
+      <Name>SmartShipment.Settings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartShipments.Exeptions\SmartShipment.Information.csproj">
+      <Project>{cdb63580-2ba7-4826-9abd-71f13ab14d28}</Project>
+      <Name>SmartShipment.Information</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets" Condition="Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
+  </Target>
+  <Target Name="BeforeBuild">
+    <Version VersionFile="Properties\version.txt" Major="1" Minor="0" BuildType="Automatic" StartDate="03/31/2017" RevisionType="BuildIncrement">
+      <Output TaskParameter="Major" PropertyName="Major" />
+      <Output TaskParameter="Minor" PropertyName="Minor" />
+      <Output TaskParameter="Build" PropertyName="Build" />
+      <Output TaskParameter="Revision" PropertyName="Revision" />
+    </Version>
+    <AssemblyInfo CodeLanguage="CS" OutputFile="Properties\VersionInfo.cs" AssemblyVersion="$(Major).$(Minor).$(Build).$(Revision)" AssemblyFileVersion="$(Major).$(Minor).$(Build).$(Revision)" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
