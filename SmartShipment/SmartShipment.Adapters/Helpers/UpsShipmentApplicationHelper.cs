@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Automation;
-using System.Windows.Forms.VisualStyles;
 using SmartShipment.Adapters.Cache;
 using SmartShipment.Adapters.Common;
 using SmartShipment.Adapters.Map;

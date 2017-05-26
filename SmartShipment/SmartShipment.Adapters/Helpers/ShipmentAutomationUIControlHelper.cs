@@ -42,7 +42,7 @@ namespace SmartShipment.Adapters.Helpers
                     var els = element.FindAll(TreeScope.Children, new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.Button)).Cast<AutomationElement>().ToList();
                     if (els.Any())
                     {
-                        els.First().GetInvokePattern().Invoke();
+                        els.Last().GetInvokePattern().Invoke();
                     }
                 }
             }

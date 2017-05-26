@@ -37,15 +37,11 @@ namespace SmartShipment.Adapters.Control
             }
 
             Value = value.Trim();
-            if (IsClearMask)
-            {
-                Value = ClearForMaskedInput(Value, MaxLength);
-            }
-
+            
             try
             {
                 var delayCount = 100;
-                while (delayCount > 0 && string.IsNullOrEmpty(GetCurrentValue()) || !ValidateFunc.Invoke(GetCurrentValue()))                          
+                while (delayCount > 0 && (string.IsNullOrEmpty(GetCurrentValue()) || !ValidateFunc.Invoke(GetCurrentValue())))                          
                 {
                     SetControlValue();                    
                     delayCount--;
@@ -79,6 +75,9 @@ namespace SmartShipment.Adapters.Control
 
         protected static string ClearForMaskedInput(string value, int maxLength = 10)
         {
+            if (maxLength == 0)
+                maxLength = 10;
+
             if (!string.IsNullOrEmpty(value))
             {
                 var clearedValue = Regex.Replace(value, @"\W+", "");

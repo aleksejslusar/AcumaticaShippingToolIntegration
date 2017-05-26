@@ -116,8 +116,12 @@ namespace SmartShipment.Adapters.Helpers
             {
                 _fedexShipManagerMap.PostalCode.IsClearMask = true;
                 _fedexShipManagerMap.PostalCode.MaxLength = 9;
+            }
+
+            if (shipment.Contact.Address.Country.Value == "US" || shipment.Contact.Address.Country.Value == "CA")
+            { 
                 _fedexShipManagerMap.Telephone.IsClearMask = true;
-                _fedexShipManagerMap.Telephone.MaxLength = 10; //DO NOT CHANGE                    
+                _fedexShipManagerMap.Telephone.MaxLength = 10;
             }
         }
 

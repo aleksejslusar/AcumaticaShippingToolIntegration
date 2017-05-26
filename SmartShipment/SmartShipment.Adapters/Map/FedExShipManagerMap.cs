@@ -151,6 +151,8 @@ namespace SmartShipment.Adapters.Map
                 ShipmentDataType = ShipmentDataType.Shipment,
                 ValidateFunc = s => Regex.Replace(s, @"\W+", "") == Telephone.Value,
                 IsTypedInputRequired = true,
+                IsClearMask = true,
+                MaxLength = 15,
                 Order = 9
             };            
 

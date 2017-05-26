@@ -12,6 +12,11 @@ namespace SmartShipment.Adapters.Control
 
         protected override void SetControlValue()
         {
+            if (IsClearMask)
+            {
+                Value = ClearForMaskedInput(Value, MaxLength);
+            }
+
             if (MaxLength > 0 && Value.Length > MaxLength)
             {
                 Value = Value.Substring(0, MaxLength);
