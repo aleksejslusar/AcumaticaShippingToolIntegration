@@ -25,7 +25,6 @@ namespace SmartShipment.UI.Presenters
             {
                 if (!_settings.Validate())
                 {
-                    _settings.Reload();
                     _messagesProvider.Warn(InformationResources.WARN_PARAMETERS_ARE_NOT_SAVED);
                     View.Form.DialogResult = DialogResult.None;
                 }
