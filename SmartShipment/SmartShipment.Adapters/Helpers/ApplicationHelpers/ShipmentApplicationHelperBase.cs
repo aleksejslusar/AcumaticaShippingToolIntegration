@@ -7,10 +7,11 @@ using SmartShipment.Adapters.Common;
 using SmartShipment.Adapters.Control;
 using SmartShipment.Adapters.Map;
 using SmartShipment.AutomationUI.Win32Api;
+using SmartShipment.Information;
 using SmartShipment.Information.Properties;
 using Timer = System.Timers.Timer;
 
-namespace SmartShipment.Adapters.Helpers
+namespace SmartShipment.Adapters.Helpers.ApplicationHelpers
 {
     public class ShipmentApplicationHelperBase
     {
@@ -86,9 +87,35 @@ namespace SmartShipment.Adapters.Helpers
 
         protected void StartTimer(ShipmentAutomationMapBase automationMap)
         {
-            Timer = new Timer {Interval = 100, AutoReset = true};
+            IsWarnDialogFired = false;
+            Timer = new Timer {Interval = 70, AutoReset = true};
             Timer.Elapsed += (sender, args) => OnTimerElapsed(automationMap);
             Timer.Start();
+        }
+
+        protected bool CheckShipmentProgrammWarnings(ISmartShipmentMessagesProvider messagesProvider)
+        {
+            if (IsWarnDialogFired)
+            {
+                StopTimer();
+                messagesProvider.Warn(InformationResources._WARN_INCORRECT_DATA_AND_DIALOGS);
+                return true;
+            }
+            return false;
+        }
+
+        protected bool CheckShipmentFieldsFilled(List<ShipmentAutomationControl> requiredShipmentPanes, ISmartShipmentMessagesProvider messagesProvider)
+        {
+            var notValidFields = CheckRequiredFieldsFilled(requiredShipmentPanes);
+            if (!notValidFields.Any())
+            {                
+                return true;                
+            }
+            else
+            {
+                messagesProvider.Warn(string.Format(InformationResources.WARN_NOT_ALL_FIELDS_FILLED, string.Join(", ", notValidFields.Select(c => c.Name))));
+                return false;
+            }
         }
     }
 }

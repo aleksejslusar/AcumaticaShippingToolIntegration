@@ -4,6 +4,7 @@ using SmartShipment.Adapters;
 using SmartShipment.Adapters.Cache;
 using SmartShipment.Adapters.Common;
 using SmartShipment.Adapters.Helpers;
+using SmartShipment.Adapters.Helpers.ApplicationHelpers;
 using SmartShipment.AutomationUI.Browser;
 using SmartShipment.Information;
 using SmartShipment.Information.Logger;

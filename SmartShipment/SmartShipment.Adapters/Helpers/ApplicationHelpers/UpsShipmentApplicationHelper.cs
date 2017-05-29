@@ -11,11 +11,10 @@ using SmartShipment.Information.Properties;
 using SmartShipment.Network.Mapping;
 using SmartShipment.Settings;
 
-
 // ReSharper disable InconsistentNaming
 #pragma warning disable 169
 
-namespace SmartShipment.Adapters.Helpers
+namespace SmartShipment.Adapters.Helpers.ApplicationHelpers
 {
     public class UpsShipmentApplicationHelper : ShipmentApplicationHelperBase, IShipmentApplicationHelper
     {
@@ -89,30 +88,25 @@ namespace SmartShipment.Adapters.Helpers
 
             try
             {
-                SendShipmentData(shipment);
-                IsWarnDialogFired = false;
+                //Shipment informaiton
+                SendShipmentData(shipment);                
                 Wait(1);
-                var notValidFields = CheckRequiredFieldsFilled(_upsManagerMap.RequiredShipmentPane);
-                if (!notValidFields.Any())
+                if (CheckShipmentProgrammWarnings(_messagesProvider)) return;
+
+                //Package informaiton
+                if (CheckShipmentFieldsFilled(_upsManagerMap.RequiredShipmentPane, _messagesProvider))
                 {
                     _messagesProvider.Log(InformationResources.INFO_UPS_FILL_SHIPMENT_DATA);
-                    AddPackagesData(shipment);
+                    SendPackagesData(shipment);
                 }
-                else
-                {
-                    _messagesProvider.Warn(string.Format(InformationResources.WARN_NOT_ALL_FIELDS_FILLED,
-                        string.Join(", ", notValidFields.Select(c => c.Name))));
-                }
+                
             }
             finally
             {
                 StopTimer();
             }
 
-            if (IsWarnDialogFired)
-            {
-                _messagesProvider.Warn(InformationResources._WARN_INCORRECT_DATA_AND_DIALOGS);
-            }
+            CheckShipmentProgrammWarnings(_messagesProvider);
         }
 
         #endregion
@@ -149,7 +143,7 @@ namespace SmartShipment.Adapters.Helpers
                 _upsManagerMap.PostalCodePane.IsClearMask = true;
                 _upsManagerMap.PostalCodePane.MaxLength = 9;
                 _upsManagerMap.TelephonePane.IsClearMask = true;
-                _upsManagerMap.TelephonePane.MaxLength = 10; //DO NOT CHANGE
+                _upsManagerMap.TelephonePane.MaxLength = 10; 
                 _upsManagerMap.TelephonePane.IsTypedInputRequired = true;
                 _upsManagerMap.TelephonePane.IsCharInputRequired = false;
             }
@@ -157,12 +151,13 @@ namespace SmartShipment.Adapters.Helpers
             {
                 _upsManagerMap.PostalCodePane.IsClearMask = false;
                 _upsManagerMap.TelephonePane.IsClearMask = false;
+                _upsManagerMap.TelephonePane.MaxLength = 15; 
                 _upsManagerMap.TelephonePane.IsTypedInputRequired = false;
                 _upsManagerMap.TelephonePane.IsCharInputRequired = true;
             }
         }
 
-        private void AddPackagesData(ShipmentMapper shipment)
+        private void SendPackagesData(ShipmentMapper shipment)
         {
             if (!shipment.Packages.Any())
             {

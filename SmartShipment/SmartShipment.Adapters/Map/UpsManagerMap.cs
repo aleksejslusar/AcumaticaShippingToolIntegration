@@ -175,12 +175,11 @@ namespace SmartShipment.Adapters.Map
                 DataFieldName = nameof(ShipmentContact.Phone1),
                 ShipmentDataType = ShipmentDataType.Shipment,
                 ValidateFunc = s =>
-
                 {
                     if (TelephonePane.IsClearMask)
-                                        {
-                                            return Regex.Replace(s, @"\W+", "") == TelephonePane.Value;
-                                        }
+                    {
+                        return Regex.Replace(s, @"\W+", "") == TelephonePane.Value;
+                    }
                     return s == TelephonePane.Value;
                 },
                 IsCharInputRequired = true,    

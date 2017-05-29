@@ -2,15 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading;
 using System.Windows.Automation;
 using SmartShipment.Adapters.Common;
 using SmartShipment.Adapters.Control;
 using SmartShipment.Information;
 using SmartShipment.Information.Exceptions;
 using SmartShipment.Information.Properties;
-using SmartShipment.Network.AcumaticaSoapService;
 using SmartShipment.Network.Mapping;
 
 namespace SmartShipment.Adapters.Map

@@ -2,14 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using Microsoft.Test.Input;
 using SmartShipment.Adapters.Common;
 using SmartShipment.Adapters.Control;
 using SmartShipment.AutomationUI.Win32Api;
 
-namespace SmartShipment.Adapters.Helpers
+namespace SmartShipment.Adapters.Helpers.ControlHelpers
 {
-    public class ShipmentWinApiControlHelper : ShipmentAutomationControlHelperBase, IShipmentAutomationControlHelper
+    public class ShipmentWinApiControlHelper : ShipmentAutomationControlHelperBase
     {
         public override void Text(IShipmentAutomationControl control, string text)
         {            
@@ -24,6 +25,7 @@ namespace SmartShipment.Adapters.Helpers
             if (control.IsCharInputRequired)
             {
                 control.AutomationElement.SetFocus();
+                Thread.Sleep(500);
                 Win32ApiHelper.SendChars(control.NativeHwnd, text, 50);
                 Keyboard.Type(Key.Enter);
                 return;

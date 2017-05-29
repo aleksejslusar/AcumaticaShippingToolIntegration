@@ -1,19 +1,20 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Timers;
 using System.Windows.Automation;
 using SmartShipment.Adapters.Cache;
 using SmartShipment.Adapters.Common;
+using SmartShipment.Adapters.Control;
+using SmartShipment.Adapters.Helpers.ControlHelpers;
 using SmartShipment.Adapters.Map;
 using SmartShipment.AutomationUI.UIAutomation;
 using SmartShipment.Information;
 using SmartShipment.Information.Properties;
 using SmartShipment.Network.Mapping;
 using SmartShipment.Settings;
-using Timer = System.Timers.Timer;
 
-namespace SmartShipment.Adapters.Helpers
+namespace SmartShipment.Adapters.Helpers.ApplicationHelpers
 {
     public class FedexShipmentApplicationHelper : ShipmentApplicationHelperBase, IShipmentApplicationHelper
     {
@@ -77,23 +78,22 @@ namespace SmartShipment.Adapters.Helpers
 
             try
             {
+                //Shipment informaiton
                 PrepareControlsBeforeWorkflow(shipment);
-
                 SendShipmentData(shipment);
                 Wait(1);
+                if (CheckShipmentProgrammWarnings(_messagesProvider)) return;
 
+                //Shipment informaiton - email
                 SetEmail(shipment);
                 Wait(1);
+                if (CheckShipmentProgrammWarnings(_messagesProvider)) return;
 
-                var notValidFields = CheckRequiredFieldsFilled(_fedexShipManagerMap.RequiredShipmentPane);
-                if (!notValidFields.Any())
+                //Package informaiton
+                if (CheckShipmentFieldsFilled(_fedexShipManagerMap.RequiredShipmentPane, _messagesProvider))
                 {
                     _messagesProvider.Log(InformationResources.INFO_FEDEX_FILL_SHIPMENT_DATA);
                     SendPackagesData(shipment);
-                }
-                else
-                {
-                    _messagesProvider.Warn(string.Format(InformationResources.WARN_NOT_ALL_FIELDS_FILLED, string.Join(", ", notValidFields.Select(c => c.Name))));
                 }
             }
             finally
@@ -101,10 +101,7 @@ namespace SmartShipment.Adapters.Helpers
                StopTimer();
             }
 
-            if (IsWarnDialogFired)
-            {
-                _messagesProvider.Warn(InformationResources._WARN_INCORRECT_DATA_AND_DIALOGS);
-            }
+            CheckShipmentProgrammWarnings(_messagesProvider);
 
         }
 

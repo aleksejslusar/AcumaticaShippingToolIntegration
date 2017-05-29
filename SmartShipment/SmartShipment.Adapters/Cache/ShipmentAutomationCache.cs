@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Automation;
 using SmartShipment.Adapters.Helpers;
+using SmartShipment.Adapters.Helpers.ControlHelpers;
 using SmartShipment.Adapters.Map;
 using SmartShipment.Information;
 using SmartShipment.Information.Properties;
