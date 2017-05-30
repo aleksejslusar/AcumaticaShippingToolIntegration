@@ -45,7 +45,7 @@ namespace SmartShipment.Adapters.Control
                 {
                     SetControlValue();                    
                     delayCount--;
-                    Thread.Sleep(100);
+                    Thread.Sleep(delayCount == 99 ? 100 : 1000);
                 }
             }
             catch (Exception e)

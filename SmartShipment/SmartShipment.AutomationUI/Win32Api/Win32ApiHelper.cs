@@ -112,12 +112,12 @@ namespace SmartShipment.AutomationUI.Win32Api
         public static void SendChars(IntPtr hControl, string s, int sleep = 0)
         {
             foreach (var c in s.ToCharArray())
-            {
-                SendChar(hControl, c);
+            {                
                 if (sleep > 0)
                 {
                     Thread.Sleep(sleep);
                 }
+                SendChar(hControl, c);
             }
         }
 

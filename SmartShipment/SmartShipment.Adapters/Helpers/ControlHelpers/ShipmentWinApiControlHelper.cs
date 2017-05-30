@@ -23,10 +23,11 @@ namespace SmartShipment.Adapters.Helpers.ControlHelpers
             }
 
             if (control.IsCharInputRequired)
-            {
+            {                
                 control.AutomationElement.SetFocus();
-                Thread.Sleep(500);
-                Win32ApiHelper.SendChars(control.NativeHwnd, text, 50);
+                Thread.Sleep(1000);
+                Keyboard.Type(Key.Back);
+                Win32ApiHelper.SendChars(control.NativeHwnd, text, 70);
                 Keyboard.Type(Key.Enter);
                 return;
             }            
