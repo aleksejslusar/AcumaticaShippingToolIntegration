@@ -40,12 +40,12 @@ namespace SmartShipment.Adapters.Control
             
             try
             {
-                var delayCount = 100;
+                var delayCount = 5;
                 while (delayCount > 0 && (string.IsNullOrEmpty(GetCurrentValue()) || !ValidateFunc.Invoke(GetCurrentValue())))                          
                 {
                     SetControlValue();                    
                     delayCount--;
-                    Thread.Sleep(delayCount == 99 ? 100 : 1000);
+                    Thread.Sleep(delayCount == 4 ? 100 : 1000);
                 }
             }
             catch (Exception e)

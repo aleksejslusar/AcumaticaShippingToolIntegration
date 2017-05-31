@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows.Automation;
 using Microsoft.Test.Input;
 using SmartShipment.Adapters.Common;
@@ -79,23 +80,31 @@ namespace SmartShipment.Adapters.Helpers.ControlHelpers
 
         public override string Selection(IShipmentAutomationControl control)
         {
-            //Combobox
-            if (control.AutomationElement.GetSupportedPatterns().Any(p => p.ProgrammaticName == ValuePattern.Pattern.ProgrammaticName))
+            try
             {
-                return control.AutomationElement.GetValue();
-            }
+                //Combobox
+                if (control.AutomationElement.GetSupportedPatterns().Any(p => p.ProgrammaticName == ValuePattern.Pattern.ProgrammaticName))
+                {
+                    return control.AutomationElement.GetValue();
+                }
 
-            //Listbox
-            var comboboxList = control.AutomationElement.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.List));
-            var comboboxItems = comboboxList.FindAll(TreeScope.Children, new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.ListItem));
-            if (comboboxItems.Count >  0)
+                //Listbox
+                var comboboxList = control.AutomationElement.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.List));
+                var comboboxItems = comboboxList.FindAll(TreeScope.Children, new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.ListItem));
+                if (comboboxItems.Count > 0)
+                {
+                    return (from AutomationElement comboboxItem in comboboxItems
+                            where comboboxItem.GetSelectionItemPattern().Current.IsSelected
+                            select comboboxItem.Current.Name).FirstOrDefault();
+                }
+
+                return null;
+
+            }
+            catch (Exception)
             {
-                return (from AutomationElement comboboxItem in comboboxItems
-                        where comboboxItem.GetSelectionItemPattern().Current.IsSelected
-                        select comboboxItem.Current.Name).FirstOrDefault();
-            }
-
-            return null;
+                return null;
+            }            
         }
 
         public override void Checked(IShipmentAutomationControl control, bool value)

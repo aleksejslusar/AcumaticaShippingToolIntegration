@@ -78,6 +78,7 @@ namespace SmartShipment.Network.Export
                     if (package != null)
                     {
                         package.TrackingNumber.Value = sourcePackage.TrackingNumber.Value;
+                        package.Weight.Value = sourcePackage.Weight.Value;
                         package.Confirmed.Value = sourcePackage.Confirmed.Value;
                         newPackages.Add(package);
                     }
