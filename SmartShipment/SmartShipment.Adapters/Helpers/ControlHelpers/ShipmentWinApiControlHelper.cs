@@ -42,14 +42,21 @@ namespace SmartShipment.Adapters.Helpers.ControlHelpers
 
         public override string Text(IShipmentAutomationControl control)
         {
-            var length = Win32ApiHelper.SendMessage(control.NativeHwnd, Win32ApiHelper.WM_GETTEXTLENGTH, 0, 0);
-            if (length > 0)
+            try
             {
-                var text = new StringBuilder(length + 1);
-                Win32ApiHelper.SendMessage(control.NativeHwnd, Win32ApiHelper.WM_GETTEXT, text.Capacity, text);
-                return text.ToString();
+                var length = Win32ApiHelper.SendMessage(control.NativeHwnd, Win32ApiHelper.WM_GETTEXTLENGTH, 0, 0);
+                if (length > 0)
+                {
+                    var text = new StringBuilder(length + 1);
+                    Win32ApiHelper.SendMessage(control.NativeHwnd, Win32ApiHelper.WM_GETTEXT, text.Capacity, text);
+                    return text.ToString();
+                }
+                return null;
             }
-            return null;
+            catch (Exception)
+            {
+                return null;
+            }                      
         }
 
         public override void Selection(IShipmentAutomationControl control, string text)
@@ -80,16 +87,23 @@ namespace SmartShipment.Adapters.Helpers.ControlHelpers
 
         public override string Selection(IShipmentAutomationControl control)
         {
-            
-            var index = Win32ApiHelper.SendRefMessage(control.NativeHwnd, Win32ApiHelper.CB_GETCURSEL, 0, null).ToInt32();
-            if (index > 1)
+            try
             {
-                var ssb = new StringBuilder(256, 256);
-                Win32ApiHelper.SendRefMessage(control.NativeHwnd, Win32ApiHelper.CB_GETLBTEXT, index, ssb);
-                return ssb.ToString();
-            }
+                var index = Win32ApiHelper.SendRefMessage(control.NativeHwnd, Win32ApiHelper.CB_GETCURSEL, 0, null).ToInt32();
+                if (index > 1)
+                {
+                    var ssb = new StringBuilder(256, 256);
+                    Win32ApiHelper.SendRefMessage(control.NativeHwnd, Win32ApiHelper.CB_GETLBTEXT, index, ssb);
+                    return ssb.ToString();
+                }
 
-            return Text(control);
+                return Text(control);
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
+            
         }
 
         public override void Checked(IShipmentAutomationControl control, bool value)
@@ -111,8 +125,15 @@ namespace SmartShipment.Adapters.Helpers.ControlHelpers
 
         public override bool Checked(IShipmentAutomationControl control)
         {
-            var state = Win32ApiHelper.SendMessage(control.NativeHwnd, Win32ApiHelper.BM_GETCHECK, 0, IntPtr.Zero);
-            return  state == new IntPtr(Win32ApiHelper.BST_CHECKED);
+            try
+            {
+                var state = Win32ApiHelper.SendMessage(control.NativeHwnd, Win32ApiHelper.BM_GETCHECK, 0, IntPtr.Zero);
+                return state == new IntPtr(Win32ApiHelper.BST_CHECKED);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public override void Click(IShipmentAutomationButton control)

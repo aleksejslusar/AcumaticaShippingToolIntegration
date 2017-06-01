@@ -35,7 +35,15 @@ namespace SmartShipment.Adapters.Helpers.ControlHelpers
 
         public override string Text(IShipmentAutomationControl control)
         {
-            return control.AutomationElement.GetValue();
+            try
+            {
+                return control.AutomationElement.GetValue();
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
 
         public override void Selection(IShipmentAutomationControl control, string text)
@@ -126,7 +134,14 @@ namespace SmartShipment.Adapters.Helpers.ControlHelpers
 
         public override bool Checked(IShipmentAutomationControl control)
         {
-            return control.AutomationElement.GetTogglePattern().Current.ToggleState == ToggleState.On;
+            try
+            {
+                return control.AutomationElement.GetTogglePattern().Current.ToggleState == ToggleState.On;
+            }
+            catch (Exception)
+            {
+                return false;
+            }            
         }
 
         public override void Click(IShipmentAutomationButton control)
