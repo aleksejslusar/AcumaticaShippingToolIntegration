@@ -58,9 +58,21 @@ namespace SmartShipment.UI.FileWatcher
                 rawShipmentData.Add(stringArray.RawShipmentRowToString());
             }
 
-            if (rawShipmentData.Any())
+            // Fedex Ship Manager create rows in export file for each ship operation.
+            // When user make ship, but not delete this one, and then shipped again - as result in export file stay rows which will never be processed.
+            // Here we clear file from duplicated shipment rows and use only last export result.
+            var clearedRawData = rawShipmentData.Select(r => r.StringToRawShipmentRow())
+                                                .GroupBy(r => r[0])
+                                                .ToDictionary(s => s.Key, s => s.GroupBy(e => e[2]).LastOrDefault())
+                                                .ToDictionary(s => s.Key, s => s.Value)
+                                                .SelectMany(c => c.Value)
+                                                .Select(c => c.RawShipmentRowToString())
+                                                .ToList();
+
+
+            if (clearedRawData.Any())
             {
-                consistentFileData.AddRange(rawShipmentData);
+                consistentFileData.AddRange(clearedRawData);
             }
 
             File.WriteAllLines(fileName, consistentFileData);
