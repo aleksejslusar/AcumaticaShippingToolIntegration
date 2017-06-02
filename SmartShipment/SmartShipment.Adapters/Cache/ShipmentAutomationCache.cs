@@ -51,9 +51,9 @@ namespace SmartShipment.Adapters.Cache
                     applicationHelper = new FedExShipAlertTabMap(new ShipmentAutomationUIControlHelper(), rootAutomationElement, _messagesProvider);
                     Set(ShipmentApplicaotinHelperType.FedExShipAlertTabMap, (ShipmentAutomationMapBase)applicationHelper);
                     break;
-                case ShipmentApplicaotinHelperType.FedExShipMahagerShellMap:
+                case ShipmentApplicaotinHelperType.FedExShipManagerShellMap:
                     applicationHelper = new FedExShipMahagerShellMap(new ShipmentAutomationUIControlHelper(), rootAutomationElement, _messagesProvider);
-                    Set(ShipmentApplicaotinHelperType.FedExShipMahagerShellMap, (ShipmentAutomationMapBase)applicationHelper);
+                    Set(ShipmentApplicaotinHelperType.FedExShipManagerShellMap, (ShipmentAutomationMapBase)applicationHelper);
                     break;
                 case ShipmentApplicaotinHelperType.UpsManagerShellMap:
                     applicationHelper = new UpsManagerShellMap(new ShipmentWinApiControlHelper(), rootAutomationElement, _messagesProvider);
@@ -80,7 +80,7 @@ namespace SmartShipment.Adapters.Cache
         FedExMultiPieceShipmentMap = 1,
         UpsManagerMap = 3,
         FedExShipAlertTabMap = 4,
-        FedExShipMahagerShellMap = 5,
+        FedExShipManagerShellMap = 5,
         UpsManagerShellMap = 6
     }
 }

@@ -55,7 +55,7 @@ namespace SmartShipment.Adapters.Helpers.ApplicationHelpers
         public bool PopulateApplicaitonControlMap()
         {
             //Try set UI for input shipment           
-            _fedExShipMahagerShellMap =  (FedExShipMahagerShellMap)_cache.Get(ShipmentApplicaotinHelperType.FedExShipMahagerShellMap, _mainWindow);
+            _fedExShipMahagerShellMap =  (FedExShipMahagerShellMap)_cache.Get(ShipmentApplicaotinHelperType.FedExShipManagerShellMap, _mainWindow);
             _fedExShipMahagerShellMap.ClearUIForStartInput();
 
             //Find and map UI controls
