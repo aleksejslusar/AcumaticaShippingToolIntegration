@@ -102,7 +102,10 @@ namespace SmartShipment.UI.SingleInstance
 
         private void ProcessShipmentBackground(string args)
         {
-            if (string.IsNullOrEmpty(args)) return;
+            //Custom protocol parameters:
+            //acumaticashippingtoolintegration:000021@UPS;
+
+            if (string.IsNullOrEmpty(args) || !args.Contains("acumaticashippingtoolintegration")) return;
 
             var argsArray = args.Split(':', '@');
             var shipmentNbrParam = argsArray.Length >= 2 ? argsArray[1] : null;
