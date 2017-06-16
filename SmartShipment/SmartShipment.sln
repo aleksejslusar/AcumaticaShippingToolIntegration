@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartShipment.Settings", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartShipment.AutomationUI", "SmartShipment.AutomationUI\SmartShipment.AutomationUI.csproj", "{4B8E3275-3B7A-4CB9-9901-6FE5507C0254}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartShipment.Information", "SmartShipments.Exeptions\SmartShipment.Information.csproj", "{CDB63580-2BA7-4826-9ABD-71F13AB14D28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartShipment.Information", "SmartShipments.Information\SmartShipment.Information.csproj", "{CDB63580-2BA7-4826-9ABD-71F13AB14D28}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SmartShipment.Setup", "SmartShipment.Setup\SmartShipment.Setup.vdproj", "{FF0E65D5-0915-4373-9511-91D218C0E68B}"
 EndProject

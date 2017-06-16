@@ -104,7 +104,7 @@
       <Project>{672DFAF6-683D-4917-A90C-B3A30D00723C}</Project>
       <Name>SmartShipment.Settings</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SmartShipments.Exeptions\SmartShipment.Information.csproj">
+    <ProjectReference Include="..\SmartShipments.Information\SmartShipment.Information.csproj">
       <Project>{CDB63580-2BA7-4826-9ABD-71F13AB14D28}</Project>
       <Name>SmartShipment.Information</Name>
     </ProjectReference>

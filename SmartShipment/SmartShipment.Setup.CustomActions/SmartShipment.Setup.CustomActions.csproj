@@ -45,7 +45,6 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
@@ -68,10 +67,6 @@
     <ProjectReference Include="..\SmartShipment.Settings\SmartShipment.Settings.csproj">
       <Project>{672DFAF6-683D-4917-A90C-B3A30D00723C}</Project>
       <Name>SmartShipment.Settings</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SmartShipments.Exeptions\SmartShipment.Information.csproj">
-      <Project>{CDB63580-2BA7-4826-9ABD-71F13AB14D28}</Project>
-      <Name>SmartShipment.Information</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

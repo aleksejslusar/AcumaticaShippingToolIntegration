@@ -2,9 +2,25 @@ bin
 obj
 .vs
 *.user
-packages
 Express
 *.DotSettings
 Debug
+Release
 version.txt
 VersionInfo.cs
+
+# Ignore NuGet Packages
+*.nupkg
+
+# Ignore the packages folder
+**/packages/*
+
+# except build/, which is used as an MSBuild target.
+!**/packages/build/
+
+# Uncomment if necessary; generally it will be regenerated when needed
+#!**/packages/repositories.config
+
+# Ignore other intermediate files that NuGet might create
+project.lock.json
+*.nuget.props

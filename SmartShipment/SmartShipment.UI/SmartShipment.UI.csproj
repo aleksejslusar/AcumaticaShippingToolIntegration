@@ -51,8 +51,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LightInject, Version=5.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\LightInject.5.0.2\lib\net45\LightInject.dll</HintPath>
+    <Reference Include="LightInject, Version=5.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightInject.5.0.3\lib\net45\LightInject.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
@@ -133,9 +133,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Properties\version.txt" />
     <Content Include="Resources\FedEx_Logo_gray.jpg" />
     <Content Include="Resources\tr-base-fedex_l.png" />
@@ -165,7 +162,7 @@
       <Project>{672DFAF6-683D-4917-A90C-B3A30D00723C}</Project>
       <Name>SmartShipment.Settings</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SmartShipments.Exeptions\SmartShipment.Information.csproj">
+    <ProjectReference Include="..\SmartShipments.Information\SmartShipment.Information.csproj">
       <Project>{cdb63580-2ba7-4826-9abd-71f13ab14d28}</Project>
       <Name>SmartShipment.Information</Name>
     </ProjectReference>
