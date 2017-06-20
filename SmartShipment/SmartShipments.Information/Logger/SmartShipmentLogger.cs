@@ -1,5 +1,3 @@
-using System;
-using System.IO;
 using NLog;
 using NLog.Config;
 using NLog.Targets;
@@ -9,7 +7,6 @@ namespace SmartShipment.Information.Logger
     public class SmartShipmentLogger : ILogger
     {
         private NLog.Logger _logger;
-        private const string APPLICATION_BASE_PATH = "Sprinterra\\Acumatica Shipping Tool Integration\\Logs";
         public SmartShipmentLogger()
         {
             Init();

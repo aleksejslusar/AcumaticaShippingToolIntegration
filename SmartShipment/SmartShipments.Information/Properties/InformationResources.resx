@@ -270,4 +270,10 @@ This can be caused by incorrect data or the inability to insert data in automati
   <data name="WARN_PARAMETERS_ARE_NOT_SAVED" xml:space="preserve">
     <value>Required setting value(s) cannot be empty. Changes rejected. Fill in the all required setting values and click  &lt;Save&gt; to continue.</value>
   </data>
+  <data name="Warn_Invalid_credentials_or_URL_string" xml:space="preserve">
+    <value>Invalid credentials or URL string</value>
+  </data>
+  <data name="Warn_Acumatica_Internal_Error_Message" xml:space="preserve">
+    <value>Acumatica internal error. See log for more information.</value>
+  </data>
 </root>

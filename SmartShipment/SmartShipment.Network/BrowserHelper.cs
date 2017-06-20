@@ -20,7 +20,6 @@ namespace SmartShipment.Network
         [DllImport("user32.dll")]
         private static extern IntPtr GetWindow(IntPtr hWnd, uint uCmd);
         const uint GW_HWNDPREV = 3;
-        const uint GW_HWNDLAST = 1;
 
         static int GetZOrder(IntPtr hWnd)
         {
@@ -62,7 +61,7 @@ namespace SmartShipment.Network
                 }
                 catch (NetworkActiveUriNotFoundException)
                 {
-                    // Do nothing  - just not reaload browser
+                    //Just do nothing, not reload browser
                 }
             }
         }

@@ -4,18 +4,16 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
 {
     public class SetupCustomActions
     {
-        private readonly ISetupLogger _logger;
         private readonly SettingsSetupHelper _settingsHelper;
         private readonly UpsSetupHelper _upsHelper;
         private readonly FedexSetupHelper _fedexHelper;
 
         public SetupCustomActions(ISetupLogger logger)
         {
-            _logger = logger;
             var settingsProviderHelper = new SmartShipmentsSettingsHelper();
-            _settingsHelper = new SettingsSetupHelper(settingsProviderHelper, _logger);
-            _upsHelper = new UpsSetupHelper(settingsProviderHelper, _logger);
-            _fedexHelper = new FedexSetupHelper(settingsProviderHelper, _logger);
+            _settingsHelper = new SettingsSetupHelper(settingsProviderHelper, logger);
+            _upsHelper = new UpsSetupHelper(settingsProviderHelper, logger);
+            _fedexHelper = new FedexSetupHelper(settingsProviderHelper, logger);
         }
 
         public bool InstallSettings()

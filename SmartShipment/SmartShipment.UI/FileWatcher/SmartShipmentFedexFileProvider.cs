@@ -5,7 +5,6 @@ using SmartShipment.Adapters.Common;
 using SmartShipment.Information;
 using SmartShipment.Network.Common;
 using SmartShipment.Network.Export;
-using SmartShipment.Settings;
 using SmartShipment.UI.Common;
 using SmartShipment.UI.FileWatcher.Common;
 
@@ -15,10 +14,9 @@ namespace SmartShipment.UI.FileWatcher
     {
         private const string PROCESSED_ROWS_MARKER = "\"*\"";
         private const string NOT_PROCESSED_ROWS_MARKER = "\"\"";
-        private const string DELETED_ROWS_MARKER = "\"Y\"";
         private const int RAW_SHIPMENT_ROW_LENGTH = 8;
 
-        public SmartShipmentFedexFileProvider(IApplicationController applicationController, ISmartShipmentMessagesProvider messagesProvider, ISettings settings, ISmartShipmentExportContext exportContext): base(messagesProvider, exportContext)
+        public SmartShipmentFedexFileProvider(IApplicationController applicationController, ISmartShipmentMessagesProvider messagesProvider, ISmartShipmentExportContext exportContext): base(messagesProvider, exportContext)
         {
             ExportParameterParser = applicationController.GetContainer().Resolve<ISmartShipmentExportParametersParser>(ApplicationTypes.FedExShipmentManager.ToString());
         }

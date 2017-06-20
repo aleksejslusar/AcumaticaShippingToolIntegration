@@ -8,19 +8,21 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
     public class FedexSetupHelper
     {
         private readonly ISmartShipmentsSettingsHelper _settingsProviderHelper;
-        private readonly ISetupLogger _logger;
+        private readonly ISetupLogger _logger;        
 
         public FedexSetupHelper(ISmartShipmentsSettingsHelper settingsProviderHelper, ISetupLogger logger)
         {
             _settingsProviderHelper = settingsProviderHelper;
-            _logger = logger;
+            _logger = logger;           
         }
 
-        private const string FEDEX_CONFIG_FILE = "C:\\ProgramData\\FedEx\\Integration\\Configurations\\FXIAnetConfig.xml";
+        
+
+        private const string FEDEX_CONFIG_FILE = "FedEx\\Integration\\Configurations\\FXIAnetConfig.xml";
         private const string FEDEX_PROFILE_FILE_NAME = "FEDEXOUT.xml";
         private const string FEDEX_EXPORT_FILE_NAME = "FEDEXOUT.txt";
         private const string FEDEX_APPLICATION_PROFILE_PATH = "Devices\\FEDEX";
-        private const string FEDEX_PROFILES_DIRECTORY = "C:\\ProgramData\\FedEx\\Integration\\Profiles";
+        private const string FEDEX_PROFILES_DIRECTORY = "FedEx\\Integration\\Profiles";
         private const string FEDEX_ACTIVE_PROFILE_NAME = "FEDEXOUT";
 
         public bool Install()
@@ -44,7 +46,7 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
         private void CopyFedexProfileFile()
         {
             var source = Path.Combine(_settingsProviderHelper.ApplicationBasePath, FEDEX_APPLICATION_PROFILE_PATH, FEDEX_PROFILE_FILE_NAME);
-            var target = Path.Combine(FEDEX_PROFILES_DIRECTORY, FEDEX_PROFILE_FILE_NAME);
+            var target = Path.Combine(_settingsProviderHelper.ProgramDataPath, FEDEX_PROFILES_DIRECTORY, FEDEX_PROFILE_FILE_NAME);
 
             if (File.Exists(source))
             {
@@ -53,14 +55,14 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
             }
             else
             {
-                _logger.Error("UPS Worldship: copy files error: file not found " + source);
+                _logger.Error("FedEx Ship Manager copy files error: file not found " + source);
                 throw new Exception();
             }
         }
 
         private void PatchProfileFile()
         {
-            var target = Path.Combine(FEDEX_PROFILES_DIRECTORY, FEDEX_PROFILE_FILE_NAME);
+            var target = Path.Combine(_settingsProviderHelper.ProgramDataPath, FEDEX_PROFILES_DIRECTORY, FEDEX_PROFILE_FILE_NAME);
             var valueToPatch = Path.Combine(_settingsProviderHelper.ApplicationBasePath, FEDEX_APPLICATION_PROFILE_PATH, FEDEX_EXPORT_FILE_NAME);
             var profile = new XmlDocument();
             profile.Load(target);
@@ -83,7 +85,7 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
 
         private void DeleteFedexProfileFile()
         {            
-            var target = Path.Combine(FEDEX_PROFILES_DIRECTORY, FEDEX_PROFILE_FILE_NAME);
+            var target = Path.Combine(_settingsProviderHelper.ProgramDataPath, FEDEX_PROFILES_DIRECTORY, FEDEX_PROFILE_FILE_NAME);
 
             if (File.Exists(target))
             {
@@ -100,7 +102,8 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
         private void SetFedexActiveProfile(string activeProfile)
         {
             var settings = new XmlDocument();
-            settings.Load(FEDEX_CONFIG_FILE);
+            var settingsPath = Path.Combine(_settingsProviderHelper.ProgramDataPath, FEDEX_CONFIG_FILE);
+            settings.Load(settingsPath);
             var appSettingsNode = settings.SelectSingleNode("configuration/appSettings");
 
             if (appSettingsNode != null)
@@ -115,7 +118,7 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
                 }
             }
 
-            settings.Save(FEDEX_CONFIG_FILE);
+            settings.Save(settingsPath);
             _logger.Info("FedEx Ship Manager: set active profile " + activeProfile);
         }
 

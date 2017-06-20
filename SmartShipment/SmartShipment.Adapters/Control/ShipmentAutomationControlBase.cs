@@ -1,7 +1,6 @@
 using System;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Windows.Automation;
 using SmartShipment.Adapters.Common;
 using SmartShipment.Information;
 

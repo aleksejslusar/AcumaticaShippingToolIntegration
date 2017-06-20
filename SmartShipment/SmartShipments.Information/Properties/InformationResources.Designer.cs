@@ -414,11 +414,29 @@ namespace SmartShipment.Information.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Acumatica internal error. See log for more information..
+        /// </summary>
+        public static string Warn_Acumatica_Internal_Error_Message {
+            get {
+                return ResourceManager.GetString("Warn_Acumatica_Internal_Error_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current Shipment screen is not empty. Before load data from Acumatica and create new Shipment, you should process current shipment or Undo changes/Clear fields..
         /// </summary>
         public static string WARN_CURRENT_SHIPMENT_SCREEN_ISNOT_EMPTY {
             get {
                 return ResourceManager.GetString("WARN_CURRENT_SHIPMENT_SCREEN_ISNOT_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid credentials or URL string.
+        /// </summary>
+        public static string Warn_Invalid_credentials_or_URL_string {
+            get {
+                return ResourceManager.GetString("Warn_Invalid_credentials_or_URL_string", resourceCulture);
             }
         }
         

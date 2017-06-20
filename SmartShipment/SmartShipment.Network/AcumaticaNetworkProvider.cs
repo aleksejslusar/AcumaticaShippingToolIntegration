@@ -73,8 +73,9 @@ namespace SmartShipment.Network
                 _webServiceHelper.UpdateShipments(shipments, smartShipmentExportContext);
             }
             catch (Exception e)
-            {
-                _messagesProvider.Error(new NetworkException(InformationResources.ERROR_SHIPMENTS_IS_NOT_UPDATED +  e.Message));
+            {                
+                _messagesProvider.Fatal(e);
+                _messagesProvider.Error(new NetworkException(InformationResources.ERROR_SHIPMENTS_IS_NOT_UPDATED + AcumaticaErrorMessageParcer.GetUserFriendlyMessage(e.Message)));                
             }
         }
 

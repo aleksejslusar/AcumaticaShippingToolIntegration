@@ -35,9 +35,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="AcumaticaNetworkProvider.cs" />
     <Compile Include="BrowserHelper.cs" />
+    <Compile Include="Common\AcumaticaErrorMessageParcer.cs" />
     <Compile Include="Common\IAcumaticaNetworkProvider.cs" />
     <Compile Include="Common\IBrowserHelper.cs" />
     <Compile Include="Common\IAcumaticaUriParser.cs" />
@@ -116,9 +117,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="packages.config" />
     <None Include="Service References\AcumaticaSoapService\6.wsdl" />
     <None Include="Service References\AcumaticaSoapService\SmartShipment.Network.AcumaticaSoapService.Entity.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>

@@ -56,12 +56,12 @@ namespace SmartShipment.Adapters.Map
 
         public void MapShipmentData(IEnumerable<IShipmentValue<string>> data)
         {
-            MapShipmentData(ShipmentAutomationControls, ShipmentDataType.Shipment, data, RootAutomationElement);
+            MapShipmentData(ShipmentAutomationControls, ShipmentDataType.Shipment, data);
         }
 
         public void MapPackageData(IEnumerable<IShipmentValue<string>> data)
         {
-            MapShipmentData(ShipmentAutomationControls, ShipmentDataType.Package, data, RootAutomationElement);
+            MapShipmentData(ShipmentAutomationControls, ShipmentDataType.Package, data);
         }
 
         public void CloseModalWindowsWait()
@@ -110,7 +110,7 @@ namespace SmartShipment.Adapters.Map
             }
         }
 
-        private void MapShipmentData<T>(IEnumerable<T> controlList, ShipmentDataType type, IEnumerable<IShipmentValue<string>> data, AutomationElement mainWindow) where T : ShipmentAutomationControl
+        private void MapShipmentData<T>(IEnumerable<T> controlList, ShipmentDataType type, IEnumerable<IShipmentValue<string>> data) where T : ShipmentAutomationControl
         {
             var shipmentValues = data as IList<IShipmentValue<string>> ?? data.ToList();
             foreach (var control in controlList.Where(c => c.ShipmentDataType == type 

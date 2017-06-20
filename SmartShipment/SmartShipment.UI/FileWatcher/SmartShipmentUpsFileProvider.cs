@@ -4,7 +4,6 @@ using SmartShipment.Adapters.Common;
 using SmartShipment.Information;
 using SmartShipment.Network.Common;
 using SmartShipment.Network.Export;
-using SmartShipment.Settings;
 using SmartShipment.UI.Common;
 using SmartShipment.UI.FileWatcher.Common;
 using File = System.IO.File;
@@ -13,7 +12,7 @@ namespace SmartShipment.UI.FileWatcher
 {
     public class SmartShipmentFileProvider : SmartShipmentFileProviderBase, ISmartShipmentFileProvider
     {
-        public SmartShipmentFileProvider(IApplicationController applicationController, ISmartShipmentMessagesProvider messagesProvider, ISettings settings, ISmartShipmentExportContext exportContext) : base(messagesProvider, exportContext)
+        public SmartShipmentFileProvider(IApplicationController applicationController, ISmartShipmentMessagesProvider messagesProvider, ISmartShipmentExportContext exportContext) : base(messagesProvider, exportContext)
         {
             ExportParameterParser = applicationController.GetContainer().Resolve<ISmartShipmentExportParametersParser>(ApplicationTypes.UpsWorldShip.ToString());
         }

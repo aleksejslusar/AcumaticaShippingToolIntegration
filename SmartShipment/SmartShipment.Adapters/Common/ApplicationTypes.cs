@@ -3,6 +3,7 @@
     public enum ApplicationTypes
     {
         UpsWorldShip,
-        FedExShipmentManager
+        FedExShipmentManager,
+        None
     }
 }

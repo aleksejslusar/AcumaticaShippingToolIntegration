@@ -28,13 +28,15 @@ namespace SmartShipment.Settings.SettingsHelper
         private FileIniDataParser _iniParser;
 
         public string UserHomeDirectory { get; }
+        public string ProgramDataPath { get; }
         public string ApplicationBasePath { get; }
         public string ApplicationSettingsDirectoryPath { get; }
         public string ApplicationName { get; set; }
         public string ApplicationSettingsFilePath { get; }
 
         public SmartShipmentsSettingsHelper()
-        {            
+        {
+            ProgramDataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             UserHomeDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             ApplicationBasePath = Path.Combine(UserHomeDirectory, APPLICATION_BASE_PATH);
             ApplicationSettingsDirectoryPath = Path.Combine(UserHomeDirectory, APPLICATION_CONFIGURATION_PATH);

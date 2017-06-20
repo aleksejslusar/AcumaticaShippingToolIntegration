@@ -2,7 +2,6 @@
 using System.IO;
 using IniParser;
 using SmartShipment.Settings.SettingsHelper;
-using SmartShipment.Settings.SettingsProvider;
 
 namespace SmartShipment.Setup.CustomActions.SetupHelpers
 {
@@ -10,13 +9,14 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
     {
         private readonly SmartShipmentsSettingsHelper _settingsProviderHelper;
         private readonly ISetupLogger _logger;
-        private const string UPS_BASE_DATA_PATH = "C:\\ProgramData\\UPS\\WSTD\\ImpExp\\Shipment";
-        private static readonly string UpsShipmentMapsPath = Path.Combine(UPS_BASE_DATA_PATH, "UPSOUT.dat");
+        private const string UPS_BASE_DATA_PATH = "UPS\\WSTD\\ImpExp\\Shipment";
+        private readonly string _upsShipmentMapPath;
 
         public UpsSetupHelper(SmartShipmentsSettingsHelper settingsProviderHelper, ISetupLogger logger)
         {
             _settingsProviderHelper = settingsProviderHelper;
             _logger = logger;
+            _upsShipmentMapPath = Path.Combine(_settingsProviderHelper.ProgramDataPath, UPS_BASE_DATA_PATH, "UPSOUT.dat");
         }
 
         public bool Install()
@@ -26,7 +26,7 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
             {                
                 CopyMapFile();
                 
-                InstallAutoMapsSettings(UpsShipmentMapsPath);
+                InstallAutoMapsSettings(_upsShipmentMapPath);
                 InstallShupUserSettings("UPSOUT");
                 _logger.Info("UPS Woprldship: setup environment complete");
                 return true;
@@ -45,11 +45,10 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
             InstallAutoMapsSettings("");
             InstallShupUserSettings("");
 
-            //Delete map
-            var target = Path.Combine(UPS_BASE_DATA_PATH, "UPSOUT.dat");
-            if (File.Exists(target))
+            //Delete map           
+            if (File.Exists(_upsShipmentMapPath))
             {
-                File.Delete(target);
+                File.Delete(_upsShipmentMapPath);
             }
 
             _logger.Info("UPS Woprldship: end uninstall");
@@ -61,8 +60,8 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
 
             if (File.Exists(source))
             {
-                File.Copy(source, UpsShipmentMapsPath, true);
-                _logger.Info("UPS Worldship: copy files from: "+ source + " to: " + UpsShipmentMapsPath);
+                File.Copy(source, _upsShipmentMapPath, true);
+                _logger.Info("UPS Worldship: copy files from: "+ source + " to: " + _upsShipmentMapPath);
             }
             else
             {
@@ -73,33 +72,33 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
 
         private void InstallAutoMapsSettings(string mapName)
         {
-            const string path = "C:\\ProgramData\\UPS\\WSTD\\wstdAutoExportMaps.ini";
+            var mapIniPath = Path.Combine(_settingsProviderHelper.ProgramDataPath, "UPS\\WSTD\\wstdAutoExportMaps.ini");
 
-            if (File.Exists(path))
+            if (File.Exists(mapIniPath))
             {
                 _logger.Info("UPS Worldship: install auto maps:" + mapName);
                 var iniParser = new FileIniDataParser();
-                var iniData = iniParser.ReadFile(path);
+                var iniData = iniParser.ReadFile(mapIniPath);
                 iniData["AutoExportShipments"]["ExportMapName"] = mapName;                
                 iniData["AutoExportFreightShipments"]["ExportMapName"] = mapName;                
-                iniParser.WriteFile(path, iniData);
+                iniParser.WriteFile(mapIniPath, iniData);
             }
             else
             {
-                _logger.Error("UPS Worldship: install auto maps: error: file not found " + path);
+                _logger.Error("UPS Worldship: install auto maps: error: file not found " + mapIniPath);
                 throw new Exception();
             }
         }
 
         private  void InstallShupUserSettings(string mapName)
         {
-            const string path = "C:\\ProgramData\\UPS\\WSTD\\wstdShipuser.ini";
+            var menuIniPath = Path.Combine(_settingsProviderHelper.ProgramDataPath, "UPS\\WSTD\\wstdShipuser.ini");
 
-            if (File.Exists(path))
+            if (File.Exists(menuIniPath))
             {
                 _logger.Info("UPS Worldship: install auto maps to user menu: " + mapName);
                 var iniParser = new FileIniDataParser();
-                var iniData = iniParser.ReadFile(path);
+                var iniData = iniParser.ReadFile(menuIniPath);
 
                 //AutoExportRecent
                 if (!iniData["UPS OnLine Connect"].ContainsKey("AutoExportRecent"))
@@ -141,11 +140,11 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
                     iniData["UPS OnLine Connect"]["FreightAutoExportRecent"] = "";
                 }
 
-                iniParser.WriteFile(path, iniData);
+                iniParser.WriteFile(menuIniPath, iniData);
             }
             else
             {
-                _logger.Info("UPS Worldship: install auto maps to user menu: error: file not found " + path);
+                _logger.Info("UPS Worldship: install auto maps to user menu: error: file not found " + menuIniPath);
                 throw new Exception();
             }
         }

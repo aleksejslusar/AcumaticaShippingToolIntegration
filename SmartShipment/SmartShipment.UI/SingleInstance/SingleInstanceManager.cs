@@ -104,7 +104,6 @@ namespace SmartShipment.UI.SingleInstance
         {
             //Custom protocol parameters:
             //acumaticashippingtoolintegration:000021@UPS;
-
             if (string.IsNullOrEmpty(args) || !args.Contains("acumaticashippingtoolintegration")) return;
 
             var argsArray = args.Split(':', '@');
@@ -123,13 +122,18 @@ namespace SmartShipment.UI.SingleInstance
                         applicationType = ApplicationTypes.UpsWorldShip;
                         break;
                     default:
-                        throw new ArgumentException("Cannot locate Application type from command arguments. [ " + args + " ]");
+                        applicationType = ApplicationTypes.None;
+                        _messagesProvider.Error(new ArgumentException("Cannot locate Application type from command arguments. [ " + args + " ]"));
+                        break;
                 }
-                
-                var shipmentNbr = shipmentNbrParam.Trim();
-                var presenter = _applicationController.GetContainer().Resolve<FloatMenuPresenter>();
-                presenter.ProcessShipment(applicationType, shipmentNbr);
-                return;
+
+                if (applicationType != ApplicationTypes.None)
+                {
+                    var shipmentNbr = shipmentNbrParam.Trim();
+                    var presenter = _applicationController.GetContainer().Resolve<FloatMenuPresenter>();
+                    presenter.ProcessShipment(applicationType, shipmentNbr);
+                    return;
+                }                
             }
 
             throw new ArgumentException("Custom protocol parameters should looks like protoName:arg1:arg2. Cannot parse parameter string. [ " + args + " ]");
