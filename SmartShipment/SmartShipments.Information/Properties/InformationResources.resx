@@ -196,7 +196,7 @@
     <value>Can not connect to Acumatica. Check the site is available,  application Acumatica credentials settings, check local machine network available and try again.</value>
   </data>
   <data name="ERROR_SHIPMENTS_IS_NOT_UPDATED" xml:space="preserve">
-    <value>Shipment(s) is not updated: </value>
+    <value>Shipment cannot be updated: </value>
   </data>
   <data name="INFO_RECEIVED_SHIPMENT" xml:space="preserve">
     <value>Received Shipment &lt;{0}&gt;, Packages count: {1}</value>
@@ -275,5 +275,8 @@ This can be caused by incorrect data or the inability to insert data in automati
   </data>
   <data name="Warn_Acumatica_Internal_Error_Message" xml:space="preserve">
     <value>Acumatica internal error. See log for more information.</value>
+  </data>
+  <data name="ERROR_SHIPMENTS_NUMBER_IS_NOT_UPDATED" xml:space="preserve">
+    <value>Shipment &lt;{0}&gt; cannot be updated:</value>
   </data>
 </root>

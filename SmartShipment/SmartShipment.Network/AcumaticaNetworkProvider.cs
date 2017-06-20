@@ -68,14 +68,28 @@ namespace SmartShipment.Network
 
         public void UpdateShipments(List<Shipment> shipments, ISmartShipmentExportContext smartShipmentExportContext)
         {
+            var currentProcessedShipmentNumber = string.Empty;
             try
             {
-                _webServiceHelper.UpdateShipments(shipments, smartShipmentExportContext);
+                
+                _webServiceHelper.UpdateShipments(shipments, smartShipmentExportContext, ref currentProcessedShipmentNumber);
             }
             catch (Exception e)
             {                
                 _messagesProvider.Fatal(e);
-                _messagesProvider.Error(new NetworkException(InformationResources.ERROR_SHIPMENTS_IS_NOT_UPDATED + AcumaticaErrorMessageParcer.GetUserFriendlyMessage(e.Message)));                
+                if (string.IsNullOrEmpty(currentProcessedShipmentNumber))
+                {
+                    _messagesProvider.Error(
+                        new NetworkException(InformationResources.ERROR_SHIPMENTS_IS_NOT_UPDATED +
+                                             AcumaticaErrorMessageParcer.GetUserFriendlyMessage(e.Message)));
+                }
+                else
+                {
+                    _messagesProvider.Error(
+                        new NetworkException(
+                            string.Format(InformationResources.ERROR_SHIPMENTS_NUMBER_IS_NOT_UPDATED,
+                                currentProcessedShipmentNumber) + AcumaticaErrorMessageParcer.GetUserFriendlyMessage(e.Message)));
+                }
             }
         }
 
