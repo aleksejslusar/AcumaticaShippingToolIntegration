@@ -276,4 +276,7 @@ This can be caused by incorrect data or the inability to insert data in automati
   <data name="Warn_Acumatica_Internal_Error_Message" xml:space="preserve">
     <value>Acumatica internal error. See log for more information.</value>
   </data>
+  <data name="ERROR_SHIPMENTS_NUMBER_IS_NOT_UPDATED" xml:space="preserve">
+    <value>Shipment &lt;{0}&gt; cannot be updated:</value>
+  </data>
 </root>

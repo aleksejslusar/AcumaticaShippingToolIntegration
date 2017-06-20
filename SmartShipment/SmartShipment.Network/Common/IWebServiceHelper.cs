@@ -9,7 +9,7 @@ namespace SmartShipment.Network.Common
     {      
         ShipmentMapper GetShipmentByShipmentId(string shipmentId);
         List<ShippingBox> GetShippingBoxes(); 
-        void UpdateShipments(List<Shipment> shipments, ISmartShipmentExportContext smartShipmentExportContext);
+        void UpdateShipments(List<Shipment> shipments, ISmartShipmentExportContext smartShipmentExportContext, ref string currentProcessedShipmentNumber);
         bool TestNetworkSettings();        
     }
 }

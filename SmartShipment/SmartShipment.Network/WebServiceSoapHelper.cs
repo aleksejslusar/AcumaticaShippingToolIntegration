@@ -39,12 +39,13 @@ namespace SmartShipment.Network
             }
         }
 
-        public void UpdateShipments(List<Shipment> shipments, ISmartShipmentExportContext smartShipmentExportContext)
+        public void UpdateShipments(List<Shipment> shipments, ISmartShipmentExportContext smartShipmentExportContext, ref string currentProcessedShipmentNumber)
         {            
             using (var soapClient = new ShipmentSoapClient(_settings))
             {
                 foreach (var shipment in shipments.ToList())
                 {
+                    currentProcessedShipmentNumber = shipment.ShipmentNbr.Value;
                     var targetShipment = soapClient.GetShipmentByShipmentId(shipment.ShipmentNbr.Value);
                     smartShipmentExportContext.MapTargetToExportedShipment(targetShipment, shipment);
                     soapClient.UpdateShipment(targetShipment, _messagesProvider);

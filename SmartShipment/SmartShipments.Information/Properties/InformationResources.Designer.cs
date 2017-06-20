@@ -198,6 +198,15 @@ namespace SmartShipment.Information.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shipment &lt;{0}&gt; cannot be updated:.
+        /// </summary>
+        public static string ERROR_SHIPMENTS_NUMBER_IS_NOT_UPDATED {
+            get {
+                return ResourceManager.GetString("ERROR_SHIPMENTS_NUMBER_IS_NOT_UPDATED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error of parse string {0} to URL..
         /// </summary>
         public static string ERROR_URI_STRING_PARSE {

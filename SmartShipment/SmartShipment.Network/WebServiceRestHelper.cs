@@ -29,7 +29,7 @@ namespace SmartShipment.Network
             throw new NotImplementedException();
         }
 
-        public void UpdateShipments(List<Shipment> shipments, ISmartShipmentExportContext smartShipmentExportContext)
+        public void UpdateShipments(List<Shipment> shipments, ISmartShipmentExportContext smartShipmentExportContext, ref string currentProcessedShipmentNumber)
         {
             throw new NotImplementedException();
         }
