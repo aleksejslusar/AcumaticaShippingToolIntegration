@@ -11,6 +11,7 @@ namespace SmartShipment.Network
 
         public const string SCREEN_ID_PARAM = "ScreenId";
         public const string SHIPMENT_NBR_PARAM = "ShipmentNbr";
+        public const string SCREEN_POPUP_ON = "PopupPanel";
 
 
         public ParsedShipmentData(ISettings settings, string key, Dictionary<string,string> value)
@@ -20,16 +21,16 @@ namespace SmartShipment.Network
         }
 
         public string BaseUrl => _shipmentUriData.Key;
-        public string ShipmentNbr => _shipmentUriData.Value[SHIPMENT_NBR_PARAM];
-        public string ScreenId => _shipmentUriData.Value[SCREEN_ID_PARAM];
+        public string ShipmentNbr => _shipmentUriData.Value.ContainsKey(SHIPMENT_NBR_PARAM)? _shipmentUriData.Value[SHIPMENT_NBR_PARAM] : string.Empty;
+        public string ScreenId => _shipmentUriData.Value.ContainsKey(SCREEN_ID_PARAM) ? _shipmentUriData.Value[SCREEN_ID_PARAM] : string.Empty;
+        public string PopupPanel => _shipmentUriData.Value.ContainsKey(SCREEN_POPUP_ON) ? _shipmentUriData.Value[SCREEN_POPUP_ON] : string.Empty;
 
         public bool IsDataCorrect()
         {
             return !string.IsNullOrEmpty(BaseUrl) && 
-                    BaseUrl.Contains(_settings.AcumaticaBaseUrl.TrimEnd('/')) &&
-                   !string.IsNullOrEmpty(ShipmentNbr) &&
-                   !string.IsNullOrEmpty(ScreenId) &&
-                   _shipmentScreens.Contains(ScreenId);
+                   BaseUrl.Contains(_settings.AcumaticaBaseUrl.TrimEnd('/')) &&
+                   !string.IsNullOrEmpty(ShipmentNbr) && 
+                   ((string.IsNullOrEmpty(PopupPanel) && !string.IsNullOrEmpty(ScreenId) && _shipmentScreens.Contains(ScreenId)) || (!string.IsNullOrEmpty(PopupPanel) && string.IsNullOrEmpty(ScreenId) && !_shipmentScreens.Contains(ScreenId)));
         }
     }
 }

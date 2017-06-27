@@ -6,5 +6,6 @@
         string BrowserClassName { get; }
         string ProcessName { get; }
         string SearchPattern { get; }
+        string SearchClass { get; }
     }
 }

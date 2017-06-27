@@ -79,7 +79,6 @@
     <Compile Include="Common\SmartShipmentBaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Common\BasePresener.cs" />
     <Compile Include="Common\IApplicationController.cs" />
     <Compile Include="Common\IContainer.cs" />
     <Compile Include="Common\IPresenter.cs" />

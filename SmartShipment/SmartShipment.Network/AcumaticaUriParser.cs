@@ -30,7 +30,7 @@ namespace SmartShipment.Network
                     var uri = new Uri(uriString);
                     var baseUrl = DecodeBaseUrl(uri);
                     var queryData = DecodeQueryParameters(uri);
-                    if (queryData.ContainsKey(ParsedShipmentData.SHIPMENT_NBR_PARAM) && queryData.ContainsKey(ParsedShipmentData.SCREEN_ID_PARAM))
+                    if (queryData.ContainsKey(ParsedShipmentData.SHIPMENT_NBR_PARAM) && (queryData.ContainsKey(ParsedShipmentData.SCREEN_ID_PARAM) || queryData.ContainsKey(ParsedShipmentData.SCREEN_POPUP_ON)))
                     {
                         return new ParsedShipmentData(_settings, baseUrl, queryData);
                     }

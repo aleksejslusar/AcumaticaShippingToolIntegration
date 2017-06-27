@@ -22,10 +22,29 @@ namespace SmartShipment.AutomationUI.Browser
             }
 
             var element = AutomationElement.FromHandle(browserType.Process.MainWindowHandle);
-            
-            var edit = element?.FindFirst(TreeScope.Subtree, new AndCondition(new PropertyCondition(AutomationElement.NameProperty, browserType.BrowserAttributes.SearchPattern, PropertyConditionFlags.IgnoreCase),
-                                                                              new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.Edit)));
-            return ((ValuePattern) edit?.GetCurrentPattern(ValuePattern.Pattern))?.Current.Value;
+            var controls = element?.FindAll(TreeScope.Subtree, new OrCondition(new PropertyCondition(AutomationElement.NameProperty, browserType.BrowserAttributes.SearchPattern, PropertyConditionFlags.IgnoreCase), 
+                                                                               new PropertyCondition(AutomationElement.NameProperty, browserType.BrowserAttributes.SearchClass)));
+            if (controls != null && controls.Count > 0)
+            {
+                for (var i = 0; i < controls.Count; i++)
+                {
+                    var edit = controls[i];
+                    if ((edit.Current.Name.Equals(browserType.BrowserAttributes.SearchPattern, StringComparison.CurrentCultureIgnoreCase) || 
+                        edit.Current.Name.Equals(browserType.BrowserAttributes.SearchClass, StringComparison.CurrentCultureIgnoreCase)) && 
+                        (Equals(edit.Current.ControlType, ControlType.Edit) || Equals(edit.Current.ControlType, ControlType.Pane) || Equals(edit.Current.ControlType, ControlType.Text)))
+                    {
+                        object valuePattern;
+                        edit.TryGetCurrentPattern(ValuePattern.Pattern, out valuePattern);
+                        var value = ((ValuePattern) valuePattern)?.Current.Value;
+                        if (!string.IsNullOrEmpty(value))
+                        {
+                            return value;
+                        }
+                    }
+                }                                
+            }
+
+            return null;
         }
 
         public IBrowserType GetProcessBrowserType(Process process)
