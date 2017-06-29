@@ -95,7 +95,6 @@
     <Compile Include="Validation\ShipmentTypeValidator.cs" />
     <Compile Include="Validation\ShipmentValidatorBase.cs" />
     <Compile Include="Validation\ShipmentValidationContext.cs" />
-    <Compile Include="WebServiceRestHelper.cs" />
     <Compile Include="WebServiceSoapHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
