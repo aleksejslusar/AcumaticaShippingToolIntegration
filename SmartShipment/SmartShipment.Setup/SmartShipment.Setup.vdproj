@@ -22,13 +22,13 @@
         "Entry"
         {
         "MsmKey" = "8:_05FD242E19737E5EEBC891CB66E9A907"
-        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
+        "OwnerKey" = "8:_C95A97A568652C47B8946E14315A35EF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_05FD242E19737E5EEBC891CB66E9A907"
-        "OwnerKey" = "8:_C95A97A568652C47B8946E14315A35EF"
+        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -40,13 +40,13 @@
         "Entry"
         {
         "MsmKey" = "8:_1003EAB090C77748A537EAAD9BD00F35"
-        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
+        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_1003EAB090C77748A537EAAD9BD00F35"
-        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
+        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -70,13 +70,13 @@
         "Entry"
         {
         "MsmKey" = "8:_215C8C06B918E3EB204874114FB18736"
-        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
+        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_215C8C06B918E3EB204874114FB18736"
-        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
+        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -94,13 +94,13 @@
         "Entry"
         {
         "MsmKey" = "8:_40A93C0ECBFE0F0CFB0F5F0E8CB2D6A2"
-        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
+        "OwnerKey" = "8:_05FD242E19737E5EEBC891CB66E9A907"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_40A93C0ECBFE0F0CFB0F5F0E8CB2D6A2"
-        "OwnerKey" = "8:_05FD242E19737E5EEBC891CB66E9A907"
+        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -154,13 +154,7 @@
         "Entry"
         {
         "MsmKey" = "8:_B8BBBF5D58C979576E69C7DC2FE1A306"
-        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B8BBBF5D58C979576E69C7DC2FE1A306"
-        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
+        "OwnerKey" = "8:_C95A97A568652C47B8946E14315A35EF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -172,7 +166,13 @@
         "Entry"
         {
         "MsmKey" = "8:_B8BBBF5D58C979576E69C7DC2FE1A306"
-        "OwnerKey" = "8:_C95A97A568652C47B8946E14315A35EF"
+        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B8BBBF5D58C979576E69C7DC2FE1A306"
+        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -190,7 +190,7 @@
         "Entry"
         {
         "MsmKey" = "8:_BFE901174D32E0740929B8684D1B9F37"
-        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
+        "OwnerKey" = "8:_69CD134AF9CB41695D0192AEAECFE2BC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -202,7 +202,7 @@
         "Entry"
         {
         "MsmKey" = "8:_BFE901174D32E0740929B8684D1B9F37"
-        "OwnerKey" = "8:_69CD134AF9CB41695D0192AEAECFE2BC"
+        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -232,13 +232,13 @@
         "Entry"
         {
         "MsmKey" = "8:_D6C646607F886972DB25838AA57ABC39"
-        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
+        "OwnerKey" = "8:_215C8C06B918E3EB204874114FB18736"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_D6C646607F886972DB25838AA57ABC39"
-        "OwnerKey" = "8:_215C8C06B918E3EB204874114FB18736"
+        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -268,67 +268,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_69CD134AF9CB41695D0192AEAECFE2BC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C95A97A568652C47B8946E14315A35EF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BFE901174D32E0740929B8684D1B9F37"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B8BBBF5D58C979576E69C7DC2FE1A306"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_215C8C06B918E3EB204874114FB18736"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1003EAB090C77748A537EAAD9BD00F35"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FC1E3E73DBC132C9D651C67FF1FEEA2D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_05FD242E19737E5EEBC891CB66E9A907"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_40A93C0ECBFE0F0CFB0F5F0E8CB2D6A2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_59A553FD2DC6E508C0345DDD25C6688C"
+        "OwnerKey" = "8:_D6C646607F886972DB25838AA57ABC39"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -340,7 +280,67 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D6C646607F886972DB25838AA57ABC39"
+        "OwnerKey" = "8:_59A553FD2DC6E508C0345DDD25C6688C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_40A93C0ECBFE0F0CFB0F5F0E8CB2D6A2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_05FD242E19737E5EEBC891CB66E9A907"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FC1E3E73DBC132C9D651C67FF1FEEA2D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1003EAB090C77748A537EAAD9BD00F35"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_215C8C06B918E3EB204874114FB18736"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B8BBBF5D58C979576E69C7DC2FE1A306"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BFE901174D32E0740929B8684D1B9F37"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C95A97A568652C47B8946E14315A35EF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_69CD134AF9CB41695D0192AEAECFE2BC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -473,11 +473,6 @@
             "AssemblyAsmDisplayName" = "8:SmartShipment.AutomationUI, Version=1.0.55.3, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_05FD242E19737E5EEBC891CB66E9A907"
-                    {
-                    "Name" = "8:SmartShipment.AutomationUI.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:SmartShipment.AutomationUI.dll"
             "TargetName" = "8:"
@@ -504,11 +499,6 @@
             "AssemblyAsmDisplayName" = "8:INIFileParser, Version=2.4.0.0, Culture=neutral, PublicKeyToken=79af7b307b65cf3c, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_1003EAB090C77748A537EAAD9BD00F35"
-                    {
-                    "Name" = "8:INIFileParser.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:INIFileParser.dll"
             "TargetName" = "8:"
@@ -555,11 +545,6 @@
             "AssemblyAsmDisplayName" = "8:NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_215C8C06B918E3EB204874114FB18736"
-                    {
-                    "Name" = "8:NLog.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:NLog.dll"
             "TargetName" = "8:"
@@ -606,11 +591,6 @@
             "AssemblyAsmDisplayName" = "8:TestApiCore, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_40A93C0ECBFE0F0CFB0F5F0E8CB2D6A2"
-                    {
-                    "Name" = "8:TestApiCore.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:TestApiCore.dll"
             "TargetName" = "8:"
@@ -677,11 +657,6 @@
             "AssemblyAsmDisplayName" = "8:LightInject, Version=5.0.2.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_59A553FD2DC6E508C0345DDD25C6688C"
-                    {
-                    "Name" = "8:LightInject.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:LightInject.dll"
             "TargetName" = "8:"
@@ -708,11 +683,6 @@
             "AssemblyAsmDisplayName" = "8:SmartShipment.Adapters, Version=1.0.55.3, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_69CD134AF9CB41695D0192AEAECFE2BC"
-                    {
-                    "Name" = "8:SmartShipment.Adapters.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:SmartShipment.Adapters.dll"
             "TargetName" = "8:"
@@ -739,11 +709,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_8661A3C1B7AC7235609300E3145FEF76"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -790,11 +755,6 @@
             "AssemblyAsmDisplayName" = "8:SmartShipment.Information, Version=1.0.55.3, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_B8BBBF5D58C979576E69C7DC2FE1A306"
-                    {
-                    "Name" = "8:SmartShipment.Information.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:SmartShipment.Information.dll"
             "TargetName" = "8:"
@@ -821,11 +781,6 @@
             "AssemblyAsmDisplayName" = "8:SmartShipment.Settings, Version=1.0.55.3, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_BFE901174D32E0740929B8684D1B9F37"
-                    {
-                    "Name" = "8:SmartShipment.Settings.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:SmartShipment.Settings.dll"
             "TargetName" = "8:"
@@ -872,11 +827,6 @@
             "AssemblyAsmDisplayName" = "8:SmartShipment.Network, Version=1.0.55.3, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_C95A97A568652C47B8946E14315A35EF"
-                    {
-                    "Name" = "8:SmartShipment.Network.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:SmartShipment.Network.dll"
             "TargetName" = "8:"
@@ -903,11 +853,6 @@
             "AssemblyAsmDisplayName" = "8:System.IO.Compression, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 "ScatterAssemblies"
                 {
-                    "_D6C646607F886972DB25838AA57ABC39"
-                    {
-                    "Name" = "8:System.IO.Compression.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.IO.Compression.dll"
             "TargetName" = "8:"
@@ -954,11 +899,6 @@
             "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_FC1E3E73DBC132C9D651C67FF1FEEA2D"
-                    {
-                    "Name" = "8:Newtonsoft.Json.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Newtonsoft.Json.dll"
             "TargetName" = "8:"
@@ -1169,7 +1109,7 @@
         "UseSystemSearchPath" = "11:TRUE"
         "TargetPlatform" = "3:0"
         "PreBuildEvent" = "8:"
-        "PostBuildEvent" = "8:\"D:\\Acumatica Training\\AcumaticaShippingToolIntegration\\SmartShipment\\SmartShipment.SetupPostInstall\\bin\\Debug\\SmartShipment.SetupPostInstall.exe\" \"D:\\Acumatica Training\\AcumaticaShippingToolIntegration\\SmartShipment\\SmartShipment.Setup\\Debug\\SmartShipment.Setup.msi\" \"\\\\galiano\\ERPAD\\SmartShipmentBuilds\""
+        "PostBuildEvent" = "8:"
         "RunPostBuildEvent" = "3:0"
         }
         "Registry"
