@@ -1109,7 +1109,7 @@
         "UseSystemSearchPath" = "11:TRUE"
         "TargetPlatform" = "3:0"
         "PreBuildEvent" = "8:"
-        "PostBuildEvent" = "8:"
+        "PostBuildEvent" = "8:\"D:\\Acumatica Training\\AcumaticaShippingToolIntegration\\SmartShipment\\SmartShipment.SetupPostInstall\\bin\\Debug\\SmartShipment.SetupPostInstall.exe\" \"D:\\Acumatica Training\\AcumaticaShippingToolIntegration\\SmartShipment\\SmartShipment.Setup\\Debug\\SmartShipment.Setup.msi\" \"\\\\galiano\\ERPAD\\SmartShipmentBuilds\""
         "RunPostBuildEvent" = "3:0"
         }
         "Registry"
