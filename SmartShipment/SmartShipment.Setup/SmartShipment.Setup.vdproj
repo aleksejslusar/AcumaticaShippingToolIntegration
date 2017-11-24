@@ -15,38 +15,26 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_05FD242E19737E5EEBC891CB66E9A907"
-        "OwnerKey" = "8:_69CD134AF9CB41695D0192AEAECFE2BC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_05FD242E19737E5EEBC891CB66E9A907"
-        "OwnerKey" = "8:_C95A97A568652C47B8946E14315A35EF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_05FD242E19737E5EEBC891CB66E9A907"
-        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1003EAB090C77748A537EAAD9BD00F35"
-        "OwnerKey" = "8:_BFE901174D32E0740929B8684D1B9F37"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1003EAB090C77748A537EAAD9BD00F35"
-        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1003EAB090C77748A537EAAD9BD00F35"
+        "MsmKey" = "8:_010E510F9A05BE94DEFC07AC04DF7519"
         "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_01D5B97B320EA4B7AFB0D4A0B6AAD126"
+        "OwnerKey" = "8:_F7B799A8B6ED68B452080BC5D6AA4A00"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_01D5B97B320EA4B7AFB0D4A0B6AAD126"
+        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_01D5B97B320EA4B7AFB0D4A0B6AAD126"
+        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -63,43 +51,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_215C8C06B918E3EB204874114FB18736"
-        "OwnerKey" = "8:_B8BBBF5D58C979576E69C7DC2FE1A306"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_215C8C06B918E3EB204874114FB18736"
-        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_215C8C06B918E3EB204874114FB18736"
-        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_25D4F51BA9944FF78ED9E98E9A450CD0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_40A93C0ECBFE0F0CFB0F5F0E8CB2D6A2"
-        "OwnerKey" = "8:_69CD134AF9CB41695D0192AEAECFE2BC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_40A93C0ECBFE0F0CFB0F5F0E8CB2D6A2"
-        "OwnerKey" = "8:_05FD242E19737E5EEBC891CB66E9A907"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_40A93C0ECBFE0F0CFB0F5F0E8CB2D6A2"
+        "MsmKey" = "8:_3E120A53B8D1801A0FBEAFE50C66AF0A"
         "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -117,13 +75,19 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_59A553FD2DC6E508C0345DDD25C6688C"
+        "MsmKey" = "8:_5D0E042755E0E40E37BF676EBB543C1A"
         "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_69CD134AF9CB41695D0192AEAECFE2BC"
+        "MsmKey" = "8:_60A9732A0353945F9744CABE713C5AD5"
+        "OwnerKey" = "8:_EE2397E3BE27558CEF719E84014906FC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_60A9732A0353945F9744CABE713C5AD5"
         "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -137,6 +101,78 @@
         {
         "MsmKey" = "8:_8661A3C1B7AC7235609300E3145FEF76"
         "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_87FB77BC6D7DF4BEF731E18FAE6545CA"
+        "OwnerKey" = "8:_F7B799A8B6ED68B452080BC5D6AA4A00"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_87FB77BC6D7DF4BEF731E18FAE6545CA"
+        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_87FB77BC6D7DF4BEF731E18FAE6545CA"
+        "OwnerKey" = "8:_5D0E042755E0E40E37BF676EBB543C1A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_87FB77BC6D7DF4BEF731E18FAE6545CA"
+        "OwnerKey" = "8:_EE2397E3BE27558CEF719E84014906FC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8CDAEF4A84F9016BC04BD53363563E0D"
+        "OwnerKey" = "8:_5D0E042755E0E40E37BF676EBB543C1A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8CDAEF4A84F9016BC04BD53363563E0D"
+        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8CDAEF4A84F9016BC04BD53363563E0D"
+        "OwnerKey" = "8:_8F6BE15BF9D29738B9A113A696CC78A0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8F6BE15BF9D29738B9A113A696CC78A0"
+        "OwnerKey" = "8:_5D0E042755E0E40E37BF676EBB543C1A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8F6BE15BF9D29738B9A113A696CC78A0"
+        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8F6BE15BF9D29738B9A113A696CC78A0"
+        "OwnerKey" = "8:_EE2397E3BE27558CEF719E84014906FC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9298173A9DB542F782050426CA172F96"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_967E515D787B40B7B6FE49DB21C20957"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -147,62 +183,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B8BBBF5D58C979576E69C7DC2FE1A306"
-        "OwnerKey" = "8:_BFE901174D32E0740929B8684D1B9F37"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B8BBBF5D58C979576E69C7DC2FE1A306"
-        "OwnerKey" = "8:_C95A97A568652C47B8946E14315A35EF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B8BBBF5D58C979576E69C7DC2FE1A306"
-        "OwnerKey" = "8:_69CD134AF9CB41695D0192AEAECFE2BC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B8BBBF5D58C979576E69C7DC2FE1A306"
-        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B8BBBF5D58C979576E69C7DC2FE1A306"
-        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BFE901174D32E0740929B8684D1B9F37"
-        "OwnerKey" = "8:_C95A97A568652C47B8946E14315A35EF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BFE901174D32E0740929B8684D1B9F37"
-        "OwnerKey" = "8:_69CD134AF9CB41695D0192AEAECFE2BC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BFE901174D32E0740929B8684D1B9F37"
-        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BFE901174D32E0740929B8684D1B9F37"
-        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -213,26 +195,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C95A97A568652C47B8946E14315A35EF"
-        "OwnerKey" = "8:_69CD134AF9CB41695D0192AEAECFE2BC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C95A97A568652C47B8946E14315A35EF"
-        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_D6C646607F886972DB25838AA57ABC39"
         "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D6C646607F886972DB25838AA57ABC39"
-        "OwnerKey" = "8:_215C8C06B918E3EB204874114FB18736"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -243,20 +207,74 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_D6C646607F886972DB25838AA57ABC39"
+        "OwnerKey" = "8:_EC8B7F50028E25042D7C08EAEF6E5C50"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EC8B7F50028E25042D7C08EAEF6E5C50"
+        "OwnerKey" = "8:_87FB77BC6D7DF4BEF731E18FAE6545CA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EC8B7F50028E25042D7C08EAEF6E5C50"
+        "OwnerKey" = "8:_010E510F9A05BE94DEFC07AC04DF7519"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EC8B7F50028E25042D7C08EAEF6E5C50"
+        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EC8B7F50028E25042D7C08EAEF6E5C50"
+        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EE2397E3BE27558CEF719E84014906FC"
+        "OwnerKey" = "8:_5D0E042755E0E40E37BF676EBB543C1A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EE2397E3BE27558CEF719E84014906FC"
+        "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_F52EBBE3C73A4495BA34A521F51D61E5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_FC1E3E73DBC132C9D651C67FF1FEEA2D"
-        "OwnerKey" = "8:_C95A97A568652C47B8946E14315A35EF"
+        "MsmKey" = "8:_F7B799A8B6ED68B452080BC5D6AA4A00"
+        "OwnerKey" = "8:_EE2397E3BE27558CEF719E84014906FC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_FC1E3E73DBC132C9D651C67FF1FEEA2D"
+        "MsmKey" = "8:_F7B799A8B6ED68B452080BC5D6AA4A00"
+        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F7B799A8B6ED68B452080BC5D6AA4A00"
         "OwnerKey" = "8:_149E56FF26BA44489F18A85C91E767D8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F7B799A8B6ED68B452080BC5D6AA4A00"
+        "OwnerKey" = "8:_5D0E042755E0E40E37BF676EBB543C1A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -268,7 +286,73 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D6C646607F886972DB25838AA57ABC39"
+        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_010E510F9A05BE94DEFC07AC04DF7519"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_5D0E042755E0E40E37BF676EBB543C1A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_EE2397E3BE27558CEF719E84014906FC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F7B799A8B6ED68B452080BC5D6AA4A00"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_87FB77BC6D7DF4BEF731E18FAE6545CA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_EC8B7F50028E25042D7C08EAEF6E5C50"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_01D5B97B320EA4B7AFB0D4A0B6AAD126"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_60A9732A0353945F9744CABE713C5AD5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_8F6BE15BF9D29738B9A113A696CC78A0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_8CDAEF4A84F9016BC04BD53363563E0D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3E120A53B8D1801A0FBEAFE50C66AF0A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -280,67 +364,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_59A553FD2DC6E508C0345DDD25C6688C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_40A93C0ECBFE0F0CFB0F5F0E8CB2D6A2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_05FD242E19737E5EEBC891CB66E9A907"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FC1E3E73DBC132C9D651C67FF1FEEA2D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1003EAB090C77748A537EAAD9BD00F35"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_215C8C06B918E3EB204874114FB18736"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B8BBBF5D58C979576E69C7DC2FE1A306"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BFE901174D32E0740929B8684D1B9F37"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C95A97A568652C47B8946E14315A35EF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_69CD134AF9CB41695D0192AEAECFE2BC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BA9240F5586F4A14B6912AB68221082D"
+        "OwnerKey" = "8:_D6C646607F886972DB25838AA57ABC39"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -427,7 +451,7 @@
             "Sequence" = "3:1"
             "Identifier" = "8:_A7A0EE80_A13A_43C9_8E89_91C203C612BB"
             "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
+            "CustomActionData" = "8:/KeyUPS=[CHECKUPS] /KeyFedEx=[CHECKFEDEX]"
             }
             "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_7B1ECD130F4040D5BCC1D20BFEF9F30E"
             {
@@ -466,18 +490,23 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_05FD242E19737E5EEBC891CB66E9A907"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_010E510F9A05BE94DEFC07AC04DF7519"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SmartShipment.AutomationUI, Version=1.0.55.3, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:SmartShipment.Information, Version=1.0.238.14, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_010E510F9A05BE94DEFC07AC04DF7519"
+                    {
+                    "Name" = "8:SmartShipment.Information.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
-            "SourcePath" = "8:SmartShipment.AutomationUI.dll"
+            "SourcePath" = "8:SmartShipment.Information.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_EF7DBB83C0D64447AB268A5781456B0D"
+            "Folder" = "8:_5C86767605FC4C6893F4D100395DF633"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -492,13 +521,18 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1003EAB090C77748A537EAAD9BD00F35"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_01D5B97B320EA4B7AFB0D4A0B6AAD126"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:INIFileParser, Version=2.4.0.0, Culture=neutral, PublicKeyToken=79af7b307b65cf3c, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_01D5B97B320EA4B7AFB0D4A0B6AAD126"
+                    {
+                    "Name" = "8:INIFileParser.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:INIFileParser.dll"
             "TargetName" = "8:"
@@ -538,32 +572,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_215C8C06B918E3EB204874114FB18736"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:NLog.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_EF7DBB83C0D64447AB268A5781456B0D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_25D4F51BA9944FF78ED9E98E9A450CD0"
             {
             "SourcePath" = "8:..\\SmartShipment.Setup.CustomActions\\SetupFiles\\UPS\\UPSOUT.txt"
@@ -584,15 +592,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_40A93C0ECBFE0F0CFB0F5F0E8CB2D6A2"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3E120A53B8D1801A0FBEAFE50C66AF0A"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:TestApiCore, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:LightInject, Version=5.0.3.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_3E120A53B8D1801A0FBEAFE50C66AF0A"
+                    {
+                    "Name" = "8:LightInject.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
-            "SourcePath" = "8:TestApiCore.dll"
+            "SourcePath" = "8:LightInject.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_EF7DBB83C0D64447AB268A5781456B0D"
@@ -650,15 +663,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_59A553FD2DC6E508C0345DDD25C6688C"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5D0E042755E0E40E37BF676EBB543C1A"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:LightInject, Version=5.0.2.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:SmartShipment.Adapters, Version=1.0.238.14, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_5D0E042755E0E40E37BF676EBB543C1A"
+                    {
+                    "Name" = "8:SmartShipment.Adapters.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
-            "SourcePath" = "8:LightInject.dll"
+            "SourcePath" = "8:SmartShipment.Adapters.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_EF7DBB83C0D64447AB268A5781456B0D"
@@ -676,15 +694,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_69CD134AF9CB41695D0192AEAECFE2BC"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_60A9732A0353945F9744CABE713C5AD5"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SmartShipment.Adapters, Version=1.0.55.3, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_60A9732A0353945F9744CABE713C5AD5"
+                    {
+                    "Name" = "8:Newtonsoft.Json.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
-            "SourcePath" = "8:SmartShipment.Adapters.dll"
+            "SourcePath" = "8:Newtonsoft.Json.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_EF7DBB83C0D64447AB268A5781456B0D"
@@ -709,6 +732,11 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
+                    "_8661A3C1B7AC7235609300E3145FEF76"
+                    {
+                    "Name" = "8:System.Net.Http.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -726,6 +754,139 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_87FB77BC6D7DF4BEF731E18FAE6545CA"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SmartShipment.Information, Version=1.0.238.14, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_87FB77BC6D7DF4BEF731E18FAE6545CA"
+                    {
+                    "Name" = "8:SmartShipment.Information.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SmartShipment.Information.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_EF7DBB83C0D64447AB268A5781456B0D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8CDAEF4A84F9016BC04BD53363563E0D"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:TestApiCore, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_8CDAEF4A84F9016BC04BD53363563E0D"
+                    {
+                    "Name" = "8:TestApiCore.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:TestApiCore.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_EF7DBB83C0D64447AB268A5781456B0D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8F6BE15BF9D29738B9A113A696CC78A0"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SmartShipment.AutomationUI, Version=1.0.238.14, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_8F6BE15BF9D29738B9A113A696CC78A0"
+                    {
+                    "Name" = "8:SmartShipment.AutomationUI.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SmartShipment.AutomationUI.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_EF7DBB83C0D64447AB268A5781456B0D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9298173A9DB542F782050426CA172F96"
+            {
+            "SourcePath" = "8:..\\SmartShipment.Setup.CustomActions\\SetupFiles\\Icons\\setup.ico"
+            "TargetName" = "8:setup.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_EF7DBB83C0D64447AB268A5781456B0D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_967E515D787B40B7B6FE49DB21C20957"
+            {
+            "SourcePath" = "8:..\\SmartShipment.Setup.CustomActions\\SetupFiles\\Icons\\acumatica.ico"
+            "TargetName" = "8:acumatica.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_EF7DBB83C0D64447AB268A5781456B0D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AE342D8CCFDD45BDBE97E8CB6688577C"
@@ -748,58 +909,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B8BBBF5D58C979576E69C7DC2FE1A306"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SmartShipment.Information, Version=1.0.55.3, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:SmartShipment.Information.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_EF7DBB83C0D64447AB268A5781456B0D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BFE901174D32E0740929B8684D1B9F37"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SmartShipment.Settings, Version=1.0.55.3, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:SmartShipment.Settings.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_EF7DBB83C0D64447AB268A5781456B0D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C1FB94C5A7E04CB89DCF05C6693A186C"
             {
             "SourcePath" = "8:..\\SmartShipment.Setup.CustomActions\\SetupFiles\\UPS\\UPSOUT.dat"
@@ -820,15 +929,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C95A97A568652C47B8946E14315A35EF"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D6C646607F886972DB25838AA57ABC39"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SmartShipment.Network, Version=1.0.55.3, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:System.IO.Compression, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 "ScatterAssemblies"
                 {
+                    "_D6C646607F886972DB25838AA57ABC39"
+                    {
+                    "Name" = "8:System.IO.Compression.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
-            "SourcePath" = "8:SmartShipment.Network.dll"
+            "SourcePath" = "8:System.IO.Compression.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_EF7DBB83C0D64447AB268A5781456B0D"
@@ -846,15 +960,51 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D6C646607F886972DB25838AA57ABC39"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EC8B7F50028E25042D7C08EAEF6E5C50"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.IO.Compression, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+            "AssemblyAsmDisplayName" = "8:NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_EC8B7F50028E25042D7C08EAEF6E5C50"
+                    {
+                    "Name" = "8:NLog.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
-            "SourcePath" = "8:System.IO.Compression.dll"
+            "SourcePath" = "8:NLog.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_EF7DBB83C0D64447AB268A5781456B0D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EE2397E3BE27558CEF719E84014906FC"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SmartShipment.Network, Version=1.0.238.14, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_EE2397E3BE27558CEF719E84014906FC"
+                    {
+                    "Name" = "8:SmartShipment.Network.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SmartShipment.Network.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_EF7DBB83C0D64447AB268A5781456B0D"
@@ -892,15 +1042,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FC1E3E73DBC132C9D651C67FF1FEEA2D"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F7B799A8B6ED68B452080BC5D6AA4A00"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:SmartShipment.Settings, Version=1.0.238.14, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_F7B799A8B6ED68B452080BC5D6AA4A00"
+                    {
+                    "Name" = "8:SmartShipment.Settings.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
-            "SourcePath" = "8:Newtonsoft.Json.dll"
+            "SourcePath" = "8:SmartShipment.Settings.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_EF7DBB83C0D64447AB268A5781456B0D"
@@ -1086,7 +1241,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Acumatica Shipping Tool Integration"
         "ProductCode" = "8:{E57FD70A-4B10-4597-BC43-248B628B8A35}"
-        "PackageCode" = "8:{6790665A-CE8F-46D0-9318-68468C7930F0}"
+        "PackageCode" = "8:{EF93FD0C-2B50-45FC-B54F-F3A55A295F57}"
         "UpgradeCode" = "8:{B5F396DF-B78F-4D44-9913-AA58492D33FF}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1103,7 +1258,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Acumatica Shipping Tool Integration: application for information exchange between Acumatica ERP system and FedEx and UPS desktop shipment applications"
         "ARPURLINFOABOUT" = "8:http://sprinterra.com/"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_967E515D787B40B7B6FE49DB21C20957"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -1497,7 +1652,7 @@
             "Target" = "8:_AE342D8CCFDD45BDBE97E8CB6688577C"
             "Folder" = "8:_05349F42CB91459C8038BD0785469EF0"
             "WorkingFolder" = "8:_1DAD45C6728A43F0AC5E0912CB630008"
-            "Icon" = "8:"
+            "Icon" = "8:_9298173A9DB542F782050426CA172F96"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_987B89A0EF8D4420BCCB30546B6CF622"
@@ -1511,7 +1666,7 @@
             "Target" = "8:_149E56FF26BA44489F18A85C91E767D8"
             "Folder" = "8:_05349F42CB91459C8038BD0785469EF0"
             "WorkingFolder" = "8:_EF7DBB83C0D64447AB268A5781456B0D"
-            "Icon" = "8:"
+            "Icon" = "8:_967E515D787B40B7B6FE49DB21C20957"
             "Feature" = "8:"
             }
         }
@@ -1690,8 +1845,8 @@
                             "Type" = "3:3"
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
-                            "Setting" = "3:1"
-                            "Value" = "8:#1203"
+                            "Setting" = "3:2"
+                            "Value" = "8:The installer will guide you through the steps required to install or update [ProductName] on your computer."
                             "DefaultValue" = "8:#1203"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -1699,7 +1854,7 @@
                     }
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_B2F2206D17424957998A46E444C46055"
                     {
-                    "Sequence" = "3:300"
+                    "Sequence" = "3:200"
                     "DisplayName" = "8:Confirm Installation"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
@@ -1715,6 +1870,262 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                        }
+                    }
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_C37B05D6F9B4474CB8E67498E400C95B"
+                    {
+                    "Sequence" = "3:300"
+                    "DisplayName" = "8:Checkboxes   (A)"
+                    "UseDynamicProperties" = "11:TRUE"
+                    "IsDependency" = "11:FALSE"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdCustomCheck1Dlg.wid"
+                        "Properties"
+                        {
+                            "BannerBitmap"
+                            {
+                            "Name" = "8:BannerBitmap"
+                            "DisplayName" = "8:#1001"
+                            "Description" = "8:#1101"
+                            "Type" = "3:8"
+                            "ContextData" = "8:Bitmap"
+                            "Attributes" = "3:4"
+                            "Setting" = "3:1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "BannerText"
+                            {
+                            "Name" = "8:BannerText"
+                            "DisplayName" = "8:#1014"
+                            "Description" = "8:#1114"
+                            "Type" = "3:3"
+                            "ContextData" = "8:"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:2"
+                            "Value" = "8:Custom Setup: pick which features you want"
+                            "DefaultValue" = "8:#1214"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "BodyText"
+                            {
+                            "Name" = "8:BodyText"
+                            "DisplayName" = "8:#1015"
+                            "Description" = "8:#1115"
+                            "Type" = "3:3"
+                            "ContextData" = "8:"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:2"
+                            "Value" = "8:Select options to change the way features will be installed"
+                            "DefaultValue" = "8:#1215"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Checkbox1Label"
+                            {
+                            "Name" = "8:Checkbox1Label"
+                            "DisplayName" = "8:#1034"
+                            "Description" = "8:#1134"
+                            "Type" = "3:3"
+                            "ContextData" = "8:"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:2"
+                            "Value" = "8:[ProductName] for UPS Worldship"
+                            "DefaultValue" = "8:#1234"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Checkbox1Property"
+                            {
+                            "Name" = "8:Checkbox1Property"
+                            "DisplayName" = "8:#1030"
+                            "Description" = "8:#1130"
+                            "Type" = "3:14"
+                            "ContextData" = "8:Public"
+                            "Attributes" = "3:2"
+                            "Setting" = "3:2"
+                            "Value" = "8:CHECKUPS"
+                            "DefaultValue" = "8:CHECKBOXA1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Checkbox1Value"
+                            {
+                            "Name" = "8:Checkbox1Value"
+                            "DisplayName" = "8:#1038"
+                            "Description" = "8:#1138"
+                            "Type" = "3:2"
+                            "ContextData" = "8:Unchecked=;Checked=1"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:2"
+                            "Value" = "8:1"
+                            "DefaultValue" = "8:"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Checkbox1Visible"
+                            {
+                            "Name" = "8:Checkbox1Visible"
+                            "DisplayName" = "8:#1026"
+                            "Description" = "8:#1126"
+                            "Type" = "3:5"
+                            "ContextData" = "8:1;True=1;False=0"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:0"
+                            "Value" = "3:1"
+                            "DefaultValue" = "3:1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Checkbox2Label"
+                            {
+                            "Name" = "8:Checkbox2Label"
+                            "DisplayName" = "8:#1035"
+                            "Description" = "8:#1135"
+                            "Type" = "3:3"
+                            "ContextData" = "8:"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:2"
+                            "Value" = "8:[ProductName] for FedEx Ship Manager"
+                            "DefaultValue" = "8:#1235"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Checkbox2Property"
+                            {
+                            "Name" = "8:Checkbox2Property"
+                            "DisplayName" = "8:#1031"
+                            "Description" = "8:#1131"
+                            "Type" = "3:14"
+                            "ContextData" = "8:Public"
+                            "Attributes" = "3:2"
+                            "Setting" = "3:2"
+                            "Value" = "8:CHECKFEDEX"
+                            "DefaultValue" = "8:CHECKBOXA2"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Checkbox2Value"
+                            {
+                            "Name" = "8:Checkbox2Value"
+                            "DisplayName" = "8:#1039"
+                            "Description" = "8:#1139"
+                            "Type" = "3:2"
+                            "ContextData" = "8:Unchecked=;Checked=1"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:2"
+                            "Value" = "8:1"
+                            "DefaultValue" = "8:"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Checkbox2Visible"
+                            {
+                            "Name" = "8:Checkbox2Visible"
+                            "DisplayName" = "8:#1027"
+                            "Description" = "8:#1127"
+                            "Type" = "3:5"
+                            "ContextData" = "8:1;True=1;False=0"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:0"
+                            "Value" = "3:1"
+                            "DefaultValue" = "3:1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Checkbox3Label"
+                            {
+                            "Name" = "8:Checkbox3Label"
+                            "DisplayName" = "8:#1036"
+                            "Description" = "8:#1136"
+                            "Type" = "3:3"
+                            "ContextData" = "8:"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:1"
+                            "Value" = "8:#1236"
+                            "DefaultValue" = "8:#1236"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Checkbox3Property"
+                            {
+                            "Name" = "8:Checkbox3Property"
+                            "DisplayName" = "8:#1032"
+                            "Description" = "8:#1132"
+                            "Type" = "3:14"
+                            "ContextData" = "8:Public"
+                            "Attributes" = "3:2"
+                            "Setting" = "3:2"
+                            "Value" = "8:CHECKBOXA3"
+                            "DefaultValue" = "8:CHECKBOXA3"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Checkbox3Value"
+                            {
+                            "Name" = "8:Checkbox3Value"
+                            "DisplayName" = "8:#1040"
+                            "Description" = "8:#1140"
+                            "Type" = "3:2"
+                            "ContextData" = "8:Unchecked=;Checked=1"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:2"
+                            "Value" = "8:"
+                            "DefaultValue" = "8:"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Checkbox3Visible"
+                            {
+                            "Name" = "8:Checkbox3Visible"
+                            "DisplayName" = "8:#1028"
+                            "Description" = "8:#1128"
+                            "Type" = "3:5"
+                            "ContextData" = "8:1;True=1;False=0"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:0"
+                            "Value" = "3:0"
+                            "DefaultValue" = "3:1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Checkbox4Label"
+                            {
+                            "Name" = "8:Checkbox4Label"
+                            "DisplayName" = "8:#1037"
+                            "Description" = "8:#1137"
+                            "Type" = "3:3"
+                            "ContextData" = "8:"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:1"
+                            "Value" = "8:#1237"
+                            "DefaultValue" = "8:#1237"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Checkbox4Property"
+                            {
+                            "Name" = "8:Checkbox4Property"
+                            "DisplayName" = "8:#1033"
+                            "Description" = "8:#1133"
+                            "Type" = "3:14"
+                            "ContextData" = "8:Public"
+                            "Attributes" = "3:2"
+                            "Setting" = "3:2"
+                            "Value" = "8:CHECKBOXA4"
+                            "DefaultValue" = "8:CHECKBOXA4"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Checkbox4Value"
+                            {
+                            "Name" = "8:Checkbox4Value"
+                            "DisplayName" = "8:#1041"
+                            "Description" = "8:#1141"
+                            "Type" = "3:2"
+                            "ContextData" = "8:Unchecked=;Checked=1"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:2"
+                            "Value" = "8:"
+                            "DefaultValue" = "8:"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Checkbox4Visible"
+                            {
+                            "Name" = "8:Checkbox4Visible"
+                            "DisplayName" = "8:#1029"
+                            "Description" = "8:#1129"
+                            "Type" = "3:5"
+                            "ContextData" = "8:1;True=1;False=0"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:0"
+                            "Value" = "3:0"
+                            "DefaultValue" = "3:1"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -1778,13 +2189,13 @@
             "Attributes" = "3:1"
                 "Dialogs"
                 {
-                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_539B1A11D4CC45C08219C892828D9A5E"
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_56001C85ED054E8CBE1DA628F807384D"
                     {
-                    "Sequence" = "3:300"
-                    "DisplayName" = "8:Confirm Installation"
+                    "Sequence" = "3:200"
+                    "DisplayName" = "8:Installation Folder"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
-                    "SourcePath" = "8:<VsdDialogDir>\\VsdAdminConfirmDlg.wid"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdAdminFolderDlg.wid"
                         "Properties"
                         {
                             "BannerBitmap"
@@ -1800,13 +2211,13 @@
                             }
                         }
                     }
-                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_56001C85ED054E8CBE1DA628F807384D"
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_621E804AAC264B12A994074901D61E85"
                     {
-                    "Sequence" = "3:200"
-                    "DisplayName" = "8:Installation Folder"
+                    "Sequence" = "3:210"
+                    "DisplayName" = "8:Confirm Installation"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
-                    "SourcePath" = "8:<VsdDialogDir>\\VsdAdminFolderDlg.wid"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdAdminConfirmDlg.wid"
                         "Properties"
                         {
                             "BannerBitmap"

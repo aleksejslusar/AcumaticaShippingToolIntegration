@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using SmartShipment.Settings.SettingsHelper;
-using SmartShipment.Settings.SettingsProvider;
 
 namespace SmartShipment.Setup.CustomActions.SetupHelpers
 {

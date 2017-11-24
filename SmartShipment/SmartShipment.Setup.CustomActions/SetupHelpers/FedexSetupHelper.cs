@@ -89,13 +89,19 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
 
             if (File.Exists(target))
             {
-                File.Delete(target);
-                _logger.Info("FedEx Ship Manager: delete files from: " + target);
+                try
+                {
+                    File.Delete(target);
+                    _logger.Info("FedEx Ship Manager: delete files from: " + target);
+                }
+                catch (Exception e)
+                {
+                    _logger.Info("FedEx Ship Manager: delete files from: " + target + "error: " + e.Message);
+                }
             }
             else
             {
-                _logger.Error("FedEx Ship Manager: delete files error. File not found " + target);
-                throw new Exception();
+                _logger.Error("FedEx Ship Manager: delete files error. File not found " + target);              
             }
         }
 
@@ -103,32 +109,37 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
         {
             var settings = new XmlDocument();
             var settingsPath = Path.Combine(_settingsProviderHelper.ProgramDataPath, FEDEX_CONFIG_FILE);
-            settings.Load(settingsPath);
-            var appSettingsNode = settings.SelectSingleNode("configuration/appSettings");
-
-            if (appSettingsNode != null)
+            if (File.Exists(settingsPath))
             {
-                foreach (XmlElement appSettingNode in appSettingsNode.ChildNodes)
+                settings.Load(settingsPath);
+                var appSettingsNode = settings.SelectSingleNode("configuration/appSettings");
+
+                if (appSettingsNode != null)
                 {
-                    var key = appSettingNode.Attributes["key"].Value;
-                    if (key == "ActiveProfile")
+                    foreach (XmlElement appSettingNode in appSettingsNode.ChildNodes)
                     {
-                        appSettingNode.Attributes["value"].Value = activeProfile;
+                        var key = appSettingNode.Attributes["key"].Value;
+                        if (key == "ActiveProfile")
+                        {
+                            appSettingNode.Attributes["value"].Value = activeProfile;
+                        }
                     }
                 }
+
+                settings.Save(settingsPath);
+                _logger.Info("FedEx Ship Manager: set active profile " + activeProfile);
             }
-
-            settings.Save(settingsPath);
-            _logger.Info("FedEx Ship Manager: set active profile " + activeProfile);
+            else
+            {
+                _logger.Info("FedEx Ship Manager: set active profile failed: settings path not found");
+            }            
         }
-
-
 
         public void Uninstall()
         {
-            _logger.Info("FedEx Ship Manager: Uninstall");        
-            DeleteFedexProfileFile();
+            _logger.Info("FedEx Ship Manager: Uninstall");
             SetFedexActiveProfile("");
+            DeleteFedexProfileFile();            
         }
     }
 }
