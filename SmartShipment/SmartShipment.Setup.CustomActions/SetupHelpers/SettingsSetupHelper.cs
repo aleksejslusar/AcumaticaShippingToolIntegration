@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using SmartShipment.Settings.SettingsHelper;
 
 namespace SmartShipment.Setup.CustomActions.SetupHelpers
@@ -68,12 +69,18 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
         }
 
         public void UninstallAll()
-        {
-            var directory = _settingsProviderHelper.ApplicationBasePath;
+        {            
+            var directory = _settingsProviderHelper.ApplicationBasePath;            
             if (Directory.Exists(directory))
             {
                 _logger.Info("SettingsSetupHelper:  delete all parameters directories");
                 Directory.Delete(directory, true);                
+            }
+            
+            var parentDirectory = _settingsProviderHelper.ApplicationParentPath;
+            if (Directory.Exists(parentDirectory) && !Directory.EnumerateFileSystemEntries(parentDirectory).Any())
+            {                               
+                Directory.Delete(parentDirectory, true);
             }
 
         }

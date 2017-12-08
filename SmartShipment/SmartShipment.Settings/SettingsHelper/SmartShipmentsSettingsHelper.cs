@@ -15,6 +15,7 @@ namespace SmartShipment.Settings.SettingsHelper
     {
         public const string CLASS_NAME = "SmartShipmentSettingsProvider";
 
+        private const string APPLICATION_PARENT_PATH = "Sprinterra";
         private const string APPLICATION_BASE_PATH = "Sprinterra\\Acumatica Shipping Tool Integration";
         private const string APPLICATION_CONFIGURATION_PATH = APPLICATION_BASE_PATH +  "\\Configuration";
 
@@ -29,6 +30,7 @@ namespace SmartShipment.Settings.SettingsHelper
 
         public string UserHomeDirectory { get; }
         public string ProgramDataPath { get; }
+        public string ApplicationParentPath { get; }
         public string ApplicationBasePath { get; }
         public string ApplicationSettingsDirectoryPath { get; }
         public string ApplicationName { get; set; }
@@ -38,6 +40,7 @@ namespace SmartShipment.Settings.SettingsHelper
         {
             ProgramDataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             UserHomeDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            ApplicationParentPath = Path.Combine(UserHomeDirectory, APPLICATION_PARENT_PATH);
             ApplicationBasePath = Path.Combine(UserHomeDirectory, APPLICATION_BASE_PATH);
             ApplicationSettingsDirectoryPath = Path.Combine(UserHomeDirectory, APPLICATION_CONFIGURATION_PATH);
             ApplicationName = Path.GetFileNameWithoutExtension(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);

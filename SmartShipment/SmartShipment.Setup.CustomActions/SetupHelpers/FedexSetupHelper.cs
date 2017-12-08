@@ -127,7 +127,14 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
                 }
 
                 settings.Save(settingsPath);
-                _logger.Info("FedEx Ship Manager: set active profile " + activeProfile);
+                if (string.IsNullOrWhiteSpace(activeProfile))
+                {
+                    _logger.Info("FedEx Ship Manager: unset active profile");
+                }
+                else
+                {
+                    _logger.Info("FedEx Ship Manager: set active profile " + activeProfile);
+                }
             }
             else
             {
@@ -137,7 +144,7 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
 
         public void Uninstall()
         {
-            _logger.Info("FedEx Ship Manager: Uninstall");
+            _logger.Info("FedEx Ship Manager: Uninstall FedEx manager settings");
             SetFedexActiveProfile("");
             DeleteFedexProfileFile();            
         }

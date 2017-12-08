@@ -76,7 +76,15 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
 
             if (File.Exists(mapIniPath))
             {
-                _logger.Info("UPS Worldship: install auto maps:" + mapName);
+                if (string.IsNullOrWhiteSpace(mapName))
+                {
+                    _logger.Info("UPS Worldship: uninstall active auto map");
+                }
+                else
+                {
+                    _logger.Info("UPS Worldship: install auto map: " + mapName);
+                }
+               
                 var iniParser = new FileIniDataParser();
                 var iniData = iniParser.ReadFile(mapIniPath);
                 iniData["AutoExportShipments"]["ExportMapName"] = mapName;                
@@ -96,7 +104,14 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
 
             if (File.Exists(menuIniPath))
             {
-                _logger.Info("UPS Worldship: install auto maps to user menu: " + mapName);
+                if (string.IsNullOrWhiteSpace(mapName))
+                {
+                    _logger.Info("UPS Worldship: uninstall active auto map from user menu");
+                }
+                else
+                {
+                    _logger.Info("UPS Worldship: install auto maps to user menu: " + mapName);      
+                }
                 var iniParser = new FileIniDataParser();
                 var iniData = iniParser.ReadFile(menuIniPath);
 

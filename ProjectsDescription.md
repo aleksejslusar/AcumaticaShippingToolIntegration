@@ -1,3 +1,5 @@
+SmartShipment.WiX.Setup					Files, settings and setup event handlers which are used to create application installation file. (created with WiX Toolset 3.11.1701) 
+SmartShipment.WiX.Setup.CustomActions	Source code for setup event handlers which are used in SmartShipment.WiX.Setup project.
 SmartShipment.Setup					Files, settings and setup event handlers which are used to create application installation file.
 SmartShipment.Setup.CustomActions	Source code for setup event handlers which are used in SmartShipment.Setup project.
 SmartShipment.SetupPostInstall		Class that performs post-build action in SmartShipment.Setup project, renames the default installation *.msi file with the current build number and copies it to the specific location.

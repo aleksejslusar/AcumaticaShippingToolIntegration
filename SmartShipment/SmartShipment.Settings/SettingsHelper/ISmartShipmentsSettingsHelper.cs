@@ -20,5 +20,6 @@ namespace SmartShipment.Settings.SettingsHelper
         string ApplicationName { get; set; }
         string ApplicationSettingsFilePath { get; }
         string ProgramDataPath { get; }
+        string ApplicationParentPath { get; }
     }
 }
