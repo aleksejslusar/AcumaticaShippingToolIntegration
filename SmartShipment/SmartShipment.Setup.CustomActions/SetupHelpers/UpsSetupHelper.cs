@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Windows.Forms;
 using IniParser;
+using Microsoft.Win32;
 using SmartShipment.Settings.SettingsHelper;
 
 namespace SmartShipment.Setup.CustomActions.SetupHelpers
@@ -9,15 +11,21 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
     {
         private readonly SmartShipmentsSettingsHelper _settingsProviderHelper;
         private readonly ISetupLogger _logger;
-        private const string UPS_BASE_DATA_PATH = "UPS\\WSTD\\ImpExp\\Shipment";
+        private const string UPS_BASE_DATA_PATH = "ImpExp\\Shipment";
+        private const string UPS_DATA_DIRECTORY_LOCATION = "UPS\\WSTD\\";
+        private readonly string _upsShipmentDataDirectoryLocation;
         private readonly string _upsShipmentMapPath;
 
         public UpsSetupHelper(SmartShipmentsSettingsHelper settingsProviderHelper, ISetupLogger logger)
-        {
+        {           
             _settingsProviderHelper = settingsProviderHelper;
             _logger = logger;
-            _upsShipmentMapPath = Path.Combine(_settingsProviderHelper.ProgramDataPath, UPS_BASE_DATA_PATH, "UPSOUT.dat");
+                        
+            _upsShipmentDataDirectoryLocation = GetUpsDataDirectoryLocation();
+            _upsShipmentMapPath = Path.Combine(_upsShipmentDataDirectoryLocation, UPS_BASE_DATA_PATH, "UPSOUT.dat");
         }
+
+
 
         public bool Install()
         {
@@ -72,7 +80,7 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
 
         private void InstallAutoMapsSettings(string mapName)
         {
-            var mapIniPath = Path.Combine(_settingsProviderHelper.ProgramDataPath, "UPS\\WSTD\\wstdAutoExportMaps.ini");
+            var mapIniPath = Path.Combine(_upsShipmentDataDirectoryLocation, "wstdAutoExportMaps.ini");
 
             if (File.Exists(mapIniPath))
             {
@@ -100,7 +108,7 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
 
         private  void InstallShupUserSettings(string mapName)
         {
-            var menuIniPath = Path.Combine(_settingsProviderHelper.ProgramDataPath, "UPS\\WSTD\\wstdShipuser.ini");
+            var menuIniPath = Path.Combine(_upsShipmentDataDirectoryLocation, "wstdShipuser.ini");
 
             if (File.Exists(menuIniPath))
             {
@@ -162,6 +170,44 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
                 _logger.Info("UPS Worldship: install auto maps to user menu: error: file not found " + menuIniPath);
                 throw new Exception();
             }
+        }
+
+        private string GetUpsDataDirectoryLocation()
+        {
+            var registryUpsDataLocation = GetUpsDirectoryofDataLocation();
+            if (registryUpsDataLocation != null)
+            {
+                registryUpsDataLocation = Path.Combine(registryUpsDataLocation, " ").TrimEnd(); //Just add end directory separator
+            }
+
+
+            var calculatedUpsDataLocation = Path.Combine(_settingsProviderHelper.ProgramDataPath, UPS_DATA_DIRECTORY_LOCATION);
+            if (string.IsNullOrEmpty(registryUpsDataLocation))
+            {
+                return calculatedUpsDataLocation;
+            }
+
+            return registryUpsDataLocation.Equals(calculatedUpsDataLocation, StringComparison.CurrentCultureIgnoreCase)
+                ? calculatedUpsDataLocation
+                : registryUpsDataLocation;
+        }
+
+        private string GetUpsDirectoryofDataLocation()
+        {
+            string directoryofDataLocation = null;
+            try
+            {
+                using (var key = Registry.LocalMachine.OpenSubKey("Software\\Wow6432Node\\UPS\\Installation"))
+                {
+                    directoryofDataLocation = key?.GetValue("DataDirectory") as string;                    
+                }
+            }
+            catch (Exception ex)  //just for demonstration...it's always best to handle specific exceptions
+            {
+                _logger.Info("UPS Woprldship: can't get DirectoryofDataLocation from Windows registry. " + ex);
+            }
+
+            return directoryofDataLocation;
         }
     }
 }
