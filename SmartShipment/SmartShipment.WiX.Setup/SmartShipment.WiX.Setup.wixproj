@@ -123,7 +123,7 @@
     <Error Condition="!Exists('..\packages\WiX.3.11.0\build\wix.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\WiX.3.11.0\build\wix.props'))" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>"$(SolutionDir)SmartShipment.SetupPostInstall\bin\$(ConfigurationName)\SmartShipment.SetupPostInstall.exe" "$(ProjectDir)bin\$(ConfigurationName)\SmartShipment.WiX.Setup.msi" "\\galiano\ERPAD\SmartShipmentBuilds\WiX"</PostBuildEvent>
+    <PostBuildEvent>"$(SolutionDir)SmartShipment.SetupPostInstall\bin\$(ConfigurationName)\SmartShipment.SetupPostInstall.exe" "$(ProjectDir)bin\$(ConfigurationName)\SmartShipment.WiX.Setup.msi"</PostBuildEvent>
   </PropertyGroup>
   <!--
 	To modify your build process, add your task inside one of the targets below and uncomment it.
