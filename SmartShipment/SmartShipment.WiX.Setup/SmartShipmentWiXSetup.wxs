@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="{0A00D076-5E62-4CE0-A0A9-DC325F33CBD6}" 
-           Name="Acumatica Shipping Tool Integration" 
-           Language="1033" 
-           Version="1.0.0.0" 
+  <Product Id="{0A00D076-5E62-4CE0-A0A9-DC325F33CBD6}"
+           Name="Acumatica Shipping Tool Integration"
+           Language="1033"
+           Version="1.0.0.0"
            Manufacturer="Sprinterra"
            UpgradeCode="{A420F495-2CF2-4EA8-BE6B-52CB4B396D94}">
-    
-		<Package InstallerVersion="200"
+
+    <Package InstallerVersion="200"
 		         Compressed="yes"
 		         Manufacturer="Sprinterra"
 		         Description="Acumatica Shipping Tool Integration: application for information exchange between Acumatica ERP system and FedEx and UPS desktop shipment applications"
@@ -15,38 +15,36 @@
 		         Comments="Sprinterra, 1501 Broadway, 12th Floor New York, NY, 10036, tel: 212-300-3774, email: info@sprinterra.com, web: http://sprinterra.com"
 		         InstallScope="perMachine"/>
 
-		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-	  <MediaTemplate EmbedCab="yes"/>
-	  <Icon Id="acumaticaIco" SourceFile="acumatica.ico"/>
-    
-    <!--Properties-->
-	  <Property Id="ARPPRODUCTICON"
-              Value="acumaticaIco" />
-	  <Property Id="ARPCOMMENTS"
-              Value="(c) Acumatica Shipping Tool Integration: application for information exchange between Acumatica ERP system and FedEx and UPS desktop shipment applications" />	  
-	  <Property Id="ARPCONTACT"
-              Value="Sprinterra, 1501 Broadway, 12th Floor New York, NY, 10036, tel: 212-300-3774, email: info@sprinterra.com" />
-	  <Property Id="ARPURLINFOABOUT"
-              Value="http://sprinterra.com"/>
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate EmbedCab="yes"/>
+    <Icon Id="acumaticaIco" SourceFile="acumatica.ico"/>
 
+    <!--Properties-->
+    <Property Id="ARPPRODUCTICON"
+              Value="acumaticaIco" />
+    <Property Id="ARPCOMMENTS"
+              Value="(c) Acumatica Shipping Tool Integration: application for information exchange between Acumatica ERP system and FedEx and UPS desktop shipment applications" />
+    <Property Id="ARPCONTACT"
+              Value="Sprinterra, 1501 Broadway, 12th Floor New York, NY, 10036, tel: 212-300-3774, email: info@sprinterra.com" />
+    <Property Id="ARPURLINFOABOUT"
+              Value="http://sprinterra.com"/>   
     <!--Launch Condition-->
-	  <PropertyRef Id="NETFRAMEWORK40FULL"/>
-	  <Condition Message="You must install Microsoft .NET Framework 4.0 or higher.">
-	    <![CDATA[Installed OR NETFRAMEWORK40FULL]]>
-	  </Condition>
-    
-	  <!--Directories-->
-	  <Directory Id="TARGETDIR" Name="SourceDir">
-	    <!--DISK:\Program Files (x86)\Sprinterra\Acumatica Shipping Tool Integration-->
+    <PropertyRef Id="NETFRAMEWORK40FULL"/>         
+    <Condition Message="You must install Microsoft .NET Framework 4.0 or higher.">
+      <![CDATA[Installed OR NETFRAMEWORK40FULL]]>
+    </Condition>
+    <!--Directories-->
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <!--DISK:\Program Files (x86)\Sprinterra\Acumatica Shipping Tool Integration-->
       <Directory Id="ProgramFilesFolder">
-	      <Directory Id="PF_Sprinterra" Name="Sprinterra">
-	        <Directory Id="PF_AcumaticaShippingToolIntegration" Name="Acumatica Shipping Tool Integration"></Directory>
-	      </Directory>
-	    </Directory>
-      
-	    <!--<DISK>:\Users\<USER>\AppData\Roaming\Sprinterra\Acumatica Shipping Tool Integration-->
-	    <Directory Id="AppDataFolder">
-	      <Directory Id="R_Sprinterra" Name="Sprinterra">
+        <Directory Id="PF_Sprinterra" Name="Sprinterra">
+          <Directory Id="PF_AcumaticaShippingToolIntegration" Name="Acumatica Shipping Tool Integration"></Directory>
+        </Directory>
+      </Directory>
+
+      <!--<DISK>:\Users\<USER>\AppData\Roaming\Sprinterra\Acumatica Shipping Tool Integration-->
+      <Directory Id="AppDataFolder">
+        <Directory Id="R_Sprinterra" Name="Sprinterra">
           <Directory Id="R_AcumaticaShippingToolIntegration" Name="Acumatica Shipping Tool Integration">
             <Directory Id="R_Configuration" Name="Configuration"/>
             <Directory Id="R_Devices" Name="Devices">
@@ -54,99 +52,99 @@
               <Directory Id="R_FedEx" Name="FEDEX"/>
             </Directory>
             <Directory Id="R_Logs" Name="Logs"/>
-          </Directory>          
-	      </Directory>
-	    </Directory>
-      
+          </Directory>
+        </Directory>
+      </Directory>
+
       <!-- Programm Menu -->
-	    <Directory Id="ProgramMenuFolder">
-	      <Directory Id="PM_AcumaticaShippingToolIntegration" Name="Acumatica Shipping Tool Integration" />
-	    </Directory>
-      
-	  </Directory>
-    
-	  <!--Main application folder-->
-	  <DirectoryRef Id="PF_AcumaticaShippingToolIntegration">
-	    <Component Id="C_SmartShipmentUIExe" Guid="{D3003D10-0DAC-40DA-9E0D-14922824B79C}" KeyPath="yes">
-	      <File Id="F_SmartShipmentUIExe" Name="$(var.SmartShipment.UI.TargetFileName)" Source="$(var.SmartShipment.UI.TargetPath)"/>
-	      <File Id="F_SmartShipmentAdapters" Name="$(var.SmartShipment.Adapters.TargetFileName)" Source="$(var.SmartShipment.Adapters.TargetPath)"/>
-	      <File Id="F_SmartShipmentAutomationUI" Name="$(var.SmartShipment.AutomationUI.TargetFileName)" Source="$(var.SmartShipment.AutomationUI.TargetPath)"/>
-	      <File Id="F_SmartShipmentInformation" Name="$(var.SmartShipment.Information.TargetFileName)" Source="$(var.SmartShipment.Information.TargetPath)"/>
-	      <File Id="F_SmartShipmentNetwork" Name="$(var.SmartShipment.Network.TargetFileName)" Source="$(var.SmartShipment.Network.TargetPath)"/>
-	      <File Id="F_SmartShipmentSettings" Name="$(var.SmartShipment.Settings.TargetFileName)" Source="$(var.SmartShipment.Settings.TargetPath)"/>
-	      <File Id="F_INIFileParser" Name="INIFileParser.dll" Source="..\packages\ini-parser.2.4.0\lib\net20\INIFileParser.dll"/>
-	      <File Id="F_LightInject" Name="LightInject.dll" Source="..\packages\LightInject.5.0.3\lib\net45\LightInject.dll"/>
-	      <File Id="F_NewtonsoftJson" Name="Newtonsoft.Json.dll" Source="..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll"/>
-	      <File Id="F_NLog" Name="NLog.dll" Source="..\packages\NLog.4.4.11\lib\net45\NLog.dll"/>
-	      <File Id="F_SystemIOCompression" Name="System.IO.Compression.dll" Source="$(var.SmartShipment.Information.TargetDir)System.IO.Compression.dll"/>
-	      <File Id="F_SystemNetHttp" Name="System.Net.Http.dll" Source="$(var.SmartShipment.UI.TargetDir)System.Net.Http.dll"/>
-	      <File Id="F_TestApiCore" Name="TestApiCore.dll" Source="..\packages\Microsoft.TestApi.0.6.0.0\lib\net40\TestApiCore.dll"/>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="PM_AcumaticaShippingToolIntegration" Name="Acumatica Shipping Tool Integration" />
+      </Directory>
+
+    </Directory>
+
+    <!--Main application folder-->
+    <DirectoryRef Id="PF_AcumaticaShippingToolIntegration">
+      <Component Id="C_SmartShipmentUIExe" Guid="{D3003D10-0DAC-40DA-9E0D-14922824B79C}" KeyPath="yes">
+        <File Id="F_SmartShipmentUIExe" Name="$(var.SmartShipment.UI.TargetFileName)" Source="$(var.SmartShipment.UI.TargetPath)"/>
+        <File Id="F_SmartShipmentAdapters" Name="$(var.SmartShipment.Adapters.TargetFileName)" Source="$(var.SmartShipment.Adapters.TargetPath)"/>
+        <File Id="F_SmartShipmentAutomationUI" Name="$(var.SmartShipment.AutomationUI.TargetFileName)" Source="$(var.SmartShipment.AutomationUI.TargetPath)"/>
+        <File Id="F_SmartShipmentInformation" Name="$(var.SmartShipment.Information.TargetFileName)" Source="$(var.SmartShipment.Information.TargetPath)"/>
+        <File Id="F_SmartShipmentNetwork" Name="$(var.SmartShipment.Network.TargetFileName)" Source="$(var.SmartShipment.Network.TargetPath)"/>
+        <File Id="F_SmartShipmentSettings" Name="$(var.SmartShipment.Settings.TargetFileName)" Source="$(var.SmartShipment.Settings.TargetPath)"/>
+        <File Id="F_INIFileParser" Name="INIFileParser.dll" Source="..\packages\ini-parser.2.4.0\lib\net20\INIFileParser.dll"/>
+        <File Id="F_LightInject" Name="LightInject.dll" Source="..\packages\LightInject.5.0.3\lib\net45\LightInject.dll"/>
+        <File Id="F_NewtonsoftJson" Name="Newtonsoft.Json.dll" Source="..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll"/>
+        <File Id="F_NLog" Name="NLog.dll" Source="..\packages\NLog.4.4.11\lib\net45\NLog.dll"/>
+        <File Id="F_SystemIOCompression" Name="System.IO.Compression.dll" Source="$(var.SmartShipment.Information.TargetDir)System.IO.Compression.dll"/>
+        <File Id="F_SystemNetHttp" Name="System.Net.Http.dll" Source="$(var.SmartShipment.UI.TargetDir)System.Net.Http.dll"/>
+        <File Id="F_TestApiCore" Name="TestApiCore.dll" Source="..\packages\Microsoft.TestApi.0.6.0.0\lib\net40\TestApiCore.dll"/>
       </Component>
-	    <Component Id="C_CustomProtocol" Guid="{FEE7A86B-FD37-4DA2-A4BD-92BC0CAD1D2F}">
-	      <RegistryKey Root="HKCU"
+      <Component Id="C_CustomProtocol" Guid="{FEE7A86B-FD37-4DA2-A4BD-92BC0CAD1D2F}">
+        <RegistryKey Root="HKCU"
 	                   Key="Software\Classes\acumaticashippingtoolintegration"
 	                   ForceDeleteOnUninstall="yes">
-	        <RegistryValue Action="write"
+          <RegistryValue Action="write"
 	                       Value='"URL:Acumatica Shipping Tool Integration Protocol"'
 	                       Type="string" />
-	        <RegistryValue Name="URL Protocol"
+          <RegistryValue Name="URL Protocol"
 	                       Action="write"
 	                       Value='""'
 	                       Type="string" />
-	      </RegistryKey>
+        </RegistryKey>
 
-	      <RegistryValue Id="AcumaticaCustomProtocolIcon"
+        <RegistryValue Id="AcumaticaCustomProtocolIcon"
 	                     Action="write"
 	                     Root="HKCU"
 	                     Key="Software\Classes\acumaticashippingtoolintegration\DefaultIcon"
 	                     Value='"SmartShipment.UI.exe,1"'
 	                     Type="string" />
 
-	      <RegistryValue Id="AcumaticaCustomProtocolCommand"
+        <RegistryValue Id="AcumaticaCustomProtocolCommand"
 	                     Action="write"
 	                     Root="HKCU"
 	                     Key="Software\Classes\acumaticashippingtoolintegration\shell\open\command"
 	                     Value='"[PF_AcumaticaShippingToolIntegration]$(var.SmartShipment.UI.TargetFileName)" "%1"'
 	                     Type="string" />
-	    </Component>
-	  </DirectoryRef>
+      </Component>
+    </DirectoryRef>
     <!--Value='"C:\Program Files (x86)\Sprinterra\Acumatica Shipping Tool Integration\SmartShipment.UI.exe" "%1"'-->
-	  <!--Start Menu Shortcuts-->
-	  <DirectoryRef Id="PM_AcumaticaShippingToolIntegration">
-	    <Component Id="C_SmartShipmentUIShortcut"
+    <!--Start Menu Shortcuts-->
+    <DirectoryRef Id="PM_AcumaticaShippingToolIntegration">
+      <Component Id="C_SmartShipmentUIShortcut"
 	               Guid="{F2F47954-1CF0-45D7-8A61-E22C7255B33B}">
 
-	      <Shortcut Id="S_SmartShipmentUIExe"
+        <Shortcut Id="S_SmartShipmentUIExe"
 	                Name="Acumatica Shipping Tool Integration"
 	                Description="Application for information exchange between Acumatica ERP system and FedEx or UPS desktop shipment applications"
 	                Target="[PF_AcumaticaShippingToolIntegration]$(var.SmartShipment.UI.TargetFileName)"
 	                Icon="acumaticaIco"/>
 
-	      <Shortcut Id="UninstallShortcut"
+        <Shortcut Id="UninstallShortcut"
 	                Name="Uninstall Acumatica Shipping Tool Integration"
 	                Description="Remove software from PC"
 	                Target="[System64Folder]msiexec.exe"
 	                Arguments="/x [ProductCode]" />
 
-	      <RemoveFolder Id="RemoveMyShortcutsDir" On="uninstall" />
+        <RemoveFolder Id="RemoveMyShortcutsDir" On="uninstall" />
 
-	      <RegistryValue Root="HKCU"
+        <RegistryValue Root="HKCU"
 	                     Key="Software\Sprinterra\Acumatica Shipping Tool Integration"
 	                     Name="file_shortcut"
 	                     Type="integer"
 	                     Value="1"
 	                     KeyPath="yes" />
-	    </Component>
-	  </DirectoryRef>           
-    
-	  <!--ComponentGroups-->
-	  <ComponentGroup Id="BaseApplicationFiles">
-	    <ComponentRef Id="C_SmartShipmentUIExe"/>
+      </Component>
+    </DirectoryRef>
+
+    <!--ComponentGroups-->
+    <ComponentGroup Id="BaseApplicationFiles">
+      <ComponentRef Id="C_SmartShipmentUIExe"/>
       <ComponentRef Id="C_Sprinterra"/>
-	    <ComponentRef Id="C_AcumaticaShippingToolIntegration"/>
-	    <ComponentRef Id="C_Configuration"/>
-	    <ComponentRef Id="C_Devices"/>
-	    <ComponentRef Id="C_Log"/>
+      <ComponentRef Id="C_AcumaticaShippingToolIntegration"/>
+      <ComponentRef Id="C_Configuration"/>
+      <ComponentRef Id="C_Devices"/>
+      <ComponentRef Id="C_Log"/>
       <ComponentRef Id="C_SmartShipmentUIShortcut"/>
       <ComponentRef Id="C_CustomProtocol"/>
     </ComponentGroup>
@@ -163,10 +161,10 @@
       <ComponentRef Id="C_Fedex_OUT_XML"/>
     </ComponentGroup>
 
-      <!--Roaming Folder-->
+    <!--Roaming Folder-->
     <DirectoryRef Id="R_Sprinterra">
       <Component Id="C_Sprinterra" Guid="{C6D4C59C-F7C6-48A3-88FF-BF553D74FB49}">
-        <RemoveFolder Id="D_Sprinterra" On="uninstall"/>        
+        <RemoveFolder Id="D_Sprinterra" On="uninstall"/>
         <RegistryValue Root="HKCU"
                        Key="Software\Sprinterra\Acumatica Shipping Tool Integration"
                        Name="dir_sprinterra"
@@ -188,18 +186,18 @@
       </Component>
     </DirectoryRef>
 
-	  <DirectoryRef Id="R_Configuration">
-	    <Component Id="C_Configuration" Guid="{899DA4B4-D20B-49C1-B086-9AD1C3FAEEB2}">
-	      <File Id="F_Configuration" Source="Resources\Configuration\SmartShipment.Settings.ini"/>
-	      <RemoveFolder Id="D_Configuration" On="uninstall" />
-	      <RegistryValue Root="HKCU"
+    <DirectoryRef Id="R_Configuration">
+      <Component Id="C_Configuration" Guid="{899DA4B4-D20B-49C1-B086-9AD1C3FAEEB2}">
+        <File Id="F_Configuration" Source="Resources\Configuration\SmartShipment.Settings.ini"/>
+        <RemoveFolder Id="D_Configuration" On="uninstall" />
+        <RegistryValue Root="HKCU"
 	                     Key="Software\Sprinterra\Acumatica Shipping Tool Integration"
 	                     Name="dir_configuration"
 	                     Type="integer"
 	                     Value="1"
 	                     KeyPath="yes" />
-	    </Component>
-	  </DirectoryRef>
+      </Component>
+    </DirectoryRef>
 
     <DirectoryRef Id="R_Devices">
       <Component Id="C_Devices" Guid="{1964BDAD-42D5-4674-9DC0-32497F06F66E}">
@@ -212,114 +210,114 @@
                        KeyPath="yes" />
       </Component>
     </DirectoryRef>
-    
-	        <DirectoryRef Id="R_Ups">
-	          <Component Id="C_UPS_Schema" Guid="{12E8DD8A-90F4-4ACB-9A5F-A4F727E2E28E}">
-	            <File Id="F_UPS_Schema" Source="Resources\Devices\UPS\Schema.ini"/>
-	            <RemoveFolder Id="Remove_Ups" On="uninstall" />
-	            <RegistryValue Root="HKCU"
-	                            Key="Software\Sprinterra\Acumatica Shipping Tool Integration"
-	                            Name="file_ups_schema"
-	                            Type="integer"
-	                            Value="1"
-	                            KeyPath="yes" />
-	          </Component>
-	          <Component Id="C_UPS_OUT_DAT" Guid="{FE375285-1E98-4452-BFDD-E9F20F61AA76}">
-	            <File Id="F_UPS" Source="Resources\Devices\UPS\UPSOUT.dat"/>
-	            <RegistryValue Root="HKCU"
-	                           Key="Software\Sprinterra\Acumatica Shipping Tool Integration"
-	                           Name="file_ups_out_dat"
-	                           Type="integer"
-	                           Value="1"
-	                           KeyPath="yes" />
-	          </Component>
-	          <Component Id="C_UPS_OUT_TXT" Guid="{3E542E1D-2C78-40C2-8A29-C13D10900953}">
-	            <File Id="F_UPS_OUT_TXT" Source="Resources\Devices\UPS\UPSOUT.txt"/>
-	            <RegistryValue Root="HKCU"
-	                           Key="Software\Sprinterra\Acumatica Shipping Tool Integration"
-	                           Name="file_ups_out_txt"
-	                           Type="integer"
-	                           Value="1"
-	                           KeyPath="yes" />
-	          </Component>
-            <Component Id="C_UPS_ODBC" Guid="{CFDDA419-5191-4E22-BB1B-E230F11B0173}">
-              <RegistryValue Id="UpsODBCDataSource"
-                             Action="write"
-                             Root="HKCU"
-                             Key="Software\ODBC\ODBC.INI\ODBC Data Sources" 
-                             Name="UPSOUT"
-                             Value="Microsoft Text Driver (*.txt; *.csv)"
-                             Type="string" />
-              
-              <RegistryKey Root="HKCU"
-                           Key="Software\ODBC\ODBC.INI\UPSOUT">
-                <RegistryValue Name="DefaultDir"
-                               Action="write"
-                               Value="[R_Ups]"
-                               Type="string" />
-                <RegistryValue Name="Driver"
-                               Action="write"
-                               Value="[WindowsFolder]system32\odbcjt32.dll"
-                               Type="string" />
-                <RegistryValue Name="DriverId"
-                               Action="write"
-                               Value="27"
-                               Type="integer" />
-                <RegistryValue Name="SafeTransactions"
-                               Action="write"
-                               Value="0"
-                               Type="integer" />
-                <RegistryValue Name="UID"
-                               Action="write"
-                               Value=""
-                               Type="string" />                                            
-              </RegistryKey>
 
-              <RegistryKey Root="HKCU"
-                           Key="Software\ODBC\ODBC.INI\UPSOUT\Engines\Text">
-                <RegistryValue Name="ImplicitCommitSync"
-                               Action="write"
-                               Value=""
-                               Type="string" />                
-                <RegistryValue Name="MaxScanRows"
-                               Action="write"
-                               Value="0"
-                               Type="integer" />
-                <RegistryValue Name="Threads"
-                               Action="write"
-                               Value="0"
-                               Type="integer" />
-                <RegistryValue Name="UserCommitSync"
-                               Action="write"
-                               Value="Yes"
-                               Type="string" />
-              </RegistryKey>
+    <DirectoryRef Id="R_Ups">
+      <Component Id="C_UPS_Schema" Guid="{12E8DD8A-90F4-4ACB-9A5F-A4F727E2E28E}">
+        <File Id="F_UPS_Schema" Source="Resources\Devices\UPS\Schema.ini"/>
+        <RemoveFolder Id="Remove_Ups" On="uninstall" />
+        <RegistryValue Root="HKCU"
+                        Key="Software\Sprinterra\Acumatica Shipping Tool Integration"
+                        Name="file_ups_schema"
+                        Type="integer"
+                        Value="1"
+                        KeyPath="yes" />
+      </Component>
+      <Component Id="C_UPS_OUT_DAT" Guid="{FE375285-1E98-4452-BFDD-E9F20F61AA76}">
+        <File Id="F_UPS" Source="Resources\Devices\UPS\UPSOUT.dat"/>
+        <RegistryValue Root="HKCU"
+                       Key="Software\Sprinterra\Acumatica Shipping Tool Integration"
+                       Name="file_ups_out_dat"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+      <Component Id="C_UPS_OUT_TXT" Guid="{3E542E1D-2C78-40C2-8A29-C13D10900953}">
+        <File Id="F_UPS_OUT_TXT" Source="Resources\Devices\UPS\UPSOUT.txt"/>
+        <RegistryValue Root="HKCU"
+                       Key="Software\Sprinterra\Acumatica Shipping Tool Integration"
+                       Name="file_ups_out_txt"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+      <Component Id="C_UPS_ODBC" Guid="{CFDDA419-5191-4E22-BB1B-E230F11B0173}">
+        <RegistryValue Id="UpsODBCDataSource"
+                       Action="write"
+                       Root="HKCU"
+                       Key="Software\ODBC\ODBC.INI\ODBC Data Sources"
+                       Name="UPSOUT"
+                       Value="Microsoft Text Driver (*.txt; *.csv)"
+                       Type="string" />
 
-            </Component>
-	        </DirectoryRef>    
-    
-	        <DirectoryRef Id="R_FedEx">
-	          <Component Id="C_Fedex_OUT_TXT" Guid="{ACFED6F6-1D2F-48A9-B172-3E019A031C5B}">
-	            <File Id="F_Fedex_OUT_TXT" Source="Resources\Devices\FEDEX\FEDEXOUT.txt"/>
-	            <RemoveFolder Id="D_FedEx" On="uninstall" />
-	            <RegistryValue Root="HKCU"
-	                            Key="Software\Sprinterra\Acumatica Shipping Tool Integration"
-	                            Name="file_fedex_out_txt"
-	                            Type="integer"
-	                            Value="1"
-	                            KeyPath="yes" />
-	          </Component>
-	          <Component Id="C_Fedex_OUT_XML" Guid="{8C5202E8-3B5D-4BFB-B1FF-1CFCBA204176}">
-	            <File Id="F_Fedex_OUT_XML" Source="Resources\Devices\FEDEX\FEDEXOUT.xml"/>	            
-	            <RegistryValue Root="HKCU"
-	                           Key="Software\Sprinterra\Acumatica Shipping Tool Integration"
-	                           Name="file_fedex_out_xml"
-	                           Type="integer"
-	                           Value="1"
-	                           KeyPath="yes" />
-	          </Component>            
-	        </DirectoryRef>
-    
+        <RegistryKey Root="HKCU"
+                     Key="Software\ODBC\ODBC.INI\UPSOUT">
+          <RegistryValue Name="DefaultDir"
+                         Action="write"
+                         Value="[R_Devices]UPS"
+                         Type="string" />
+          <RegistryValue Name="Driver"
+                         Action="write"
+                         Value="[WindowsFolder]system32\odbcjt32.dll"
+                         Type="string" />
+          <RegistryValue Name="DriverId"
+                         Action="write"
+                         Value="27"
+                         Type="integer" />
+          <RegistryValue Name="SafeTransactions"
+                         Action="write"
+                         Value="0"
+                         Type="integer" />
+          <RegistryValue Name="UID"
+                         Action="write"
+                         Value=""
+                         Type="string" />
+        </RegistryKey>
+
+        <RegistryKey Root="HKCU"
+                     Key="Software\ODBC\ODBC.INI\UPSOUT\Engines\Text">
+          <RegistryValue Name="ImplicitCommitSync"
+                         Action="write"
+                         Value=""
+                         Type="string" />
+          <RegistryValue Name="MaxScanRows"
+                         Action="write"
+                         Value="0"
+                         Type="integer" />
+          <RegistryValue Name="Threads"
+                         Action="write"
+                         Value="0"
+                         Type="integer" />
+          <RegistryValue Name="UserCommitSync"
+                         Action="write"
+                         Value="Yes"
+                         Type="string" />
+        </RegistryKey>
+
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="R_FedEx">
+      <Component Id="C_Fedex_OUT_TXT" Guid="{ACFED6F6-1D2F-48A9-B172-3E019A031C5B}">
+        <File Id="F_Fedex_OUT_TXT" Source="Resources\Devices\FEDEX\FEDEXOUT.txt"/>
+        <RemoveFolder Id="D_FedEx" On="uninstall" />
+        <RegistryValue Root="HKCU"
+                        Key="Software\Sprinterra\Acumatica Shipping Tool Integration"
+                        Name="file_fedex_out_txt"
+                        Type="integer"
+                        Value="1"
+                        KeyPath="yes" />
+      </Component>
+      <Component Id="C_Fedex_OUT_XML" Guid="{8C5202E8-3B5D-4BFB-B1FF-1CFCBA204176}">
+        <File Id="F_Fedex_OUT_XML" Source="Resources\Devices\FEDEX\FEDEXOUT.xml"/>
+        <RegistryValue Root="HKCU"
+                       Key="Software\Sprinterra\Acumatica Shipping Tool Integration"
+                       Name="file_fedex_out_xml"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
     <DirectoryRef Id="R_Logs">
       <Component Id="C_Log" Guid="{6C2CBFD3-C366-497F-BE28-2FA6D1BBB9E7}">
         <CreateFolder />
@@ -333,45 +331,90 @@
       </Component>
     </DirectoryRef>
 
+
+    <Property Id="UPS_SETTINGS_NEEDED">
+      <RegistrySearch Id="UPS_Version"
+	                    Root="HKLM"
+	                    Key="SOFTWARE\Wow6432Node\UPS\Installation"
+	                    Name="InstallVersion"
+	                    Type="raw" />
+    </Property>
+
+  
+    
+    <Property Id="FEDEX_SETTINGS_NEEDED">
+      <RegistrySearch Id="Fedex_Version"
+                      Root="HKLM"
+                      Key="SOFTWARE\Wow6432Node\FEDEX\FSM\FSMRuntimeMinimum"
+                      Name="BuildNumber"
+                      Type="raw" />
+    </Property>
+    <Property Id="UPS_IS_SELECTED" Value="0"/>
+
+
+
     <!--Features-->
-	  <Feature Id="F_AcumaticaShippingToolIntegration"
+    <Feature Id="F_AcumaticaShippingToolIntegration"
 	           Title="Acumatica Shipping Tool Integration"
 	           Level="1"
 	           Absent="disallow"
 	           AllowAdvertise="no">
-	    <ComponentGroupRef Id="BaseApplicationFiles" />
-	  </Feature>
+      <ComponentGroupRef Id="BaseApplicationFiles" />
+    </Feature>
 
     <Feature Id="F_UPSSettings"
              Title="UPS Settings"
              Level="1"
              AllowAdvertise="no">
       <ComponentGroupRef Id="UPS_Configuration" />
+
+      <Condition Level="2">
+        <![CDATA[NOT REMOVE = "ALL" AND NOT UPS_SETTINGS_NEEDED]]>
+      </Condition>
     </Feature>
 
     <Feature Id="F_FedExSettings"
 	           Title="FedEx Settings"
 	           Level="1"
-	           AllowAdvertise="no">
+             AllowAdvertise="no">
       <ComponentGroupRef Id="FEDEX_Configuration" />
-	  </Feature>
+
+      <Condition Level="2">
+        <![CDATA[NOT REMOVE = "ALL" AND NOT FEDEX_SETTINGS_NEEDED]]>
+      </Condition>
+    </Feature>
 
     <!-- UI -->
-	  <UI Id="WixUI_FeatureTree">
-	    <UIRef Id="Custom_FeatureTree" />
-	    <UIRef Id="WixUI_ErrorProgressText" />
-	  </UI>
-	      
-	  <!-- Custom Actions-->
-	  <Binary Id="customActionDll" SourceFile="$(var.SmartShipment.WiX.Setup.CustomActions.TargetDir)SmartShipment.WiX.Setup.CustomActions.CA.dll"/>
-	  <CustomAction
-	    Id="SetupBaseSettings"
-	    BinaryKey="customActionDll"
-	    DllEntry="SetupBaseSettings"
-	    Execute="immediate"
-	    Return="check" />
+    <UI Id="WixUI_FeatureTree">
+      <UIRef Id="Custom_FeatureTree" />
+      <UIRef Id="WixUI_ErrorProgressText" />     
+    </UI>
 
-	  <CustomAction
+    <!-- Custom Actions-->
+   
+    <Binary Id="customActionDll" SourceFile="$(var.SmartShipment.WiX.Setup.CustomActions.TargetDir)SmartShipment.WiX.Setup.CustomActions.CA.dll"/>
+    <CustomAction
+      Id="CA_ShowWarning"
+      BinaryKey="customActionDll"
+      DllEntry="ShowWarning"
+      Execute="immediate"
+      Return="check"
+      />
+<CustomAction
+        Id="CA_ResetSettings"
+        BinaryKey="customActionDll"
+        DllEntry="ResetSettings"
+        Execute="immediate"
+        Return="check"
+      />
+    <CustomAction
+     Id="SetupBaseSettings"
+     BinaryKey="customActionDll"
+     DllEntry="SetupBaseSettings"
+     Execute="immediate"
+     Return="check" />
+
+    <CustomAction
 	    Id="RemoveBaseSettings"
 	    BinaryKey="customActionDll"
 	    DllEntry="RemoveBaseSettings"
@@ -385,7 +428,7 @@
 	    Execute="immediate"
 	    Return="check" />
 
-	  <CustomAction
+    <CustomAction
 	    Id="RemoveUpsSettings"
 	    BinaryKey="customActionDll"
 	    DllEntry="RemoveUpsSettings"
@@ -399,34 +442,35 @@
 	    Execute="immediate"
 	    Return="check" />
 
-	  <CustomAction
+    <CustomAction
 	    Id="RemoveFedExSettings"
 	    BinaryKey="customActionDll"
 	    DllEntry="RemoveFedExSettings"
 	    Execute="immediate"
 	    Return="check" />
-
-	  <InstallExecuteSequence>
-	    <Custom Action="SetupBaseSettings" After="InstallFinalize">
-	      <![CDATA[ NOT REMOVE = "ALL" AND !F_AcumaticaShippingToolIntegration = 2]]>
-	    </Custom>
-	    <Custom Action="RemoveBaseSettings" After="InstallFinalize">
-	      <![CDATA[ REMOVE = "ALL" AND !F_AcumaticaShippingToolIntegration = 3]]>
-	    </Custom>
+        
+      
+    <InstallExecuteSequence>
+    <Custom Action="SetupBaseSettings" After="InstallFinalize">
+        <![CDATA[ NOT REMOVE = "ALL" AND !F_AcumaticaShippingToolIntegration = 2]]>
+      </Custom>
+      <Custom Action="RemoveBaseSettings" After="InstallFinalize">
+        <![CDATA[ REMOVE = "ALL" AND !F_AcumaticaShippingToolIntegration = 3]]>
+      </Custom>
 
       <Custom Action="SetupUpsSettings" After="InstallFinalize">
-	      <![CDATA[ NOT REMOVE = "ALL" AND &F_UPSSettings = 3]]>
-	    </Custom>
-	    <Custom Action="RemoveUpsSettings" Before="InstallFinalize">
-	      <![CDATA[ NOT REMOVE = "ALL" AND &F_UPSSettings = 2]]>
-	    </Custom>
+        <![CDATA[ NOT REMOVE = "ALL" AND &F_UPSSettings = 3]]>
+      </Custom>
+      <Custom Action="RemoveUpsSettings" Before="InstallFinalize">
+        <![CDATA[ NOT REMOVE = "ALL" AND &F_UPSSettings = 2]]>
+      </Custom>
 
       <Custom Action="SetupFedExSettings" After="InstallFinalize">
-	      <![CDATA[ NOT REMOVE = "ALL" AND &F_FedExSettings = 3]]>
-	    </Custom>
-	    <Custom Action="RemoveFedExSettings" Before="InstallFinalize">
-	      <![CDATA[ NOT REMOVE = "ALL" AND &F_FedExSettings = 2]]>
-	    </Custom>
-	  </InstallExecuteSequence>
-	</Product>
+        <![CDATA[ NOT REMOVE = "ALL" AND &F_FedExSettings = 3]]>
+      </Custom>
+      <Custom Action="RemoveFedExSettings" Before="InstallFinalize">
+        <![CDATA[ NOT REMOVE = "ALL" AND &F_FedExSettings = 2]]>
+      </Custom>
+    </InstallExecuteSequence>
+  </Product>
 </Wix>

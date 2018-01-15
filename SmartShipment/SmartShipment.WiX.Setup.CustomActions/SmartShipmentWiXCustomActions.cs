@@ -22,7 +22,7 @@ namespace SmartShipment.WiX.Setup.CustomActions
             _customActionsHelper = new SetupCustomActions(_logger);
         }
 
-        [CustomAction]  
+        [CustomAction]
         public static ActionResult SetupBaseSettings(Session session)
         {
             _logger.Info(LOG_PREFIX + "SetupBaseSettings");
@@ -42,7 +42,7 @@ namespace SmartShipment.WiX.Setup.CustomActions
             }
             catch (Exception e)
             {
-                _logger.Info(LOG_PREFIX + "RemoveBaseSettings" + LOG_POSTFIX + e);                
+                _logger.Info(LOG_PREFIX + "RemoveBaseSettings" + LOG_POSTFIX + e);
             }
 
             return ActionResult.Success;
@@ -61,7 +61,7 @@ namespace SmartShipment.WiX.Setup.CustomActions
             _logger.Info(LOG_PREFIX + "RemoveUpsSettings");
             try
             {
-                _customActionsHelper.UninstallUpsSettings();                
+                _customActionsHelper.UninstallUpsSettings();
             }
             catch (Exception e)
             {
@@ -92,5 +92,43 @@ namespace SmartShipment.WiX.Setup.CustomActions
             }
             return ActionResult.Success;
         }
+
+        [CustomAction]
+        public static ActionResult ShowWarning(Session session)
+        {
+              // System.Diagnostics.Debugger.Launch();
+            var p1 = session["DisableNextButtonUPS"].ToString();
+            var p2 = session["DisableNextButtonFEDEX"].ToString();
+            //Check UPS Settings and show warning
+            if (p1 == "1" && (session["UPSWarning"] != "100"))
+            {
+                MessageBox.Show("UPS Settings cannot be installed. Please install the UPS WorldShip first.", "UPS Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                session["UPSWarning"] = "100";
+            }
+            else if (p1 == "0")
+            {
+                session["UPSWarning"] = null;
+            }
+            //Check FEDEX Settings and show warning
+            if (p2 == "1" && (session["FEDEXWarning"] != "100"))
+            {
+                MessageBox.Show("FedEx Settings cannot be installed. Please install the FedEx Ship Manager first.", "FedEx Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                session["FEDEXWarning"] = "100";
+            }
+            else if (p2 == "0")
+            {
+                session["FEDEXWarning"] = null;
+            }
+
+            return ActionResult.Success;
+        }
+        [CustomAction]
+        public static ActionResult ResetSettings(Session session)
+        {
+            session["DisableNextButtonFEDEX"] = "0";
+            session["DisableNextButtonUPS"] = "0";
+            return ActionResult.Success;
+        }
+
     }
 }

@@ -126,42 +126,47 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
                 //AutoExportRecent
                 if (!iniData["UPS OnLine Connect"].ContainsKey("AutoExportRecent"))
                 {
-                    return;
-                }
-
-                var data = iniData["UPS OnLine Connect"]["AutoExportRecent"];
-                if (!string.IsNullOrEmpty(mapName))
-                {
-                    var delimiter = !string.IsNullOrEmpty(data) ? "," : "";
-                    if (!data.Contains(mapName))
-                    {
-                        iniData["UPS OnLine Connect"]["AutoExportRecent"] = mapName + delimiter + data;
-                    }
+                    _logger.Info("WARNING:UPS Worldship: install auto maps to user menu: section UPS OnLine Connect or key AutoExportRecent does not found in file " + menuIniPath);                    
                 }
                 else
                 {
-                    iniData["UPS OnLine Connect"]["AutoExportRecent"] = "{ Multiple Maps }";
+                    var data = iniData["UPS OnLine Connect"]["AutoExportRecent"];
+                    if (!string.IsNullOrEmpty(mapName))
+                    {
+                        var delimiter = !string.IsNullOrEmpty(data) ? "," : "";
+                        if (!data.Contains(mapName))
+                        {
+                            iniData["UPS OnLine Connect"]["AutoExportRecent"] = mapName + delimiter + data;
+                        }
+                    }
+                    else
+                    {
+                        iniData["UPS OnLine Connect"]["AutoExportRecent"] = "{ Multiple Maps }";
+                    }
                 }
+                
 
                 //FreightAutoExportRecent
                 if (!iniData["UPS OnLine Connect"].ContainsKey("FreightAutoExportRecent"))
                 {
-                    return;
-                }
-
-                data = iniData["UPS OnLine Connect"]["FreightAutoExportRecent"];
-                if (!string.IsNullOrEmpty(mapName))
-                {
-                    var delimiter = !string.IsNullOrEmpty(data) ? "," : "";
-                    if (!data.Contains(mapName))
-                    {
-                        iniData["UPS OnLine Connect"]["FreightAutoExportRecent"] = mapName + delimiter + data;
-                    }
+                    _logger.Info("WARNING:UPS Worldship: install auto maps to user menu: section UPS OnLine Connect or key FreightAutoExportRecent does not found in file " + menuIniPath);
                 }
                 else
                 {
-                    iniData["UPS OnLine Connect"]["FreightAutoExportRecent"] = "";
-                }
+                    var data = iniData["UPS OnLine Connect"]["FreightAutoExportRecent"];
+                    if (!string.IsNullOrEmpty(mapName))
+                    {
+                        var delimiter = !string.IsNullOrEmpty(data) ? "," : "";
+                        if (!data.Contains(mapName))
+                        {
+                            iniData["UPS OnLine Connect"]["FreightAutoExportRecent"] = mapName + delimiter + data;
+                        }
+                    }
+                    else
+                    {
+                        iniData["UPS OnLine Connect"]["FreightAutoExportRecent"] = "";
+                    }
+                }                
 
                 iniParser.WriteFile(menuIniPath, iniData);
             }
@@ -202,7 +207,7 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
                     directoryofDataLocation = key?.GetValue("DataDirectory") as string;                    
                 }
             }
-            catch (Exception ex)  //just for demonstration...it's always best to handle specific exceptions
+            catch (Exception ex)  
             {
                 _logger.Info("UPS Woprldship: can't get DirectoryofDataLocation from Windows registry. " + ex);
             }

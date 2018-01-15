@@ -48,9 +48,9 @@ namespace SmartShipment.UI.Presenters
                 _acumaticaNetworkProvider.TestNetworkSettings();
                 _messagesProvider.Info(InformationResources.INFO_CHECK_NETWORK_PARAMETERS);
             }
-            catch
+            catch(Exception e)
             {
-                _messagesProvider.Warn(string.Format(InformationResources.ERROR_CHECK_NETWORK_PARAMETERS, InformationResources.Warn_Invalid_credentials_or_URL_string));
+                _messagesProvider.Warn(string.Format(InformationResources.ERROR_CHECK_NETWORK_PARAMETERS, InformationResources.Warn_Invalid_credentials_or_URL_string, e.Message));
             }
             finally
             {

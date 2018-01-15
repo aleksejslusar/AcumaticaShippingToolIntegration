@@ -137,6 +137,12 @@ namespace SmartShipment.Network
             _settings = settings;
             var webServiceUrl = settings.AcumaticaBaseUrl + settings.AcumaticaSoapDataEndpoint;
             var remoteAddress = new EndpointAddress(webServiceUrl);
+            
+            //Set connection secure mode https/http
+            _httpBinding.Security = remoteAddress.Uri.Scheme == Uri.UriSchemeHttps ? 
+                                    new BasicHttpSecurity {Mode = BasicHttpSecurityMode.Transport} : 
+                                    new BasicHttpSecurity { Mode = BasicHttpSecurityMode.None };
+
             _soapClient = new DefaultSoapClient(_httpBinding, remoteAddress);
             _soapClient.Login(settings.AcumaticaLogin, settings.AcumaticaPassword, settings.AcumaticaCompany, null, null);
         }

@@ -258,7 +258,8 @@
   </data>
   <data name="ERROR_CHECK_NETWORK_PARAMETERS" xml:space="preserve">
     <value>Network parameters check is unsuccessful!
-    [{0}]</value>
+    [{0}]
+(Error: {1})</value>
   </data>
   <data name="_WARN_INCORRECT_DATA_AND_DIALOGS" xml:space="preserve">
     <value>Warnings or errors were received during data entry.

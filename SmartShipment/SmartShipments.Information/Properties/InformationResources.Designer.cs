@@ -144,7 +144,8 @@ namespace SmartShipment.Information.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Network parameters check is unsuccessful!
-        ///    [{0}].
+        ///    [{0}]
+        ///(Error: {1}).
         /// </summary>
         public static string ERROR_CHECK_NETWORK_PARAMETERS {
             get {

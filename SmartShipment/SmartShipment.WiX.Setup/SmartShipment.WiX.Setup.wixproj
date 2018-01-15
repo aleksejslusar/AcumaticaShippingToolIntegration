@@ -22,8 +22,10 @@
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Custom_CustomizeDlg.wxs" />
     <Compile Include="Custom_FeatureTree.wxs" />
     <Compile Include="SmartShipmentWiXSetup.wxs" />
+    <Compile Include="WarningDlg.wxs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SmartShipment.Adapters\SmartShipment.Adapters.csproj">
