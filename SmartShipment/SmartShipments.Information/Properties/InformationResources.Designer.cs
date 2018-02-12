@@ -19,7 +19,7 @@ namespace SmartShipment.Information.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class InformationResources {
@@ -334,7 +334,7 @@ namespace SmartShipment.Information.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to File Monitoring: Start monitoring export file {0}.
+        ///   Looks up a localized string similar to File Monitoring: Starting monitoring export file {0}.
         /// </summary>
         public static string INFO_START_EXPORTFILE_MONITORING {
             get {
@@ -465,6 +465,24 @@ namespace SmartShipment.Information.Properties {
         public static string WARN_NO_PROCESS_FOUND_FOR_UPS_APPLICATION {
             get {
                 return ResourceManager.GetString("WARN_NO_PROCESS_FOUND_FOR_UPS_APPLICATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot process the Shipment &lt;{0}&gt;. FedEx Ship Manager is running, but application main window is not available for interaction with Acumatica Shipping Tool Integration..
+        /// </summary>
+        public static string WARN_NO_PROCESS_INIT_FOR_FEDEX_APPLICATION {
+            get {
+                return ResourceManager.GetString("WARN_NO_PROCESS_INIT_FOR_FEDEX_APPLICATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot process the Shipment &lt;{0}&gt;. UPS WorldShip is running, but application main window is not available for interaction with Acumatica Shipping Tool Integration..
+        /// </summary>
+        public static string WARN_NO_PROCESS_INIT_FOR_UPS_APPLICATION {
+            get {
+                return ResourceManager.GetString("WARN_NO_PROCESS_INIT_FOR_UPS_APPLICATION", resourceCulture);
             }
         }
         

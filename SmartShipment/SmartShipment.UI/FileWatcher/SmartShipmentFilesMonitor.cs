@@ -28,16 +28,16 @@ namespace SmartShipment.UI.FileWatcher
             {
                 var upsExportWatcher = _applicationController.GetContainer().Resolve<ISmartShipmentFileWatcher>();
                 var upsFileProvider = _applicationController.GetContainer().Resolve<ISmartShipmentFileProvider>(ApplicationTypes.UpsWorldShip.ToString());                
-                upsExportWatcher.InitFileWatcher(upsFileProvider, _settings.UpsExportFilePath);
                 _messagesProvider.Log(string.Format(InformationResources.INFO_START_EXPORTFILE_MONITORING, _settings.UpsExportFilePath));
+                upsExportWatcher.InitFileWatcher(upsFileProvider, _settings.UpsExportFilePath);
             });
             
             Task.Factory.StartNew(() =>
             {
                 var fedexExportWatcher = _applicationController.GetContainer().Resolve<ISmartShipmentFileWatcher>();
                 var fedexFileProvider = _applicationController.GetContainer().Resolve<ISmartShipmentFileProvider>(ApplicationTypes.FedExShipmentManager.ToString());
-                fedexExportWatcher.InitFileWatcher(fedexFileProvider, _settings.FedexExportFilePath);
                 _messagesProvider.Log(string.Format(InformationResources.INFO_START_EXPORTFILE_MONITORING, _settings.FedexExportFilePath));
+                fedexExportWatcher.InitFileWatcher(fedexFileProvider, _settings.FedexExportFilePath);
             });
         }        
     }

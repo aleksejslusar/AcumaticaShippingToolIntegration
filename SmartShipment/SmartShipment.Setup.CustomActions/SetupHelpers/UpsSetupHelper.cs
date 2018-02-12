@@ -35,7 +35,7 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
                 CopyMapFile();
                 
                 InstallAutoMapsSettings(_upsShipmentMapPath);
-                InstallShupUserSettings("UPSOUT");
+                InstallShipUserSettings("UPSOUT");
                 _logger.Info("UPS Woprldship: setup environment complete");
                 return true;
             }
@@ -51,7 +51,7 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
             _logger.Info("UPS Woprldship: begin uninstall");
             //Clear UPS ini files
             InstallAutoMapsSettings("");
-            InstallShupUserSettings("");
+            InstallShipUserSettings("");
 
             //Delete map           
             if (File.Exists(_upsShipmentMapPath))
@@ -80,6 +80,15 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
 
         private void InstallAutoMapsSettings(string mapName)
         {
+
+            var directoryPath = Path.Combine(_upsShipmentDataDirectoryLocation, UPS_BASE_DATA_PATH);
+            
+            if (!Directory.Exists(directoryPath))
+            {
+                _logger.Error($"UPS Worldship: install auto maps: directory {directoryPath} does not exist");
+                throw new Exception();
+            }
+
             var mapIniPath = Path.Combine(_upsShipmentDataDirectoryLocation, "wstdAutoExportMaps.ini");
 
             if (File.Exists(mapIniPath))
@@ -106,7 +115,7 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
             }
         }
 
-        private  void InstallShupUserSettings(string mapName)
+        private  void InstallShipUserSettings(string mapName)
         {
             var menuIniPath = Path.Combine(_upsShipmentDataDirectoryLocation, "wstdShipuser.ini");
 

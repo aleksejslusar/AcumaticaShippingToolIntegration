@@ -1,6 +1,5 @@
 using System.Text.RegularExpressions;
 using System.Windows.Automation;
-using Microsoft.Test.Input;
 using SmartShipment.Adapters.Common;
 using SmartShipment.Adapters.Control;
 using SmartShipment.Information;

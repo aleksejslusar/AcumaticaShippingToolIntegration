@@ -51,14 +51,22 @@ namespace SmartShipment.Adapters.Helpers.ApplicationHelpers
                     _workplace = _mainWindow.FindDescendentByIdPath(new[] {_workplaceAutomationId});
                     delayCount++;
                 }
-                _messagesProvider.Log(string.Format(InformationResources.INFO_UPS_START_APPLICATION, shipmentNumber));
-                return true;
+
+                if (_mainWindow != null && _workplace != null)
+                {
+                    _messagesProvider.Log(string.Format(InformationResources.INFO_UPS_START_APPLICATION, shipmentNumber));
+                    return true;
+                }
+                else
+                {
+                    _messagesProvider.Warn(string.Format(InformationResources.WARN_NO_PROCESS_INIT_FOR_UPS_APPLICATION, shipmentNumber));
+                    return false;
+                }
 
             }
             else
             {
-                _messagesProvider.Warn(string.Format(InformationResources.WARN_NO_PROCESS_FOUND_FOR_UPS_APPLICATION,
-                    shipmentNumber));
+                _messagesProvider.Warn(string.Format(InformationResources.WARN_NO_PROCESS_FOUND_FOR_UPS_APPLICATION, shipmentNumber));
                 return false;
             }
         }
@@ -66,8 +74,7 @@ namespace SmartShipment.Adapters.Helpers.ApplicationHelpers
         public bool PopulateApplicaitonControlMap()
         {
             _upsManagerMap = (UpsManagerMap) _cache.Get(ShipmentApplicaotinHelperType.UpsManagerMap, _mainWindow);
-            _upsManagerShellMap =
-                (UpsManagerShellMap) _cache.Get(ShipmentApplicaotinHelperType.UpsManagerShellMap, _mainWindow);
+            _upsManagerShellMap = (UpsManagerShellMap) _cache.Get(ShipmentApplicaotinHelperType.UpsManagerShellMap, _mainWindow);
             _upsManagerShellMap.ClearUIForStartInput();
 
             _upsManagerMap.Map();

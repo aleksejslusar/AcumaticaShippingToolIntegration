@@ -165,8 +165,14 @@
   <data name="WARN_NO_PROCESS_FOUND_FOR_UPS_APPLICATION" xml:space="preserve">
     <value>Cannot process the Shipment &lt;{0}&gt;. UPS WorldShip  should be running.</value>
   </data>
+  <data name="WARN_NO_PROCESS_INIT_FOR_UPS_APPLICATION" xml:space="preserve">
+    <value>Cannot process the Shipment &lt;{0}&gt;. UPS WorldShip is running, but application main window is not available for interaction with Acumatica Shipping Tool Integration.</value>
+  </data>
   <data name="WARN_NO_PROCESS_FOUND_FOR_FEDEX_APPLICATION" xml:space="preserve">
     <value>Cannot process the Shipment &lt;{0}&gt;. FedEx Ship Manager should be running.</value>
+  </data>
+  <data name="WARN_NO_PROCESS_INIT_FOR_FEDEX_APPLICATION" xml:space="preserve">
+    <value>Cannot process the Shipment &lt;{0}&gt;. FedEx Ship Manager is running, but application main window is not available for interaction with Acumatica Shipping Tool Integration.</value>
   </data>
   <data name="INFO_APPLICATION_STARTED" xml:space="preserve">
     <value>Application started</value>
@@ -181,7 +187,7 @@
     <value>Application stoped</value>
   </data>
   <data name="INFO_START_EXPORTFILE_MONITORING" xml:space="preserve">
-    <value>File Monitoring: Start monitoring export file {0}</value>
+    <value>File Monitoring: Starting monitoring export file {0}</value>
   </data>
   <data name="INFO_EXPORT_FILE_PROCESSED" xml:space="preserve">
     <value>File Monitoring: Process export file {0}, processed row(s): {1}.</value>

@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Automation;
 using SmartShipment.Adapters.Cache;
 using SmartShipment.Adapters.Common;
-using SmartShipment.Adapters.Control;
 using SmartShipment.Adapters.Helpers.ControlHelpers;
 using SmartShipment.Adapters.Map;
 using SmartShipment.AutomationUI.UIAutomation;
@@ -42,8 +40,17 @@ namespace SmartShipment.Adapters.Helpers.ApplicationHelpers
             if (process != null)
             {
                 _mainWindow = AutomationElement.RootElement.FindChildByProcessId(process.Id);
-                _messagesProvider.Log(InformationResources.INFO_FEDEX_START_APPLICATION);
-                return true;
+                if (_mainWindow != null)
+                {
+                    _messagesProvider.Log(InformationResources.INFO_FEDEX_START_APPLICATION);
+                    return true;
+                }
+                else
+                {
+                    _messagesProvider.Warn(string.Format(InformationResources.WARN_NO_PROCESS_INIT_FOR_FEDEX_APPLICATION, shipmentNumber));
+                    return false;
+                }
+                
             }
             else
             {

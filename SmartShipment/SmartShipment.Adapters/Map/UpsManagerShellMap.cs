@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Automation;
@@ -25,8 +26,22 @@ namespace SmartShipment.Adapters.Map
             base.ClearUIForStartInput();
             if (IsMainWindowReadyForUserInteraction())
             {
-                RootAutomationElement.SetFocus();
-                Keyboard.Type(Key.F2);
+                //TODO: remove or comment this message after fix issue.
+                MessagesProvider.Log($"----------------- Root automation element info -------------------" +
+                                     $"automatoinID: {RootAutomationElement.Current.AutomationId}, " +
+                                     $"name:         {RootAutomationElement.Current.Name}, " +
+                                     $"hwnd:         {RootAutomationElement.Current.NativeWindowHandle} " +
+                                     $"className:    {RootAutomationElement.Current.ClassName} ");
+
+                try
+                {
+                    RootAutomationElement.SetFocus();
+                    Keyboard.Type(Key.F2);
+                }
+                catch (Exception e)
+                {                    
+                    MessagesProvider.Log($"Cannot clear UI for start input: Element name {RootAutomationElement.Current.Name}, Exception: {e}");
+                }                
             }
 
             foreach (var tab in Tabs)
