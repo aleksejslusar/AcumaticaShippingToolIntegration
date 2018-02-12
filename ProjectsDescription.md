@@ -10,5 +10,15 @@ SmartShipment.Network				Information exchange with Acumatica.
 SmartShipment.Adapters				Interaction with UPS WorldShip & FedEx ShipManager. Project contains mapping between Acumatica Shipment fields and fields of the supported shipping applications. 
 SmartShipment.AutomationUI			Utilities and helpers to work with Win32 API and Microsoft Automation UI.
 
+You MUST install these packages before open the solution:
+1. Microsoft Visual Studio 2017 Installer Projects
+https://marketplace.visualstudio.com/items?itemName=VisualStudioProductTeam.MicrosoftVisualStudio2017InstallerProjects
+
+2. WiX Toolset v3.11.1
+https://github.com/wixtoolset/wix3/releases/tag/wix3111rtm 	
+
+3. Wix Toolset Visual Studio 2017 Extension
+https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension
+
 
 
