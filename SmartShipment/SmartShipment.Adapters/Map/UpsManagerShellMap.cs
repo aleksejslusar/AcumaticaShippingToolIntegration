@@ -27,11 +27,11 @@ namespace SmartShipment.Adapters.Map
             if (IsMainWindowReadyForUserInteraction())
             {
                 //TODO: remove or comment this message after fix issue.
-                MessagesProvider.Log($"----------------- Root automation element info -------------------" +
+                MessagesProvider.Log("Current automation element info: " +
                                      $"automatoinID: {RootAutomationElement.Current.AutomationId}, " +
-                                     $"name:         {RootAutomationElement.Current.Name}, " +
-                                     $"hwnd:         {RootAutomationElement.Current.NativeWindowHandle} " +
-                                     $"className:    {RootAutomationElement.Current.ClassName} ");
+                                     $"name: {RootAutomationElement.Current.Name}, " +
+                                     $"hwnd: {RootAutomationElement.Current.NativeWindowHandle}, " +
+                                     $"className: {RootAutomationElement.Current.ClassName} ");
 
                 try
                 {
