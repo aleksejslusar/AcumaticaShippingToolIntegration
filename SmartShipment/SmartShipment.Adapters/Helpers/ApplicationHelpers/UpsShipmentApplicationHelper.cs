@@ -126,6 +126,12 @@ namespace SmartShipment.Adapters.Helpers.ApplicationHelpers
 
             //Check Update addressbook checkbox
             _upsManagerMap.UpdateAddressBookCheckBox.SetValueToControl(_settings.UpsAddUpdateAddressBook ? "true" : "false");
+            
+            if (_settings.UpsAddUpdateAddressBook)
+            {
+                Wait(10);
+            }
+
             _upsManagerMap.MapShipmentData(shipment);
             Wait(1);
             
@@ -168,6 +174,7 @@ namespace SmartShipment.Adapters.Helpers.ApplicationHelpers
         {
             if (!shipment.Packages.Any())
             {
+                _messagesProvider.Log(InformationResources.INFO_UPS_SHIPMENT_NO_PACKAGE);
                 _upsManagerMap.ReferenceNumberOnePane.SetValueToControl(shipment.ShipmentNbr.Value.Trim());
                 _upsManagerMap.PackageWeightPane.AutomationElement.SetFocus();
             }
@@ -176,17 +183,22 @@ namespace SmartShipment.Adapters.Helpers.ApplicationHelpers
             {
                 if (IsWarnDialogFired)
                 {
-                    StopTimer();
-                    break;
+                    Wait(100);
+                    if (IsWarnDialogFired)
+                    {
+                        _messagesProvider.Log(string.Format(InformationResources.WARN_SHIPMENT_PACKAGES_FILLING, shipment.ShipmentNbr.Value));
+                        StopTimer();
+                        break;
+                    }                                            
                 }
 
                 _upsManagerMap.PackageWeightPane.SetValueToControl(package.PackageFormattedWeight.Value);
 
                 var delayCount = 100;
-                while (delayCount > 0 &&
-                       string.IsNullOrEmpty(_upsManagerMap.ReferenceNumberOnePane.GetCurrentValue().Trim()))
+                while (delayCount > 0 && string.IsNullOrEmpty(_upsManagerMap.ReferenceNumberOnePane.GetCurrentValue().Trim()))
                 {
-                    delayCount--;
+                    Wait(1);
+                    delayCount--;                    
                     _upsManagerMap.ReferenceNumberOnePane.SetValueToControl(shipment.ShipmentNbr.Value);
                 }
                 _upsManagerMap.AddPackageButton.Click();

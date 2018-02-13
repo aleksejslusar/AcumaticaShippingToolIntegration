@@ -379,6 +379,15 @@ namespace SmartShipment.Information.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to UPS Worldship: Shipment without packages completed.
+        /// </summary>
+        public static string INFO_UPS_SHIPMENT_NO_PACKAGE {
+            get {
+                return ResourceManager.GetString("INFO_UPS_SHIPMENT_NO_PACKAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to UPS Worldship: start application.
         /// </summary>
         public static string INFO_UPS_START_APPLICATION {
@@ -529,6 +538,15 @@ namespace SmartShipment.Information.Properties {
         public static string WARN_SHIPMENT_IS_CONFIRMED_AND_CANNOT_BE_UPDATED {
             get {
                 return ResourceManager.GetString("WARN_SHIPMENT_IS_CONFIRMED_AND_CANNOT_BE_UPDATED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot process the Shipment &lt;{0}&gt; packages. Received an errors when entering values..
+        /// </summary>
+        public static string WARN_SHIPMENT_PACKAGES_FILLING {
+            get {
+                return ResourceManager.GetString("WARN_SHIPMENT_PACKAGES_FILLING", resourceCulture);
             }
         }
         

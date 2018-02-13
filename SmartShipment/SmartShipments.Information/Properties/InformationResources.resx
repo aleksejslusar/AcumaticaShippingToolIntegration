@@ -232,6 +232,9 @@
   <data name="INFO_UPS_FILL_PACKAGE_DATA" xml:space="preserve">
     <value>UPS Worldship: filling in Shipment packages values completed</value>
   </data>
+  <data name="INFO_UPS_SHIPMENT_NO_PACKAGE" xml:space="preserve">
+    <value>UPS Worldship: Shipment without packages completed</value>
+  </data>
   <data name="INFO_UPS_FILL_SHIPMENT_DATA" xml:space="preserve">
     <value>UPS Worldship: filling in Shipment values completed</value>
   </data>
@@ -246,6 +249,9 @@
   </data>
   <data name="WARN_SHIPMENT_VALIDATION_TYPE" xml:space="preserve">
     <value>Cannot process the Shipment &lt;{0}&gt;. Only the shipments with the "Shipment" type can be processed.</value>
+  </data>
+  <data name="WARN_SHIPMENT_PACKAGES_FILLING" xml:space="preserve">
+    <value>Cannot process the Shipment &lt;{0}&gt; packages. Received an errors when entering values.</value>
   </data>
   <data name="WARN_SHIPMENT_VALIDATION_OPEN" xml:space="preserve">
     <value>Cannot process the Shipment &lt;{0}&gt;. Only the shipments with the "Open" status can be processed.</value>

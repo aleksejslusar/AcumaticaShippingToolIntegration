@@ -133,49 +133,68 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
                 var iniData = iniParser.ReadFile(menuIniPath);
 
                 //AutoExportRecent
-                if (!iniData["UPS OnLine Connect"].ContainsKey("AutoExportRecent"))
+                if (!iniData.Sections.ContainsSection("UPS OnLine Connect") || !iniData["UPS OnLine Connect"].ContainsKey("AutoExportRecent"))
                 {
-                    _logger.Info("WARNING:UPS Worldship: install auto maps to user menu: section UPS OnLine Connect or key AutoExportRecent does not found in file " + menuIniPath);                    
-                }
-                else
-                {
-                    var data = iniData["UPS OnLine Connect"]["AutoExportRecent"];
-                    if (!string.IsNullOrEmpty(mapName))
+                    _logger.Info("WARNING:UPS Worldship: install auto maps to user menu: section UPS OnLine Connect or key AutoExportRecent does not found in file " + menuIniPath);
+                    if (!iniData.Sections.ContainsSection("UPS OnLine Connect"))
                     {
-                        var delimiter = !string.IsNullOrEmpty(data) ? "," : "";
-                        if (!data.Contains(mapName))
-                        {
-                            iniData["UPS OnLine Connect"]["AutoExportRecent"] = mapName + delimiter + data;
-                        }
+                        iniData.Sections.AddSection("UPS OnLine Connect");
                     }
-                    else
+
+                    if (!iniData["UPS OnLine Connect"].ContainsKey("AutoExportRecent"))
                     {
-                        iniData["UPS OnLine Connect"]["AutoExportRecent"] = "{ Multiple Maps }";
+                        iniData["UPS OnLine Connect"].AddKey("AutoExportRecent");
                     }
                 }
                 
-
-                //FreightAutoExportRecent
-                if (!iniData["UPS OnLine Connect"].ContainsKey("FreightAutoExportRecent"))
+                //AutoExportRecent: Set section value
+                var autoExportData = iniData["UPS OnLine Connect"]["AutoExportRecent"];
+                if (!string.IsNullOrEmpty(mapName))
                 {
-                    _logger.Info("WARNING:UPS Worldship: install auto maps to user menu: section UPS OnLine Connect or key FreightAutoExportRecent does not found in file " + menuIniPath);
+                    var delimiter = !string.IsNullOrEmpty(autoExportData) ? "," : "";
+                    if (!autoExportData.Contains(mapName))
+                    {
+                        iniData["UPS OnLine Connect"]["AutoExportRecent"] = mapName + delimiter + autoExportData;
+                    }
                 }
                 else
                 {
-                    var data = iniData["UPS OnLine Connect"]["FreightAutoExportRecent"];
-                    if (!string.IsNullOrEmpty(mapName))
+                    iniData["UPS OnLine Connect"]["AutoExportRecent"] = "{ Multiple Maps }";
+                }
+                
+                
+
+                //FreightAutoExportRecent
+                if (!iniData.Sections.ContainsSection("UPS OnLine Connect") || !iniData["UPS OnLine Connect"].ContainsKey("FreightAutoExportRecent"))
+                {
+                    _logger.Info("WARNING:UPS Worldship: install auto maps to user menu: section UPS OnLine Connect or key FreightAutoExportRecent does not found in file " + menuIniPath);
+                    if (!iniData.Sections.ContainsSection("UPS OnLine Connect"))
                     {
-                        var delimiter = !string.IsNullOrEmpty(data) ? "," : "";
-                        if (!data.Contains(mapName))
-                        {
-                            iniData["UPS OnLine Connect"]["FreightAutoExportRecent"] = mapName + delimiter + data;
-                        }
+                        iniData.Sections.AddSection("UPS OnLine Connect");
                     }
-                    else
+
+                    if (!iniData["UPS OnLine Connect"].ContainsKey("FreightAutoExportRecent"))
                     {
-                        iniData["UPS OnLine Connect"]["FreightAutoExportRecent"] = "";
+                        iniData["UPS OnLine Connect"].AddKey("FreightAutoExportRecent");
                     }
-                }                
+
+
+                }
+                
+                var freightAutoExportData = iniData["UPS OnLine Connect"]["FreightAutoExportRecent"];
+                if (!string.IsNullOrEmpty(mapName))
+                {
+                    var delimiter = !string.IsNullOrEmpty(freightAutoExportData) ? "," : "";
+                    if (!freightAutoExportData.Contains(mapName))
+                    {
+                        iniData["UPS OnLine Connect"]["FreightAutoExportRecent"] = mapName + delimiter + freightAutoExportData;
+                    }
+                }
+                else
+                {
+                    iniData["UPS OnLine Connect"]["FreightAutoExportRecent"] = "";
+                }
+                                
 
                 iniParser.WriteFile(menuIniPath, iniData);
             }
