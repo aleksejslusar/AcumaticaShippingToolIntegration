@@ -21,6 +21,7 @@ namespace SmartShipment.Network
         }
 
         public string BaseUrl => _shipmentUriData.Key;
+        public string SettingsBaseUrl => _settings.AcumaticaBaseUrl;
         public string ShipmentNbr => _shipmentUriData.Value.ContainsKey(SHIPMENT_NBR_PARAM)? _shipmentUriData.Value[SHIPMENT_NBR_PARAM] : string.Empty;
         public string ScreenId => _shipmentUriData.Value.ContainsKey(SCREEN_ID_PARAM) ? _shipmentUriData.Value[SCREEN_ID_PARAM] : string.Empty;
         public string PopupPanel => _shipmentUriData.Value.ContainsKey(SCREEN_POPUP_ON) ? _shipmentUriData.Value[SCREEN_POPUP_ON] : string.Empty;
@@ -28,7 +29,7 @@ namespace SmartShipment.Network
         public bool IsDataCorrect()
         {
             return !string.IsNullOrEmpty(BaseUrl) && 
-                   BaseUrl.Contains(_settings.AcumaticaBaseUrl.TrimEnd('/')) &&
+                   BaseUrl.ToLowerInvariant().Equals(_settings.AcumaticaBaseUrl.ToLowerInvariant().TrimEnd('/')) &&
                    !string.IsNullOrEmpty(ShipmentNbr) && 
                    ((string.IsNullOrEmpty(PopupPanel) && !string.IsNullOrEmpty(ScreenId) && _shipmentScreens.Contains(ScreenId)) || (!string.IsNullOrEmpty(PopupPanel) && string.IsNullOrEmpty(ScreenId) && !_shipmentScreens.Contains(ScreenId)));
         }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Windows.Forms;
 using IniParser;
 using Microsoft.Win32;
 using SmartShipment.Settings.SettingsHelper;
@@ -231,8 +230,10 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
             try
             {
                 using (var key = Registry.LocalMachine.OpenSubKey("Software\\Wow6432Node\\UPS\\Installation"))
-                {
-                    directoryofDataLocation = key?.GetValue("DataDirectory") as string;                    
+                {                    
+                    var networkShareDir = key?.GetValue("NetworkShareDir") as string;                    
+                    var localDataDir = key?.GetValue("DataDirectory") as string;                    
+                    directoryofDataLocation = !string.IsNullOrEmpty(networkShareDir) ? networkShareDir : localDataDir;                    
                 }
             }
             catch (Exception ex)  

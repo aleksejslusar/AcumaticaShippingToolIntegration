@@ -38,8 +38,13 @@ namespace SmartShipment.Network
         {
             var urlString = GetUrlUseUIAutomation();
             var shipmentId = _acumaticaUriParser.GetShipmentId(urlString);
-            if (shipmentId != null && shipmentId.IsDataCorrect())
+            if (shipmentId != null)
             {
+                if (!shipmentId.IsDataCorrect())
+                {
+                    throw new NetworkActiveUriNotFoundException(string.Format(InformationResources.ERROR_NO_SHIPMENT_URI_FOUND_EXT, 
+                                                                              $"\r\nBrowser URL: {shipmentId.BaseUrl}\r\nSettings URI: {shipmentId.SettingsBaseUrl}"));
+                }
                 return shipmentId;
             }
 

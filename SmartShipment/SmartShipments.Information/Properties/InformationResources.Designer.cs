@@ -181,11 +181,20 @@ namespace SmartShipment.Information.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No Shipment URL in active browsers found.
+        ///   Looks up a localized string similar to No Shipment URL in active browsers found..
         /// </summary>
         public static string ERROR_NO_SHIPMENT_URI_FOUND {
             get {
                 return ResourceManager.GetString("ERROR_NO_SHIPMENT_URI_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Shipment URL in active browsers found {0}.
+        /// </summary>
+        public static string ERROR_NO_SHIPMENT_URI_FOUND_EXT {
+            get {
+                return ResourceManager.GetString("ERROR_NO_SHIPMENT_URI_FOUND_EXT", resourceCulture);
             }
         }
         

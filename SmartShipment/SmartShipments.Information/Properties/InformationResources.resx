@@ -263,7 +263,10 @@
     <value>No active browser found.</value>
   </data>
   <data name="ERROR_NO_SHIPMENT_URI_FOUND" xml:space="preserve">
-    <value>No Shipment URL in active browsers found</value>
+    <value>No Shipment URL in active browsers found.</value>
+  </data>
+  <data name="ERROR_NO_SHIPMENT_URI_FOUND_EXT" xml:space="preserve">
+    <value>No Shipment URL in active browsers found {0}</value>
   </data>
   <data name="INFO_CHECK_NETWORK_PARAMETERS" xml:space="preserve">
     <value>Network parameters check is successful!</value>
