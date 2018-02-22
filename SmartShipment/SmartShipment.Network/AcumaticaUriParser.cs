@@ -46,7 +46,11 @@ namespace SmartShipment.Network
 
         private static string DecodeBaseUrl(Uri uri)
         {
-            var baseUri = uri.GetLeftPart(UriPartial.Path);                        
+            var baseUri = uri.GetLeftPart(UriPartial.Path);
+            if (baseUri.IndexOf('(') > 0)
+            {
+                baseUri = baseUri.Substring(0, baseUri.IndexOf('('));
+            }
             return baseUri.Substring(0, baseUri.LastIndexOf('/'));
         }
 
