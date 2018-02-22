@@ -183,21 +183,15 @@ namespace SmartShipment.Adapters.Helpers.ApplicationHelpers
             {
                 if (IsWarnDialogFired)
                 {
-                    Wait(100);
-                    if (IsWarnDialogFired)
-                    {
-                        _messagesProvider.Log(string.Format(InformationResources.WARN_SHIPMENT_PACKAGES_FILLING, shipment.ShipmentNbr.Value));
-                        StopTimer();
-                        break;
-                    }                                            
+                    StopTimer();
+                    break;                                          
                 }
 
                 _upsManagerMap.PackageWeightPane.SetValueToControl(package.PackageFormattedWeight.Value);
 
                 var delayCount = 100;
                 while (delayCount > 0 && string.IsNullOrEmpty(_upsManagerMap.ReferenceNumberOnePane.GetCurrentValue().Trim()))
-                {
-                    Wait(1);
+                {                   
                     delayCount--;                    
                     _upsManagerMap.ReferenceNumberOnePane.SetValueToControl(shipment.ShipmentNbr.Value);
                 }

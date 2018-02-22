@@ -26,13 +26,6 @@ namespace SmartShipment.Adapters.Map
             base.ClearUIForStartInput();
             if (IsMainWindowReadyForUserInteraction())
             {
-                //TODO: remove or comment this message after fix issue.
-                MessagesProvider.Log("Current automation element info: " +
-                                     $"automatoinID: {RootAutomationElement.Current.AutomationId}, " +
-                                     $"name: {RootAutomationElement.Current.Name}, " +
-                                     $"hwnd: {RootAutomationElement.Current.NativeWindowHandle}, " +
-                                     $"className: {RootAutomationElement.Current.ClassName} ");
-
                 try
                 {
                     RootAutomationElement.SetFocus();
