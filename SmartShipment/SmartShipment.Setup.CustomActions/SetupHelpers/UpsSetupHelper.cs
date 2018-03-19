@@ -11,31 +11,34 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
         private readonly SmartShipmentsSettingsHelper _settingsProviderHelper;
         private readonly ISetupLogger _logger;
         private const string UPS_BASE_DATA_PATH = "ImpExp\\Shipment";
-        private const string UPS_DATA_DIRECTORY_LOCATION = "UPS\\WSTD\\";
-        private readonly string _upsShipmentDataDirectoryLocation;
-        private readonly string _upsShipmentMapPath;
+        private readonly string _upsShipmentAppConfigDirectoryLocation;
+        private readonly string _upsShipmentImpExpFilePath;
 
         public UpsSetupHelper(SmartShipmentsSettingsHelper settingsProviderHelper, ISetupLogger logger)
-        {           
+        {
+            System.Diagnostics.Debugger.Launch();
             _settingsProviderHelper = settingsProviderHelper;
             _logger = logger;
-                        
-            _upsShipmentDataDirectoryLocation = GetUpsDataDirectoryLocation();
-            _upsShipmentMapPath = Path.Combine(_upsShipmentDataDirectoryLocation, UPS_BASE_DATA_PATH, "UPSOUT.dat");
+
+            _upsShipmentAppConfigDirectoryLocation = GetUpsRegistryApplicationConfigDirectoryLocation();
+            _upsShipmentImpExpFilePath = Path.Combine(GetUpsRegistryDataDirectoryLocation(), UPS_BASE_DATA_PATH, "UPSOUT.dat");
         }
-
-
-
+        
         public bool Install()
-        {
+        {            
             _logger.Info("UPS Woprldship: setup environment started");
             try
             {                
+                _logger.Info("UPS Woprldship: starting copy export-import data file.");
                 CopyMapFile();
+
+                _logger.Info("UPS Woprldship: starting install automap settings.");
+                InstallAutoMapsSettings(_upsShipmentImpExpFilePath);
                 
-                InstallAutoMapsSettings(_upsShipmentMapPath);
+                _logger.Info("UPS Woprldship: starting install user menu settings.");
                 InstallShipUserSettings("UPSOUT");
-                _logger.Info("UPS Woprldship: setup environment complete");
+                
+                _logger.Info("UPS Woprldship: setup environment completed.");
                 return true;
             }
             catch (Exception e)
@@ -53,9 +56,9 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
             InstallShipUserSettings("");
 
             //Delete map           
-            if (File.Exists(_upsShipmentMapPath))
+            if (File.Exists(_upsShipmentImpExpFilePath))
             {
-                File.Delete(_upsShipmentMapPath);
+                File.Delete(_upsShipmentImpExpFilePath);
             }
 
             _logger.Info("UPS Woprldship: end uninstall");
@@ -67,8 +70,8 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
 
             if (File.Exists(source))
             {
-                File.Copy(source, _upsShipmentMapPath, true);
-                _logger.Info("UPS Worldship: copy files from: "+ source + " to: " + _upsShipmentMapPath);
+                File.Copy(source, _upsShipmentImpExpFilePath, true);
+                _logger.Info("UPS Worldship: copy files from: "+ source + " to: " + _upsShipmentImpExpFilePath);
             }
             else
             {
@@ -77,34 +80,25 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
             }
         }
 
-        private void InstallAutoMapsSettings(string mapName)
+        private void InstallAutoMapsSettings(string mapFileName)
         {
-
-            var directoryPath = Path.Combine(_upsShipmentDataDirectoryLocation, UPS_BASE_DATA_PATH);
-            
-            if (!Directory.Exists(directoryPath))
-            {
-                _logger.Error($"UPS Worldship: install auto maps: directory {directoryPath} does not exist");
-                throw new Exception();
-            }
-
-            var mapIniPath = Path.Combine(_upsShipmentDataDirectoryLocation, "wstdAutoExportMaps.ini");
+            var mapIniPath = Path.Combine(_upsShipmentAppConfigDirectoryLocation, "wstdAutoExportMaps.ini");
 
             if (File.Exists(mapIniPath))
             {
-                if (string.IsNullOrWhiteSpace(mapName))
+                if (string.IsNullOrWhiteSpace(mapFileName))
                 {
                     _logger.Info("UPS Worldship: uninstall active auto map");
                 }
                 else
                 {
-                    _logger.Info("UPS Worldship: install auto map: " + mapName);
+                    _logger.Info("UPS Worldship: install auto map: " + mapFileName);
                 }
                
                 var iniParser = new FileIniDataParser();
                 var iniData = iniParser.ReadFile(mapIniPath);
-                iniData["AutoExportShipments"]["ExportMapName"] = mapName;                
-                iniData["AutoExportFreightShipments"]["ExportMapName"] = mapName;                
+                iniData["AutoExportShipments"]["ExportMapName"] = mapFileName;                
+                iniData["AutoExportFreightShipments"]["ExportMapName"] = mapFileName;                
                 iniParser.WriteFile(mapIniPath, iniData);
             }
             else
@@ -114,19 +108,19 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
             }
         }
 
-        private  void InstallShipUserSettings(string mapName)
+        private  void InstallShipUserSettings(string mapFileName)
         {
-            var menuIniPath = Path.Combine(_upsShipmentDataDirectoryLocation, "wstdShipuser.ini");
+            var menuIniPath = Path.Combine(_upsShipmentAppConfigDirectoryLocation, "wstdShipuser.ini");
 
             if (File.Exists(menuIniPath))
             {
-                if (string.IsNullOrWhiteSpace(mapName))
+                if (string.IsNullOrWhiteSpace(mapFileName))
                 {
                     _logger.Info("UPS Worldship: uninstall active auto map from user menu");
                 }
                 else
                 {
-                    _logger.Info("UPS Worldship: install auto maps to user menu: " + mapName);      
+                    _logger.Info("UPS Worldship: install auto maps to user menu: " + mapFileName);      
                 }
                 var iniParser = new FileIniDataParser();
                 var iniData = iniParser.ReadFile(menuIniPath);
@@ -148,12 +142,12 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
                 
                 //AutoExportRecent: Set section value
                 var autoExportData = iniData["UPS OnLine Connect"]["AutoExportRecent"];
-                if (!string.IsNullOrEmpty(mapName))
+                if (!string.IsNullOrEmpty(mapFileName))
                 {
                     var delimiter = !string.IsNullOrEmpty(autoExportData) ? "," : "";
-                    if (!autoExportData.Contains(mapName))
+                    if (!autoExportData.Contains(mapFileName))
                     {
-                        iniData["UPS OnLine Connect"]["AutoExportRecent"] = mapName + delimiter + autoExportData;
+                        iniData["UPS OnLine Connect"]["AutoExportRecent"] = mapFileName + delimiter + autoExportData;
                     }
                 }
                 else
@@ -181,12 +175,12 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
                 }
                 
                 var freightAutoExportData = iniData["UPS OnLine Connect"]["FreightAutoExportRecent"];
-                if (!string.IsNullOrEmpty(mapName))
+                if (!string.IsNullOrEmpty(mapFileName))
                 {
                     var delimiter = !string.IsNullOrEmpty(freightAutoExportData) ? "," : "";
-                    if (!freightAutoExportData.Contains(mapName))
+                    if (!freightAutoExportData.Contains(mapFileName))
                     {
-                        iniData["UPS OnLine Connect"]["FreightAutoExportRecent"] = mapName + delimiter + freightAutoExportData;
+                        iniData["UPS OnLine Connect"]["FreightAutoExportRecent"] = mapFileName + delimiter + freightAutoExportData;
                     }
                 }
                 else
@@ -204,27 +198,7 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
             }
         }
 
-        private string GetUpsDataDirectoryLocation()
-        {
-            var registryUpsDataLocation = GetUpsDirectoryofDataLocation();
-            if (registryUpsDataLocation != null)
-            {
-                registryUpsDataLocation = Path.Combine(registryUpsDataLocation, " ").TrimEnd(); //Just add end directory separator
-            }
-
-
-            var calculatedUpsDataLocation = Path.Combine(_settingsProviderHelper.ProgramDataPath, UPS_DATA_DIRECTORY_LOCATION);
-            if (string.IsNullOrEmpty(registryUpsDataLocation))
-            {
-                return calculatedUpsDataLocation;
-            }
-
-            return registryUpsDataLocation.Equals(calculatedUpsDataLocation, StringComparison.CurrentCultureIgnoreCase)
-                ? calculatedUpsDataLocation
-                : registryUpsDataLocation;
-        }
-
-        private string GetUpsDirectoryofDataLocation()
+        private string GetUpsRegistryDataDirectoryLocation()
         {
             string directoryofDataLocation = null;
             try
@@ -238,10 +212,29 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
             }
             catch (Exception ex)  
             {
-                _logger.Info("UPS Woprldship: can't get DirectoryofDataLocation from Windows registry. " + ex);
+                _logger.Info("UPS Woprldship: can't get UPS Data Directory Location from Windows registry. " + ex);
             }
 
-            return directoryofDataLocation;
+            return Path.Combine(directoryofDataLocation);
         }
+
+        private string GetUpsRegistryApplicationConfigDirectoryLocation()
+        {
+            string directoryLocation = null;
+            try
+            {
+                using (var key = Registry.LocalMachine.OpenSubKey("Software\\Wow6432Node\\UPS\\Installation"))
+                {                                        
+                    directoryLocation = key?.GetValue("DataDirectory") as string;                    
+                }
+            }
+            catch (Exception ex)  
+            {
+                _logger.Info("UPS Woprldship: can't get UPS Application Configuration Directory from Windows registry. " + ex);
+            }
+
+            return Path.Combine(directoryLocation);
+        }
+
     }
 }
