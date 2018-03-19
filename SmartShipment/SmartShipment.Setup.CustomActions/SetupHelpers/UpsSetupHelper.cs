@@ -15,8 +15,7 @@ namespace SmartShipment.Setup.CustomActions.SetupHelpers
         private readonly string _upsShipmentImpExpFilePath;
 
         public UpsSetupHelper(SmartShipmentsSettingsHelper settingsProviderHelper, ISetupLogger logger)
-        {
-            System.Diagnostics.Debugger.Launch();
+        {            
             _settingsProviderHelper = settingsProviderHelper;
             _logger = logger;
 
